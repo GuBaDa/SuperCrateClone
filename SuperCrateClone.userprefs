@@ -1,10 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerScript.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Materials\TransparentBumped Diffuse with Shadows.shader">
     <Files>
-      <File FileName="Assets/Scripts/PlayerScript.cs" Line="45" Column="28" />
-      <File FileName="Assets/Scripts/MovePlatformScriptV.cs" Line="20" Column="16" />
-      <File FileName="Assets/Scripts/MovePlatformScriptH.cs" Line="17" Column="27" />
+      <File FileName="Assets\Materials\TransparentBumped Diffuse with Shadows.shader" Line="35" Column="33" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
