@@ -9,6 +9,7 @@ public class PlayerScript : MonoBehaviour {
 	private bool grounded;
 	private bool jumped;
 	private float tempSpeed;
+	private Vector3 tempScale;
 	private float jumpHeight = 5;
 	private float doubleJumpHeight = 5;
 	public float MaxSpeed = 2;
@@ -18,8 +19,8 @@ public class PlayerScript : MonoBehaviour {
 	void Start () {
 		grounded = false;
 		jumped = false;
+		tempScale = transform.localScale;
 	}
-	
 
 	
 	// FixedUpdate is called on fixed Times, use this for physics movements.
@@ -28,31 +29,28 @@ public class PlayerScript : MonoBehaviour {
 		OnDeath ();
 	}
 
-	// Update is called on each frame, this way the character immediatly reacts to jumps.
+	// Update is called on each frame, this way the character immediately reacts to jumps.
 	void Update(){
 
-		if (activePlatform == null) {
-			transform.parent = null;
-
+		// Get all horizontal velocity properties from the object you're touching.
+		if (activePlatform != null) {
+			Vector2 tempVelocity;
+			tempVelocity.x = activePlatform.rigidbody2D.velocity.x;
+			tempVelocity.y = transform.rigidbody2D.velocity.y;
+			transform.rigidbody2D.velocity = tempVelocity;
 		}
 		doubleJump ();
 		jump ();
 	}
-	
-	void OnCollisionEnter2D(Collision2D collision2D){	
-		if (collision2D.gameObject.name =="Ground" || collision2D.gameObject.name =="Platform" ) {
-			//Debug.Log("Hit ground");
-			transform.parent = null;
-			grounded = true;
-			if(collision2D.gameObject.name =="Platform") {
-				Debug.Log("Hit Platform");
-				activePlatform = collision2D.collider.transform;
-				transform.parent = activePlatform;
 
-			}
-		}
+	// If the player hits something, he is grounded and interacts with this object.
+	void OnCollisionEnter2D(Collision2D collision2D){	
+		// TODO: Only detects hits from below.
+		grounded = true;
+		activePlatform = collision2D.collider.transform;
 	}
 
+	// There is no active platform on collision exit
 	void OnCollisionExit2D(Collision2D collision2D){
 		Debug.Log("Exit Platform");
 		activePlatform = null;
@@ -64,7 +62,18 @@ public class PlayerScript : MonoBehaviour {
 	/// 
 	void move(){
 		if (Input.GetButton  ("Horizontal")) {
+			// Get speed in correct direction
 			tempSpeed = Input.GetAxisRaw ("Horizontal") * MaxSpeed;
+
+			// Flip sprite if direction changes
+			if( transform.localScale.x < 0 && Input.GetAxisRaw ("Horizontal") > 0 ||
+			   	transform.localScale.x > 0 && Input.GetAxisRaw ("Horizontal") < 0) 
+			{	
+				tempScale.x *= -1;
+				transform.localScale = tempScale;
+			}
+
+			// Move player horizontally
 			rigidbody2D.velocity = new Vector2 (tempSpeed, rigidbody2D.velocity.y);
 		}
 	}
