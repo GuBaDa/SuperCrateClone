@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerScript : MonoBehaviour {
+public class PlayerScriptBackup : MonoBehaviour {
 	
 	private Transform activePlatform;
 	private Vector3 moveDistance;
