@@ -99,7 +99,7 @@ public class PlayerScript2 : MonoBehaviour {
 	/// 
 	/// 
 	void OnDeath(){
-		if (transform.position.y < -10) {
+		if (transform.position.y < -15) {
 			Application.LoadLevel(Application.loadedLevel);
 			grounded = false;
 		
