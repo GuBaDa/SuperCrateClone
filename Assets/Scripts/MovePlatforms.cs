@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MovePlatformsNew : MonoBehaviour {
+public class MovePlatforms : MonoBehaviour {
 	// This is a general script for moving platforms, Speed and Direction are public vars.
 	
 	public float moveSpeed;
