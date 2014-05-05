@@ -19,7 +19,7 @@ public class RotateGunScript : MonoBehaviour {
 		// We need to modify something here so the gun turns correctly 
 		// Something with transform.localscale.
 		if (transform.parent.transform.localScale.x < 1) {
-			transform.eulerAngles = new Vector3 (-180, -180, Mathf.Atan2((mousePosition.y - transform.position.y), (mousePosition.x - transform.position.x)) * Mathf.Rad2Deg);
+			transform.eulerAngles = new Vector3 (0, 0, 180-Mathf.Atan2((mousePosition.y - transform.position.y), (mousePosition.x - transform.position.x)) * Mathf.Rad2Deg);
 		} else {
 			transform.eulerAngles = new Vector3 (0, 0, Mathf.Atan2 ((mousePosition.y - transform.position.y), (mousePosition.x - transform.position.x)) * Mathf.Rad2Deg);
 		}
