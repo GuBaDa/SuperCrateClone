@@ -58,16 +58,20 @@ public class PlayerScript : MonoBehaviour {
 	// If the player hits something, he is grounded and interacts with this object.
 	void OnCollisionEnter2D(Collision2D collision2D){	
 		// TODO: Only detects hits from below.
-		grounded = true;
-		if (collision2D.collider.gameObject.GetComponent<Rigidbody2D>()){
-			activePlatform = collision2D.collider.transform;
+		RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector3.down, 0.5f);
+		if (hit.collider != null) {
+			if (hit.collider.rigidbody2D != null) {
+				activePlatform = collision2D.collider.transform;
+			} else {
+				activePlatform = null;
+			}
+			Debug.Log (hit.collider.gameObject.name);
+			grounded = true;
 		}
-		else{activePlatform = null;}
 	}
 
 	// There is no active platform on collision exit
 	void OnCollisionExit2D(Collision2D collision2D){
-		Debug.Log("Exit Platform");
 		activePlatform = null;
 	}
 
@@ -90,8 +94,15 @@ public class PlayerScript : MonoBehaviour {
 			}
 			*/
 
-			// Move player horizontally
-			rigidbody2D.velocity = tempSpeed;
+			// Move player horizontally if it is not blocked by a wall
+			RaycastHit2D hitRight = Physics2D.Raycast (transform.position, Vector3.right, .5f);
+			RaycastHit2D hitLeft = Physics2D.Raycast (transform.position, Vector3.left, .5f);
+			if(hitRight.collider == null && tempSpeed.x > 0){
+				rigidbody2D.velocity = tempSpeed;
+			}
+			if(hitLeft.collider == null && tempSpeed.x < 0){
+				rigidbody2D.velocity = tempSpeed;
+			}
 		}
 	}
 	void jump(){

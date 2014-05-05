@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RotateGunScript : MonoBehaviour {
+public class RotateArmsScript : MonoBehaviour {
 
 	private Vector3 mousePosition, screenPos;
 	 
