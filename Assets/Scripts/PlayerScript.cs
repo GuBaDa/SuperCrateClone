@@ -58,7 +58,7 @@ public class PlayerScript : MonoBehaviour {
 	// If the player hits something, he is grounded and interacts with this object.
 	void OnCollisionEnter2D(Collision2D collision2D){	
 		// TODO: Only detects hits from below.
-		RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector3.down, 0.5f);
+		RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector3.down, 1f);
 		if (hit.collider != null) {
 			if (hit.collider.rigidbody2D != null) {
 				activePlatform = collision2D.collider.transform;
