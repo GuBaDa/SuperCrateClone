@@ -61,11 +61,11 @@ public class PlayerScript : MonoBehaviour {
 		RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector3.down, 1f);
 		if (hit.collider != null) {
 			if (hit.collider.rigidbody2D != null) {
-				activePlatform = collision2D.collider.transform;
+				activePlatform = hit.collider.transform;
 			} else {
 				activePlatform = null;
 			}
-			Debug.Log (hit.collider.gameObject.name);
+			//Debug.Log (hit.collider.gameObject.name);
 			grounded = true;
 		}
 	}
