@@ -126,7 +126,7 @@ public class PlayerScript : MonoBehaviour {
 	/// 
 	/// 
 	void OnDeath(){
-		if (transform.position.y < -15) {
+		if (Input.GetKeyDown ("r")) {
 			Application.LoadLevel(Application.loadedLevel);
 			grounded = false;
 		

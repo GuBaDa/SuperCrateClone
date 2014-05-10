@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0a823831ec21d22439a0235e2f2a7079
+guid: a61d21fb3786573439b6b5ab484129a8
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -45,84 +45,75 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: char1_0
+    - name: char3_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 40
-        width: 9
+        x: 6
+        y: 28
+        width: 12
         height: 13
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: char1_1
+    - name: char3_1
       rect:
         serializedVersion: 2
-        x: 21
-        y: 40
-        width: 9
+        x: 22
+        y: 28
+        width: 12
         height: 13
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: char1_2
+    - name: char3_2
       rect:
         serializedVersion: 2
-        x: 35
-        y: 40
-        width: 9
+        x: 2
+        y: 2
+        width: 15
         height: 13
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: char1_3
+    - name: char3_3
       rect:
         serializedVersion: 2
-        x: 49
-        y: 40
-        width: 9
+        x: 19
+        y: 2
+        width: 13
         height: 13
       alignment: 0
       pivot: {x: .5, y: .5}
-    - name: char1_4
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 6
-        width: 11
-        height: 13
-      alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: char1_5
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 6
-        width: 8
-        height: 13
-      alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: char1_6
+    - name: char3_4
       rect:
         serializedVersion: 2
         x: 34
-        y: 6
-        width: 8
-        height: 13
-      alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: char1_7
-      rect:
-        serializedVersion: 2
-        x: 47
-        y: 5
-        width: 8
-        height: 13
-      alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: char1_8
-      rect:
-        serializedVersion: 2
-        x: 59
-        y: 5
+        y: 2
         width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: char3_5
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 2
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: char3_6
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 2
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: char3_7
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 2
+        width: 13
         height: 13
       alignment: 0
       pivot: {x: .5, y: .5}
