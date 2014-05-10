@@ -4,6 +4,7 @@ using System.Collections;
 public class testScript : MonoBehaviour {
 
 	public float force;
+	
 
 	// Use this for initialization
 	void Start () {

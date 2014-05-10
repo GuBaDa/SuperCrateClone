@@ -3,10 +3,12 @@ using System.Collections;
 
 public class PlayerScript : MonoBehaviour {
 
-	private Transform activePlatform;
+	[HideInInspector] // Hides var below from inspector
+	public bool grounded;
+	[HideInInspector] // Hides var below from inspector
+	public bool jumped;
 
-	private bool grounded;
-	private bool jumped;
+	private Transform activePlatform;
 	private Vector3 tempScale;
 	public float jumpHeight;
 	private float doubleJumpHeight;
@@ -31,7 +33,6 @@ public class PlayerScript : MonoBehaviour {
 	// Update is called on each frame, this way the character immediately reacts to jumps.
 	void Update(){
 		// Get all horizontal velocity properties from the object you're touching.
-
 		if (activePlatform != null) {
 			Vector2 tempVelocity;
 			tempVelocity.x = activePlatform.rigidbody2D.velocity.x;
@@ -61,11 +62,11 @@ public class PlayerScript : MonoBehaviour {
 		RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector3.down, 1f);
 		if (hit.collider != null) {
 			if (hit.collider.rigidbody2D != null) {
-				activePlatform = collision2D.collider.transform;
+				activePlatform = hit.collider.transform;
 			} else {
 				activePlatform = null;
 			}
-			Debug.Log (hit.collider.gameObject.name);
+			//Debug.Log (hit.collider.gameObject.name);
 			grounded = true;
 		}
 	}
