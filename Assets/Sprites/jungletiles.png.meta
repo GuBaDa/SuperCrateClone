@@ -49,7 +49,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 30
+        y: 40
         width: 10
         height: 10
       alignment: 0
@@ -58,7 +58,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 10
-        y: 30
+        y: 40
         width: 10
         height: 10
       alignment: 0
@@ -66,8 +66,8 @@ TextureImporter:
     - name: jungletiles_2
       rect:
         serializedVersion: 2
-        x: 20
-        y: 30
+        x: 30
+        y: 40
         width: 10
         height: 10
       alignment: 0
@@ -75,8 +75,8 @@ TextureImporter:
     - name: jungletiles_3
       rect:
         serializedVersion: 2
-        x: 30
-        y: 30
+        x: 40
+        y: 40
         width: 10
         height: 10
       alignment: 0
@@ -84,8 +84,8 @@ TextureImporter:
     - name: jungletiles_4
       rect:
         serializedVersion: 2
-        x: 40
-        y: 30
+        x: 50
+        y: 40
         width: 10
         height: 10
       alignment: 0
@@ -93,8 +93,8 @@ TextureImporter:
     - name: jungletiles_5
       rect:
         serializedVersion: 2
-        x: 50
-        y: 30
+        x: 60
+        y: 40
         width: 10
         height: 10
       alignment: 0
@@ -102,8 +102,8 @@ TextureImporter:
     - name: jungletiles_6
       rect:
         serializedVersion: 2
-        x: 60
-        y: 30
+        x: 70
+        y: 40
         width: 10
         height: 10
       alignment: 0
@@ -111,8 +111,8 @@ TextureImporter:
     - name: jungletiles_7
       rect:
         serializedVersion: 2
-        x: 70
-        y: 30
+        x: 80
+        y: 40
         width: 10
         height: 10
       alignment: 0
@@ -120,7 +120,7 @@ TextureImporter:
     - name: jungletiles_8
       rect:
         serializedVersion: 2
-        x: 80
+        x: 0
         y: 30
         width: 10
         height: 10
@@ -129,8 +129,8 @@ TextureImporter:
     - name: jungletiles_9
       rect:
         serializedVersion: 2
-        x: 0
-        y: 20
+        x: 10
+        y: 30
         width: 10
         height: 10
       alignment: 0
@@ -138,8 +138,8 @@ TextureImporter:
     - name: jungletiles_10
       rect:
         serializedVersion: 2
-        x: 10
-        y: 20
+        x: 20
+        y: 30
         width: 10
         height: 10
       alignment: 0
@@ -147,8 +147,8 @@ TextureImporter:
     - name: jungletiles_11
       rect:
         serializedVersion: 2
-        x: 20
-        y: 20
+        x: 30
+        y: 30
         width: 10
         height: 10
       alignment: 0
@@ -156,8 +156,8 @@ TextureImporter:
     - name: jungletiles_12
       rect:
         serializedVersion: 2
-        x: 30
-        y: 20
+        x: 40
+        y: 30
         width: 10
         height: 10
       alignment: 0
@@ -165,8 +165,8 @@ TextureImporter:
     - name: jungletiles_13
       rect:
         serializedVersion: 2
-        x: 40
-        y: 20
+        x: 50
+        y: 30
         width: 10
         height: 10
       alignment: 0
@@ -174,8 +174,8 @@ TextureImporter:
     - name: jungletiles_14
       rect:
         serializedVersion: 2
-        x: 50
-        y: 20
+        x: 60
+        y: 30
         width: 10
         height: 10
       alignment: 0
@@ -183,8 +183,8 @@ TextureImporter:
     - name: jungletiles_15
       rect:
         serializedVersion: 2
-        x: 60
-        y: 20
+        x: 70
+        y: 30
         width: 10
         height: 10
       alignment: 0
@@ -192,8 +192,8 @@ TextureImporter:
     - name: jungletiles_16
       rect:
         serializedVersion: 2
-        x: 70
-        y: 20
+        x: 80
+        y: 30
         width: 10
         height: 10
       alignment: 0
@@ -201,7 +201,7 @@ TextureImporter:
     - name: jungletiles_17
       rect:
         serializedVersion: 2
-        x: 80
+        x: 0
         y: 20
         width: 10
         height: 10
@@ -210,8 +210,8 @@ TextureImporter:
     - name: jungletiles_18
       rect:
         serializedVersion: 2
-        x: 0
-        y: 10
+        x: 10
+        y: 20
         width: 10
         height: 10
       alignment: 0
@@ -219,8 +219,8 @@ TextureImporter:
     - name: jungletiles_19
       rect:
         serializedVersion: 2
-        x: 10
-        y: 10
+        x: 20
+        y: 20
         width: 10
         height: 10
       alignment: 0
@@ -228,8 +228,8 @@ TextureImporter:
     - name: jungletiles_20
       rect:
         serializedVersion: 2
-        x: 20
-        y: 10
+        x: 30
+        y: 20
         width: 10
         height: 10
       alignment: 0
@@ -237,8 +237,8 @@ TextureImporter:
     - name: jungletiles_21
       rect:
         serializedVersion: 2
-        x: 30
-        y: 10
+        x: 40
+        y: 20
         width: 10
         height: 10
       alignment: 0
@@ -246,8 +246,8 @@ TextureImporter:
     - name: jungletiles_22
       rect:
         serializedVersion: 2
-        x: 40
-        y: 10
+        x: 50
+        y: 20
         width: 10
         height: 10
       alignment: 0
@@ -255,8 +255,8 @@ TextureImporter:
     - name: jungletiles_23
       rect:
         serializedVersion: 2
-        x: 50
-        y: 10
+        x: 60
+        y: 20
         width: 10
         height: 10
       alignment: 0
@@ -264,8 +264,8 @@ TextureImporter:
     - name: jungletiles_24
       rect:
         serializedVersion: 2
-        x: 60
-        y: 10
+        x: 70
+        y: 20
         width: 10
         height: 10
       alignment: 0
@@ -273,8 +273,8 @@ TextureImporter:
     - name: jungletiles_25
       rect:
         serializedVersion: 2
-        x: 70
-        y: 10
+        x: 80
+        y: 20
         width: 10
         height: 10
       alignment: 0
@@ -282,7 +282,7 @@ TextureImporter:
     - name: jungletiles_26
       rect:
         serializedVersion: 2
-        x: 80
+        x: 0
         y: 10
         width: 10
         height: 10
@@ -291,13 +291,85 @@ TextureImporter:
     - name: jungletiles_27
       rect:
         serializedVersion: 2
+        x: 10
+        y: 10
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: jungletiles_28
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 10
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: jungletiles_29
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 10
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: jungletiles_30
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 10
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: jungletiles_31
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 10
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: jungletiles_32
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 10
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: jungletiles_33
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 10
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: jungletiles_34
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 10
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: jungletiles_35
+      rect:
+        serializedVersion: 2
         x: 0
         y: 0
         width: 10
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: jungletiles_28
+    - name: jungletiles_36
       rect:
         serializedVersion: 2
         x: 10
@@ -306,16 +378,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: jungletiles_29
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 0
-        width: 10
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: jungletiles_30
+    - name: jungletiles_37
       rect:
         serializedVersion: 2
         x: 30
@@ -324,7 +387,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: jungletiles_31
+    - name: jungletiles_38
       rect:
         serializedVersion: 2
         x: 40
@@ -333,7 +396,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: jungletiles_32
+    - name: jungletiles_39
       rect:
         serializedVersion: 2
         x: 50
@@ -342,7 +405,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: jungletiles_33
+    - name: jungletiles_40
       rect:
         serializedVersion: 2
         x: 60
@@ -351,7 +414,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: jungletiles_34
+    - name: jungletiles_41
       rect:
         serializedVersion: 2
         x: 70
@@ -360,7 +423,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: jungletiles_35
+    - name: jungletiles_42
       rect:
         serializedVersion: 2
         x: 80
