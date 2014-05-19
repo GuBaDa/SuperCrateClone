@@ -11,20 +11,11 @@ public class AvatarSelector : MonoBehaviour {
 	public float row1;
 	public float row2;
 
-	private Vector2 pl1;
-	private Vector2 pl2;
-	private Vector2 pl3;
-	private Vector2 pl4;
-	private Vector2 pl5;
-	private Vector2 pl6;
-	private Vector2 pl7;
-	private Vector2 pl8;
-
-	private float avat;
 
 	private Vector2 selectPos;
 	private int selection;
 
+	private float avat;
 	private float marginX;
 	private float startX;
 	
@@ -33,15 +24,7 @@ public class AvatarSelector : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//Create avatar grid coordinates
-		pl1 = new Vector2 (column1, row1);
-		pl2 = new Vector2 (column2, row1);
-		pl3 = new Vector2 (column3, row1);
-		pl4 = new Vector2 (column4, row1);
-		pl5 = new Vector2 (column1, row2);
-		pl6 = new Vector2 (column2, row2);
-		pl7 = new Vector2 (column3, row2);
-		pl8 = new Vector2 (column4, row2);
+		//Create key coordinates for grid
 		avat = dimensionsAvatar / 2;
 
 		marginX = column2 - column1;
@@ -110,38 +93,38 @@ public class AvatarSelector : MonoBehaviour {
 		Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
 		if (mousePos.y >= row1 - avat && mousePos.y <= row1 + avat){
-			if (mousePos.x >= pl1.x - avat && mousePos.x <= pl1.x + avat){
+			if (mousePos.x >= column1 - avat && mousePos.x <= column1 + avat){
 				//Player 1 selected
 				selection = 1;
 			}
-			if (mousePos.x >= pl2.x - avat && mousePos.x <= pl2.x + avat){
+			if (mousePos.x >= column2 - avat && mousePos.x <= column2 + avat){
 				//Player 2 selected
 				selection = 2;
 			}
-			if (mousePos.x >= pl3.x - avat && mousePos.x <= pl3.x + avat){
+			if (mousePos.x >= column3 - avat && mousePos.x <= column3 + avat){
 				//Player 1 selected
 				selection = 3;
 			}
-			if (mousePos.x >= pl4.x - avat && mousePos.x <= pl4.x + avat){
+			if (mousePos.x >= column4 - avat && mousePos.x <= column4 + avat){
 				//Player 2 selected
 				selection = 4;
 			}
 			
 		}
 		if (mousePos.y >= row2 - avat && mousePos.y <= row2 + avat){
-			if (mousePos.x >= pl5.x - avat && mousePos.x <= pl5.x + avat){
+			if (mousePos.x >= column1 - avat && mousePos.x <= column1 + avat){
 				//Player 1 selected
 				selection = 5;
 			}
-			if (mousePos.x >= pl6.x - avat && mousePos.x <= pl6.x + avat){
+			if (mousePos.x >= column2 - avat && mousePos.x <= column2 + avat){
 				//Player 2 selected
 				selection = 6;
 			}
-			if (mousePos.x >= pl7.x - avat && mousePos.x <= pl7.x + avat){
+			if (mousePos.x >= column3 - avat && mousePos.x <= column3 + avat){
 				//Player 1 selected
 				selection = 7;
 			}
-			if (mousePos.x >= pl8.x - avat && mousePos.x <= pl8.x + avat){
+			if (mousePos.x >= column4 - avat && mousePos.x <= column4 + avat){
 				//Player 2 selected
 				selection = 8;
 			}
