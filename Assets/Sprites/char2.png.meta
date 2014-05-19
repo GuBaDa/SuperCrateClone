@@ -61,8 +61,8 @@ TextureImporter:
         y: 16
         width: 8
         height: 11
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .5, y: .600000024}
     - name: char2_2
       rect:
         serializedVersion: 2
@@ -79,8 +79,8 @@ TextureImporter:
         y: 2
         width: 9
         height: 11
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .5, y: .600000024}
     - name: char2_4
       rect:
         serializedVersion: 2
@@ -88,8 +88,8 @@ TextureImporter:
         y: 2
         width: 8
         height: 11
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .5, y: .600000024}
     - name: char2_5
       rect:
         serializedVersion: 2
@@ -97,8 +97,8 @@ TextureImporter:
         y: 2
         width: 8
         height: 11
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .5, y: .600000024}
     - name: char2_6
       rect:
         serializedVersion: 2
@@ -106,17 +106,17 @@ TextureImporter:
         y: 2
         width: 8
         height: 11
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .5, y: .600000024}
     - name: char2_7
       rect:
         serializedVersion: 2
         x: 56
-        y: 1
+        y: 2
         width: 10
         height: 11
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .5, y: .600000024}
     - name: char2_8
       rect:
         serializedVersion: 2

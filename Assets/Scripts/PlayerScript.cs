@@ -15,8 +15,10 @@ public class PlayerScript : MonoBehaviour {
 	private float doubleJumpHeight;
 	public float MaxSpeed;
 	public bool doubleJumpOn;
-	
+
+	public GameObject dust;
 	/// Start this instance.
+	/// 
 	void Start () {
 		grounded = false;
 		jumped = false;
@@ -131,6 +133,7 @@ public class PlayerScript : MonoBehaviour {
 			rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, jumpHeight);
 			grounded = false;
 			jumped = true;
+			dustCast ();
 		}
 	}
 	void doubleJump(){
@@ -151,6 +154,11 @@ public class PlayerScript : MonoBehaviour {
 			grounded = false;
 		
 		}
+	}
+
+	void dustCast(){
+		GameObject pDust = (GameObject) Instantiate (dust);
+		pDust.transform.position = new Vector2 (transform.position.x, transform.position.y - 0.2f);
 	}
 	
 }
