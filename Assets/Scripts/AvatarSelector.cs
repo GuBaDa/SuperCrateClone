@@ -43,9 +43,7 @@ public class AvatarSelector : MonoBehaviour {
 			mouseSelection ();
 		}
 		transform.position = getPosition (selection);
-
-		Vector2 mousePos = Input.mousePosition;
-
+		
 		Debug.Log (getPosition (selection));
 
 

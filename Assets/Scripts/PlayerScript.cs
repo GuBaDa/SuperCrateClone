@@ -5,21 +5,42 @@ public class PlayerScript : MonoBehaviour {
 
 	[HideInInspector] // Hides var below from inspector
 	public bool grounded;
-	[HideInInspector] // Hides var below from inspector
-	public bool jumped;
 
+	private bool jumped;
 	private bool wallLeft, wallRight;
 	private Transform activePlatform;
 	private Vector3 tempScale;
 	public float jumpHeight;
 	private float doubleJumpHeight;
-	public float MaxSpeed;
 	public bool doubleJumpOn;
+
+	// Property variables
+	private float health;
+	private int experience;
+	public float maxSpeed;
+
+	// 
+	public float Health{
+		get{return health;}
+		set{health = value;}
+	}
+
+	public int Experience{
+		get{return experience;}
+		set{experience = value;}
+	}
+
+	public float MaxSpeed{
+		get{return maxSpeed;}
+		set	{maxSpeed = value;}
+	}
+
 
 	public GameObject dust;
 	/// Start this instance.
 	/// 
 	void Start () {
+		health = 100f;
 		grounded = false;
 		jumped = false;
 		wallLeft = false;
@@ -68,6 +89,7 @@ public class PlayerScript : MonoBehaviour {
 			transform.localScale = tempScale;
 		}
 
+		OnDeath ();
 		doubleJump ();
 		jump ();
 	}
@@ -116,7 +138,7 @@ public class PlayerScript : MonoBehaviour {
 	void move(){
 		if (Input.GetButton  ("Horizontal")) {
 			// Get speed in correct direction
-			Vector2 tempSpeed =  new Vector2 (Input.GetAxisRaw ("Horizontal") * MaxSpeed, rigidbody2D.velocity.y);
+			Vector2 tempSpeed =  new Vector2 (Input.GetAxisRaw ("Horizontal") * maxSpeed, rigidbody2D.velocity.y);
 
 			// Move player horizontally only if it is not blocked by a wall 
 			//RaycastHit2D hitRight = Physics2D.Raycast (transform.position, Vector3.right, .5f);
@@ -134,6 +156,7 @@ public class PlayerScript : MonoBehaviour {
 			grounded = false;
 			jumped = true;
 			dustCast ();
+			Debug.Log(Health);
 		}
 	}
 	void doubleJump(){
@@ -149,10 +172,12 @@ public class PlayerScript : MonoBehaviour {
 	/// 
 	/// 
 	void OnDeath(){
+		if (Health == 0) {
+			Destroy(gameObject);
+		}
 		if (Input.GetKeyDown ("r")) {
 			Application.LoadLevel(Application.loadedLevel);
 			grounded = false;
-		
 		}
 	}
 
@@ -160,5 +185,16 @@ public class PlayerScript : MonoBehaviour {
 		GameObject pDust = (GameObject) Instantiate (dust);
 		pDust.transform.position = new Vector2 (transform.position.x, transform.position.y - 0.2f);
 	}
+
+///////////////////////////////// Properties
+
+
+
 	
 }
+
+
+
+
+
+
