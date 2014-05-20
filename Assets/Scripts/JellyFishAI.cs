@@ -10,8 +10,10 @@ public class JellyFishAI : MonoBehaviour {
 
 	private float time;
 
+
 	// Use this for initialization
 	void Start (){
+
 		anim = GetComponent<Animator> ();
 
 		time = Random.Range (swimTimeFactor, swimTimeFactor * 2);
