@@ -1,23 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HPBar : MonoBehaviour {
+public class HPBarMob : MonoBehaviour {
 
-	private PlayerScript player;
+	private MobScript mob;
 	private LineRenderer lineRenderer;
+	private float maxHealth;
 	// Use this for initialization
 	void Start () {
-		player = transform.parent.GetComponent<PlayerScript> ();
-		//LineRenderer lineRenderer = GetComponent<LineRenderer>();
-		//lineRenderer.SetVertexCount( 1 );
-
+		mob = transform.parent.GetComponent<MobScript> ();
+		maxHealth = mob.Health;
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		lineRenderer = GetComponent<LineRenderer>();
-
-		Vector3 pos = new Vector3(player.Health/100f,0,0);
+		
+		Vector3 pos = new Vector3(mob.Health/maxHealth,0,0);
 		lineRenderer.SetPosition(0, pos);
 	}
 }

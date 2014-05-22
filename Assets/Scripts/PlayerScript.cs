@@ -65,7 +65,6 @@ public class PlayerScript : MonoBehaviour {
 			wallLeft = false;
 			wallRight = false;
 			grounded = true;
-			//Debug.Log("Same collision: I just hit the ground below me!");
 		}
 		
 		// Get all horizontal velocity properties from the object you're touching.
@@ -76,7 +75,6 @@ public class PlayerScript : MonoBehaviour {
 			transform.rigidbody2D.velocity = tempVelocity;
 		}
 
-		Debug.Log ("Grounded: " + grounded);
 
 
 		// Flip sprite if mouse player is not facing the mouse

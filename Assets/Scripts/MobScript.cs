@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MobScript : MonoBehaviour {
 	
-	private float health;
+	private float health = 20f;
 	
 	public float Health{
 		get{return health;}
@@ -13,7 +13,6 @@ public class MobScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		health = 20f;
 	}
 	
 	// Update is called once per frame
