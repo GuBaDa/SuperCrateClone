@@ -156,7 +156,6 @@ public class PlayerScript : MonoBehaviour {
 			grounded = false;
 			jumped = true;
 			dustCast ();
-			Debug.Log(Health);
 		}
 	}
 	void doubleJump(){
