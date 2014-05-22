@@ -34,9 +34,9 @@ public class PlayerScript : MonoBehaviour {
 		get{return maxSpeed;}
 		set	{maxSpeed = value;}
 	}
-
-
+	
 	public GameObject dust;
+
 	/// Start this instance.
 	/// 
 	void Start () {
@@ -52,23 +52,23 @@ public class PlayerScript : MonoBehaviour {
 	
 	// FixedUpdate is called on fixed Times, use this for physics movements.
 	void FixedUpdate () {
-
-
 		move ();
-		OnDeath ();
 	}
 
 	// Update is called on each frame, this way the character immediately reacts to jumps.
 	void Update(){
-		// Get all horizontal velocity properties from the object you're touching.
 
+		// If the player hits the ground, make sure he can move normally again.
 		RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector3.down, 1f);
-		if (hit.collider != null ) {
+		if (hit.collider != null) {
+
 			wallLeft = false;
 			wallRight = false;
 			grounded = true;
+			//Debug.Log("Same collision: I just hit the ground below me!");
 		}
-
+		
+		// Get all horizontal velocity properties from the object you're touching.
 		if (activePlatform != null) {
 			Vector2 tempVelocity;
 			tempVelocity.x = activePlatform.rigidbody2D.velocity.x;
@@ -76,7 +76,7 @@ public class PlayerScript : MonoBehaviour {
 			transform.rigidbody2D.velocity = tempVelocity;
 		}
 
-	
+		Debug.Log ("Grounded: " + grounded);
 
 
 		// Flip sprite if mouse player is not facing the mouse
@@ -94,16 +94,17 @@ public class PlayerScript : MonoBehaviour {
 		jump ();
 	}
 
-	// If the player hits something, he is grounded and interacts with this object.
 	void OnCollisionEnter2D(Collision2D collision2D){	
 		foreach (ContactPoint2D contact in collision2D.contacts) {
+			// If the player hits something below him, he is grounded and interacts with this object.
 			if (contact.normal == Vector2.up) {
 				if (contact.collider.rigidbody2D != null) {
 					activePlatform = contact.collider.transform;
+					//Debug.Log("New Collision: I just hit the ground below me!");
+					grounded = true;
 				} else {
 					activePlatform = null;
 				}
-				grounded = true;
 			}
 		}
 	}
@@ -128,6 +129,7 @@ public class PlayerScript : MonoBehaviour {
 	void OnCollisionExit2D(Collision2D collision2D){
 		wallLeft = false;
 		wallRight = false;
+		grounded = false;
 		activePlatform = null;
 	}
 
@@ -141,15 +143,17 @@ public class PlayerScript : MonoBehaviour {
 			Vector2 tempSpeed =  new Vector2 (Input.GetAxisRaw ("Horizontal") * maxSpeed, rigidbody2D.velocity.y);
 
 			// Move player horizontally only if it is not blocked by a wall 
-			//RaycastHit2D hitRight = Physics2D.Raycast (transform.position, Vector3.right, .5f);
-			//RaycastHit2D hitLeft = Physics2D.Raycast (transform.position, Vector3.left, .5f);
-
-			if(!wallRight && !wallLeft){
+			if(tempSpeed.x < 0 && !wallLeft){
+				rigidbody2D.velocity = tempSpeed;
+			}
+			if(tempSpeed.x > 0 && !wallRight){
 				rigidbody2D.velocity = tempSpeed;
 			}
 
 		}
 	}
+
+	// Jump is possible when grounded.
 	void jump(){
 		if (Input.GetButtonDown  ("Jump") && grounded) {
 			rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, jumpHeight);
@@ -158,6 +162,8 @@ public class PlayerScript : MonoBehaviour {
 			dustCast ();
 		}
 	}
+
+
 	void doubleJump(){
 		if (doubleJumpOn) {
 			if(Input.GetButtonDown("Jump") && jumped ){
@@ -184,12 +190,6 @@ public class PlayerScript : MonoBehaviour {
 		GameObject pDust = (GameObject) Instantiate (dust);
 		pDust.transform.position = new Vector2 (transform.position.x, transform.position.y - 0.2f);
 	}
-
-///////////////////////////////// Properties
-
-
-
-	
 }
 
 
