@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerFireScript : MonoBehaviour {
+public class PlayerFireScriptController: MonoBehaviour {
 
 	public GameObject projectilePrefab;
 	public float attackSpeed;
@@ -27,8 +27,8 @@ public class PlayerFireScript : MonoBehaviour {
 
 		Quaternion q = Quaternion.FromToRotation(Vector3.up, pos-transform.position);
 		GameObject pPrefab = (GameObject) Instantiate (projectilePrefab, transform.FindChild("AimSight").transform.position, q);
-		//Vector2 shootForce = new Vector2 (Input.GetAxisRaw ("Mouse X") * 10000, Input.GetAxisRaw ("Mouse Y") * 10000);
-		pPrefab.rigidbody2D.AddForce (pPrefab.transform.up*1000);
+		Vector2 shootForce = new Vector2 (Input.GetAxisRaw ("Mouse X") * 10000, Input.GetAxisRaw ("Mouse Y") * 10000);
+		pPrefab.rigidbody2D.AddForce (shootForce);
 
 		coolDown = Time.time + attackSpeed;
 	}

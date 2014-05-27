@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AnimationScript : MonoBehaviour {
+public class AnimationScriptController: MonoBehaviour {
 
 	Animator anim;
 
@@ -19,7 +19,7 @@ public class AnimationScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//get boolean grounded from PlayerScript to check if grounded
-		grounded = GetComponent<PlayerScript> ().grounded;
+		grounded = GetComponent<PlayerScriptController> ().grounded;
 
 		if (grounded) {
 			if (Input.GetAxisRaw ("Horizontal") != 0){
