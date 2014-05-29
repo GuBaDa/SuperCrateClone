@@ -26,8 +26,8 @@ public class PlayerFireScript : MonoBehaviour {
 		pos = Camera.main.ScreenToWorldPoint (pos);
 
 		Quaternion q = Quaternion.FromToRotation(Vector3.up, pos-transform.position);
-		GameObject pPrefab = (GameObject) Instantiate (projectilePrefab, transform.FindChild("AimSight").transform.position, q);
-		//Vector2 shootForce = new Vector2 (Input.GetAxisRaw ("Mouse X") * 10000, Input.GetAxisRaw ("Mouse Y") * 10000);
+		GameObject pPrefab = (GameObject) Instantiate (projectilePrefab, GameObject.FindGameObjectWithTag("Weapon").transform.position, q);
+
 		pPrefab.rigidbody2D.AddForce (pPrefab.transform.up*1000);
 
 		coolDown = Time.time + attackSpeed;

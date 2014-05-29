@@ -78,7 +78,7 @@ public class PlayerScriptController: MonoBehaviour {
 
 
 		// Flip sprite if mouse player is not facing the mouse
-		Vector3 worldMousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+		//Vector3 worldMousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 
 		if( transform.localScale.x < 0 && ( Input.GetAxisRaw("Mouse X") > 0) ||
 		   transform.localScale.x > 0 && ( Input.GetAxisRaw("Mouse X") < 0)) 
