@@ -52,8 +52,8 @@ TextureImporter:
         y: 0
         width: 5
         height: 10
-      alignment: 1
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
     - name: weapons1_1
       rect:
         serializedVersion: 2
@@ -61,8 +61,8 @@ TextureImporter:
         y: 0
         width: 3
         height: 12
-      alignment: 1
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
     - name: weapons1_2
       rect:
         serializedVersion: 2
@@ -70,8 +70,8 @@ TextureImporter:
         y: 2
         width: 12
         height: 4
-      alignment: 1
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
     - name: weapons1_3
       rect:
         serializedVersion: 2
@@ -79,7 +79,7 @@ TextureImporter:
         y: 3
         width: 11
         height: 3
-      alignment: 1
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .168266997, y: .499999672}
   spritePackingTag: 
   userData: 
