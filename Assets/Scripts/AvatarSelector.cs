@@ -11,6 +11,13 @@ public class AvatarSelector : MonoBehaviour {
 	public float row1;
 	public float row2;
 
+	public Color colorSelected;
+	public Color colorSweep1;
+	public Color colorSweep2;
+
+	public float durationSweep;
+
+	public GameObject gameConstructor;
 
 	private Vector2 selectPos;
 	private int selection;
@@ -18,10 +25,8 @@ public class AvatarSelector : MonoBehaviour {
 	private float avat;
 	private float marginX;
 	private float startX;
-	
 
-
-
+	private GameConstructor constructor;
 	// Use this for initialization
 	void Start () {
 		//Create key coordinates for grid
@@ -29,24 +34,40 @@ public class AvatarSelector : MonoBehaviour {
 
 		marginX = column2 - column1;
 		startX = column1 - marginX;
+
+		constructor = gameConstructor.GetComponent<GameConstructor> ();
 	}
 
 	// Update is called once per frame
 	void Update () {
+		ColorChange ();
 
-		if (Input.GetButtonDown  ("Horizontal") || Input.GetButtonDown  ("Vertical")){
-			keySelection();
+		if (constructor.CharSelected == 0){
+			if (Input.GetButtonDown  ("Horizontal") || Input.GetButtonDown  ("Vertical")){
+				keySelection();
+			}
+
+			//check for mouse activity
+			if (Input.GetAxisRaw ("Mouse X") != 0 || Input.GetAxisRaw ("Mouse Y") != 0){
+				mouseSelection ();
+			}
+			transform.position = getPosition (selection);
+			
+			//selection
+			if ( Input.GetButtonDown ("Fire1") || Input.GetKeyDown( KeyCode.Return)){
+				constructor.CharSelected = selection;
+			}
 		}
+		else {
+			//load next level
+			if ( Input.GetKeyDown( KeyCode.L)){
+				Application.LoadLevel("1P_gameTestEnvironment");
+			}
 
-		//check for mouse activity
-		if (Input.GetAxisRaw ("Mouse X") != 0 || Input.GetAxisRaw ("Mouse Y") != 0){
-			mouseSelection ();
+			if ( Input.GetButtonDown ("Fire1") || Input.GetKeyDown( KeyCode.Return)){
+				constructor.CharSelected = 0;
+			}
 		}
-		transform.position = getPosition (selection);
-		
-		Debug.Log (getPosition (selection));
-
-
 	}
 
 
@@ -128,6 +149,20 @@ public class AvatarSelector : MonoBehaviour {
 			}
 		}
 	}
+
+
+	void ColorChange (){
+
+		if (constructor.CharSelected == 0){
+			float lerp = Mathf.PingPong (Time.time, durationSweep) / durationSweep;
+			renderer.material.color = Color.Lerp (colorSweep1, colorSweep2, lerp);
+		}
+		else {
+			renderer.material.color = colorSelected;
+		}
+
+	}
+
 
 	private Vector2 getPosition(int selection) {
 

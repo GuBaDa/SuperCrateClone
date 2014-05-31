@@ -51,6 +51,6 @@ public class ProjectileGranate : MonoBehaviour {
 		float randomX = Random.Range (0, blastRange *2) - blastRange; 
 		float randomY = Random.Range (0, blastRange *2) - blastRange;
 		Vector2 pos = new Vector2 (transform.position.x + randomX, transform.position.y + randomY);
-		GameObject pPrefab = (GameObject) Instantiate (blastPrefab, pos, Quaternion.identity);
+		Instantiate (blastPrefab, pos, Quaternion.identity);
 	}
 }
