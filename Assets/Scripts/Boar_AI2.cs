@@ -70,12 +70,12 @@ public class Boar_AI2 : MonoBehaviour {
 
 		if (timerWandering > 0){
 			//charge
-			rigidbody2D.velocity = new Vector2 (speed * direction, 0);
+			rigidbody2D.velocity = new Vector2 (speed * direction, rigidbody2D.velocity.y);
 		}
 		else{
 			if (timerWandering > -wanderingPauseTime){
 				//pause wandering
-				rigidbody2D.velocity = new Vector2 (0, 0);
+				rigidbody2D.velocity = new Vector2 (0, rigidbody2D.velocity.y	);
 				if (timerGlobal <= 0){
 					//switch direction while in pause
 					direction *= -1;
@@ -101,7 +101,7 @@ public class Boar_AI2 : MonoBehaviour {
 		}
 		if (timerAgro > 0){
 			//charge
-			rigidbody2D.velocity = new Vector2 (agroSpeed, 0);
+			rigidbody2D.velocity = new Vector2 (agroSpeed, rigidbody2D.velocity.y);
 		}
 		else{
 			if (timerAgro > -agroPauseTime){
