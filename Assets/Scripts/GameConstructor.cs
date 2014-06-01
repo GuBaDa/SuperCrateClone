@@ -45,7 +45,7 @@ public class GameConstructor : MonoBehaviour {
 	void PlayerSpawn (GameObject pl){
 		if (pl != null){
 			Debug.Log ("PlayerSpawn initiated");
-			GameObject spawnPoint = playerSpawnPoints[Random.Range(0, playerSpawnPoints.Length-1)];
+			GameObject spawnPoint = playerSpawnPoints[Random.Range(0, playerSpawnPoints.Length)];
 			Instantiate (pl, spawnPoint.transform.position, Quaternion.identity);
 			foreach(GameObject i in playerSpawnPoints){
 				i.renderer.enabled = false;

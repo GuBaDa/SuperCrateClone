@@ -140,17 +140,21 @@ public class Boar_AI2 : MonoBehaviour {
 
 	private bool checkForAgro (){
 		//Debug.Log ("CHECK foragro");
-		
-		target = findClosestTarget ();
-		if (Mathf.Abs(target.transform.position.x - transform.position.x) < agroDistance &&
-		    Mathf.Abs(target.transform.position.y - transform.position.y) < 3)
-		{
-			return true;
+		GameObject[] playersAvailable = GameObject.FindGameObjectsWithTag ("Player");
+		if (playersAvailable.Length != 0){
+			target = findClosestTarget ();
+			if (Mathf.Abs(target.transform.position.x - transform.position.x) < agroDistance &&
+			    Mathf.Abs(target.transform.position.y - transform.position.y) < 3)
+			{
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 		else {
 			return false;
 		}
-		
 	}
 
 
