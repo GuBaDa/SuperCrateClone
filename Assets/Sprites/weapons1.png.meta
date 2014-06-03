@@ -70,8 +70,8 @@ TextureImporter:
         y: 2
         width: 12
         height: 4
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .153190136, y: .613796711}
     - name: weapons1_3
       rect:
         serializedVersion: 2

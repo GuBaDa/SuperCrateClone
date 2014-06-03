@@ -6,7 +6,6 @@ public class PlayerFireScript : MonoBehaviour {
 	public GameObject projectilePrefab;
 	public float attackSpeed;
 	private float coolDown;
-	private AimScriptChild aimSight;
 
 	// Update is called once per frame
 	void Update () {
