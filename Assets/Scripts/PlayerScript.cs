@@ -37,9 +37,18 @@ public class PlayerScript : MonoBehaviour {
 	
 	public GameObject dust;
 
+	// PlayerController variables
+	public int PlayerControlNr;
+	private float axisHorizontal;
+	private float axisVertical;
+	private bool fire1Btn;
+	private bool fire2Btn;
+	private bool fire3Btn;
+	private bool jumpBtnDown;
+
 	/// Start this instance.
 	/// 
-	void Start () {
+	void Awake () {
 		health = 100f;
 		grounded = false;
 		jumped = false;
@@ -52,12 +61,12 @@ public class PlayerScript : MonoBehaviour {
 	
 	// FixedUpdate is called on fixed Times, use this for physics movements.
 	void FixedUpdate () {
-		move ();
+		doMove ();
 	}
 
 	// Update is called on each frame, this way the character immediately reacts to jumps.
 	void Update(){
-
+		getControls();
 		// If the player hits the ground, make sure he can move normally again.
 		RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector3.down, 1f);
 		if (hit.collider != null) {
@@ -88,8 +97,8 @@ public class PlayerScript : MonoBehaviour {
 		}
 
 		OnDeath ();
-		doubleJump ();
-		jump ();
+		doDoubleJump ();
+		doJump ();
 	}
 
 	void OnCollisionEnter2D(Collision2D collision2D){	
@@ -135,10 +144,10 @@ public class PlayerScript : MonoBehaviour {
 	/// Move, Jump and DoubleJump //////
 	/// 
 	/// 
-	void move(){
-		if (Input.GetButton  ("Horizontal")) {
+	void doMove(){
+		if (axisHorizontal != 0) {
 			// Get speed in correct direction
-			Vector2 tempSpeed =  new Vector2 (Input.GetAxisRaw ("Horizontal") * maxSpeed, rigidbody2D.velocity.y);
+			Vector2 tempSpeed =  new Vector2 (axisHorizontal * maxSpeed, rigidbody2D.velocity.y);
 
 			// Move player horizontally only if it is not blocked by a wall 
 			if(tempSpeed.x < 0 && !wallLeft){
@@ -152,8 +161,8 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	// Jump is possible when grounded.
-	void jump(){
-		if (Input.GetButtonDown  ("Jump") && grounded) {
+	void doJump(){
+		if (jumpBtnDown && grounded) {
 			rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, jumpHeight);
 			grounded = false;
 			jumped = true;
@@ -162,9 +171,9 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 
-	void doubleJump(){
+	void doDoubleJump(){
 		if (doubleJumpOn) {
-			if(Input.GetButtonDown("Jump") && jumped ){
+			if(jumpBtnDown && jumped ){
 				rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, doubleJumpHeight);
 				jumped = false;
 			}
@@ -187,6 +196,34 @@ public class PlayerScript : MonoBehaviour {
 	void dustCast(){
 		GameObject pDust = (GameObject) Instantiate (dust);
 		pDust.transform.position = new Vector2 (transform.position.x, transform.position.y - 0.2f);
+	}
+
+	void getControls(){
+		switch (PlayerControlNr){
+			case 0 :
+				Debug.Log("no PlayerNr defined in PlayerController");
+				break;
+			case 1 :
+				axisHorizontal = Input.GetAxisRaw ("Horizontal");
+				axisVertical = Input.GetAxisRaw ("Vertical");
+				fire1Btn = Input.GetButton("Fire1");
+				fire2Btn = Input.GetButton("Fire2");
+				fire3Btn = Input.GetButton("Fire3");
+				jumpBtnDown = Input.GetButtonDown("Jump");
+				break;
+			case 2 :
+				axisHorizontal = Input.GetAxisRaw ("Horizontal_2");
+				axisVertical = Input.GetAxisRaw ("Vertical_2");
+				fire1Btn = Input.GetButton("Fire1_2");
+				fire2Btn = Input.GetButton("Fire2_2");
+				fire3Btn = Input.GetButton("Fire3_2");
+				jumpBtnDown = Input.GetButtonDown("Jump_2");
+				break;
+			default :
+				Debug.Log ("no PlayerNr defined in PlayerController");
+				break;
+			}
+
 	}
 }
 

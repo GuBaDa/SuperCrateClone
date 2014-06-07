@@ -21,8 +21,9 @@ public class hpBarPlayers : MonoBehaviour {
 		//temporary setup for single player testing
 		//needs better way to figure out wich player to connect in future
 		players = GameObject.FindGameObjectsWithTag("Player");
-		if (players.Length >= healtForPlayerNr){
-			player = players[healtForPlayerNr - 1];
+		if (GameObject.Find("Player" + healtForPlayerNr.ToString() + "Controller") != null){
+			player = GameObject.Find("Player" + healtForPlayerNr.ToString() + "Controller");
+
 
 		}
 		else{
@@ -37,7 +38,7 @@ public class hpBarPlayers : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (GameObject.FindGameObjectsWithTag("Player").Length > 0){
-			hp = player.GetComponent<PlayerScript>().Health / 100;
+			hp = player.GetComponentInChildren<PlayerScript>().Health / 100;
 			Debug.Log (hp);
 			float hpLength = (hp * 2.8f) + posStart.x;
 			Vector3 posEnd = new Vector3(hpLength,0,0.5f);

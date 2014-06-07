@@ -19,6 +19,8 @@ public class AvatarSelector : MonoBehaviour {
 
 	public GameObject gameConstructor;
 
+	public int playerNr;
+
 	private Vector2 selectPos;
 	private int selection;
 
@@ -28,21 +30,26 @@ public class AvatarSelector : MonoBehaviour {
 
 	private GameConstructor constructor;
 	// Use this for initialization
-	void Start () {
+	void Awake () {
+		constructor = gameConstructor.GetComponent<GameConstructor> ();
+		if (constructor.NumberOfPlayers < playerNr){
+			Destroy (gameObject);
+		}
 		//Create key coordinates for grid
 		avat = dimensionsAvatar / 2;
 
 		marginX = column2 - column1;
 		startX = column1 - marginX;
 
-		constructor = gameConstructor.GetComponent<GameConstructor> ();
+
+
 	}
 
 	// Update is called once per frame
 	void Update () {
 		ColorChange ();
 
-		if (constructor.CharSelected == 0){
+		if (constructor.PlayersSelected [playerNr - 1] == null){
 			if (Input.GetButtonDown  ("Horizontal") || Input.GetButtonDown  ("Vertical")){
 				keySelection();
 			}
@@ -55,7 +62,9 @@ public class AvatarSelector : MonoBehaviour {
 			
 			//selection
 			if ( Input.GetButtonDown ("Fire1") || Input.GetKeyDown( KeyCode.Return)){
-				constructor.CharSelected = selection;
+				//constructor.CharSelected = selection;
+				constructor.PlayersSelected [playerNr - 1] = constructor.playersArray[selection -1];
+				Debug.Log (constructor.PlayersSelected[playerNr - 1]);
 			}
 		}
 		else {
@@ -65,7 +74,8 @@ public class AvatarSelector : MonoBehaviour {
 			}
 
 			if ( Input.GetButtonDown ("Fire1") || Input.GetKeyDown( KeyCode.Return)){
-				constructor.CharSelected = 0;
+				//constructor.CharSelected = 0;
+				constructor.PlayersSelected [playerNr - 1] = null;
 			}
 		}
 	}
