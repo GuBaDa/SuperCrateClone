@@ -199,30 +199,15 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void getControls(){
-		switch (PlayerControlNr){
-			case 0 :
-				Debug.Log("no PlayerNr defined in PlayerController");
-				break;
-			case 1 :
-				axisHorizontal = Input.GetAxisRaw ("Horizontal");
-				axisVertical = Input.GetAxisRaw ("Vertical");
-				fire1Btn = Input.GetButton("Fire1");
-				fire2Btn = Input.GetButton("Fire2");
-				fire3Btn = Input.GetButton("Fire3");
-				jumpBtnDown = Input.GetButtonDown("Jump");
-				break;
-			case 2 :
-				axisHorizontal = Input.GetAxisRaw ("Horizontal_2");
-				axisVertical = Input.GetAxisRaw ("Vertical_2");
-				fire1Btn = Input.GetButton("Fire1_2");
-				fire2Btn = Input.GetButton("Fire2_2");
-				fire3Btn = Input.GetButton("Fire3_2");
-				jumpBtnDown = Input.GetButtonDown("Jump_2");
-				break;
-			default :
-				Debug.Log ("no PlayerNr defined in PlayerController");
-				break;
-			}
+		// Set control script to right player
+		GetComponent<PlayerController>().PlayerControlNr = PlayerControlNr;
+		// Get variables
+		axisHorizontal = GetComponent<PlayerController>().AxisHorizontal;
+		axisVertical = GetComponent<PlayerController>().AxisVertical;
+		fire1Btn = GetComponent<PlayerController>().Fire1Btn;
+		fire2Btn = GetComponent<PlayerController>().Fire2Btn;
+		fire3Btn = GetComponent<PlayerController>().Fire3Btn;
+		jumpBtnDown = GetComponent<PlayerController>().JumpBtnDown;
 
 	}
 }

@@ -11,18 +11,28 @@ public class AnimationScript : MonoBehaviour {
 
 	public float animSpeed;
 
+	private float axisHorizontal;
+	private float axisVertical;
+	private bool axisHorizontalDown;
+	private bool axisVerticalDown;
+	private bool fire1Btn;
+	private bool fire2Btn;
+	private bool fire3Btn;
+	private bool jumpBtnDown;
+
 	//private float jumpVector = 0.5f; //factor needed in relation to vertical moving platforms
 
-	void Start (){
+	void Awake (){
 		anim = GetComponent<Animator> ();
 	}
 	// Update is called once per frame
 	void Update () {
+		getControls();
 		//get boolean grounded from PlayerScript to check if grounded
 		grounded = GetComponent<PlayerScript> ().grounded;
 
 		if (grounded) {
-			if (Input.GetAxisRaw ("Horizontal") != 0){
+			if (axisHorizontal!= 0){
 			//check direction
 				Vector3 worldMousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 				float direction = (worldMousePos.x - transform.position.x) * rigidbody2D.velocity.x;
@@ -65,5 +75,19 @@ public class AnimationScript : MonoBehaviour {
 		else {
 			anim.speed = Mathf.Abs (rigidbody2D.velocity.x) * animSpeed / 10;
 		}
+	}
+
+	void getControls(){
+		// Set control script to right player
+		GetComponent<PlayerController>().PlayerControlNr = GetComponent<PlayerScript>().PlayerControlNr;
+		// Get variables
+		axisHorizontal = GetComponent<PlayerController>().AxisHorizontal;
+		axisVertical = GetComponent<PlayerController>().AxisVertical;
+		axisHorizontalDown = GetComponent<PlayerController>().AxisHorizontalDown;
+		axisVerticalDown = GetComponent<PlayerController>().AxisVerticalDown;
+		fire1Btn = GetComponent<PlayerController>().Fire1Btn;
+		fire2Btn = GetComponent<PlayerController>().Fire2Btn;
+		fire3Btn = GetComponent<PlayerController>().Fire3Btn;
+		jumpBtnDown = GetComponent<PlayerController>().JumpBtnDown;
 	}
 }
