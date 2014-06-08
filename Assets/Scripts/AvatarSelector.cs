@@ -37,6 +37,7 @@ public class AvatarSelector : MonoBehaviour {
 	private bool axisHorizontalDown;
 	private bool axisVerticalDown;
 	private bool fire1Btn;
+	private bool fire1BtnDown;
 	private bool fire2Btn;
 	private bool fire3Btn;
 	private bool jumpBtnDown;
@@ -54,14 +55,21 @@ public class AvatarSelector : MonoBehaviour {
 		marginX = column2 - column1;
 		startX = column1 - marginX;
 		
-		
-		
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		getControls();
 		ColorChange ();
+
+		//check if all are selected
+		bool allSelected = true;
+		GameObject[] selecters = GameObject.FindGameObjectsWithTag("Player");
+		foreach (GameObject selection in constructor.PlayersSelected){
+			if (selection == null){
+				allSelected = false;
+			}
+		}
 		
 		if (constructor.PlayersSelected [playerNr - 1] == null){
 			if (axisHorizontalDown || axisVerticalDown){
@@ -75,7 +83,7 @@ public class AvatarSelector : MonoBehaviour {
 			transform.position = getPosition (selection);
 			
 			//selection
-			if ( fire1Btn || Input.GetKeyDown( KeyCode.Return)){
+			if ( fire1BtnDown ){
 				//constructor.CharSelected = selection;
 				constructor.PlayersSelected [playerNr - 1] = constructor.playersArray[selection -1];
 				Debug.Log (constructor.PlayersSelected[playerNr - 1]);
@@ -83,14 +91,15 @@ public class AvatarSelector : MonoBehaviour {
 		}
 		else {
 			//load next level
-			if ( Input.GetKeyDown( KeyCode.L)){
-				Application.LoadLevel("1P_gameTestEnvironment");
-			}
-			
-			if ( fire1Btn || Input.GetKeyDown( KeyCode.Return)){
+
+			if ( fire1BtnDown ){
 				//constructor.CharSelected = 0;
 				constructor.PlayersSelected [playerNr - 1] = null;
 			}
+		}
+		if (allSelected && Input.GetKeyDown( KeyCode.L)){
+			//load next level
+			Application.LoadLevel("1P_gameTestEnvironment");
 		}
 	}
 	
@@ -209,6 +218,7 @@ public class AvatarSelector : MonoBehaviour {
 		axisHorizontalDown = GetComponent<PlayerController>().AxisHorizontalDown;
 		axisVerticalDown = GetComponent<PlayerController>().AxisVerticalDown;
 		fire1Btn = GetComponent<PlayerController>().Fire1Btn;
+		fire1BtnDown = GetComponent<PlayerController>().Fire1BtnDown;
 		fire2Btn = GetComponent<PlayerController>().Fire2Btn;
 		fire3Btn = GetComponent<PlayerController>().Fire3Btn;
 		jumpBtnDown = GetComponent<PlayerController>().JumpBtnDown;
