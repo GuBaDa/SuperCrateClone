@@ -11,9 +11,8 @@ public class GUIButtonScript : MonoBehaviour {
 	public Sprite buttonHover;
 	public Sprite buttonActive;
 
-	public string loadSceneonClick;
-	
 	private bool hover = false;
+	private bool activ = false;
 
 	private bool mouseHover = false;
 
@@ -26,16 +25,35 @@ public class GUIButtonScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (hover){
+		if (hover && !activ){
 			transform.FindChild("GUIButton").GetComponent<SpriteRenderer>().sprite = buttonHover;
 			transform.FindChild("GUIText").GetComponent<SpriteRenderer>().material.color = textColorHover;
 			
 		}
-		else {
+		if (!hover && !activ) {
 			transform.FindChild("GUIButton").GetComponent<SpriteRenderer>().sprite = buttonNormal;
 			transform.FindChild("GUIText").GetComponent<SpriteRenderer>().material.color = textColorNormal;
 		}
+		if (activ) {
+			hover = false;
+			mouseHover = false;
+			StartCoroutine("OnClick");
+		}
 	}
+
+
+	public IEnumerator OnClick(){
+		while (true) {
+			transform.FindChild ("GUIButton").GetComponent<SpriteRenderer> ().sprite = buttonActive;
+			transform.FindChild ("GUIText").GetComponent<SpriteRenderer> ().material.color = textColorActive;
+			yield return new WaitForSeconds (0.15f);
+			activ = false;
+			break;
+		}
+
+
+	}
+
 
 	void OnMouseEnter () {
 		mouseHover = true;
@@ -59,6 +77,15 @@ public class GUIButtonScript : MonoBehaviour {
 		}
 		set {
 			hover = value;
+		}
+	}
+
+	public bool Activ {
+		get {
+			return activ;
+		}
+		set {
+			activ = value;
 		}
 	}
 	

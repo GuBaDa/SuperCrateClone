@@ -3,6 +3,9 @@ using System.Collections;
 
 public class mainMenuGUI : MonoBehaviour {
 
+	public string levelToLoadWhenClickedPlay = "";
+	public AudioClip soundSwitch;
+	public AudioClip soundClick;
 	public GameObject[] buttonArray;
 
 	public int cursor;
@@ -19,6 +22,7 @@ public class mainMenuGUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		bool isActive = false;
 		for (int i = 0; i < buttonArray.Length; i++){
 			if (cursor - 1 == i){
 				buttonArray[i].GetComponent<GUIButtonScript>().Hover = true;
@@ -26,17 +30,47 @@ public class mainMenuGUI : MonoBehaviour {
 			else {
 				buttonArray[i].GetComponent<GUIButtonScript>().Hover = false;
 			}
+			if (buttonArray[i].GetComponent<GUIButtonScript>().Activ){
+				isActive = true;
+			}
 		}
-
 		getControls ();
+		if (!isActive) {
+			if (axisVerticalDown){
+				keySelection();
+			}
+			if (Input.GetAxisRaw ("Mouse X") != 0 || Input.GetAxisRaw ("Mouse Y") != 0){
+				mouseSelection ();
+			}
 
-		if (axisVerticalDown){
-			keySelection();
+			//clicking
+			if (fire1BtnDown || jumpBtnDown || Input.GetKeyDown (KeyCode.Return)){
+				OnKeyClick ();
+			}
 		}
-		if (Input.GetAxisRaw ("Mouse X") != 0 || Input.GetAxisRaw ("Mouse Y") != 0){
-			mouseSelection ();
-		}
+	}
 
+	void OnKeyClick (){
+		buttonArray [cursor - 1].GetComponent<GUIButtonScript> ().Activ = true;
+		//buttonArray [cursor - 1].GetComponent<GUIButtonScript> ().StartCoroutine ("OnClick");
+		switch (cursor) {
+			case 1:
+			//START
+				if (levelToLoadWhenClickedPlay != ""){
+					Application.LoadLevel (levelToLoadWhenClickedPlay);
+				}
+				break;
+			case 2:
+			//OPTIONS
+				break;
+			case 3:
+			//ABOUT
+				break;
+			case 4:
+				//EXIT
+				Application.Quit();
+				break;
+			}
 
 	}
 
