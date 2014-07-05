@@ -19,6 +19,10 @@ public class PlayerScript : MonoBehaviour {
 	private int experience;
 	public float maxSpeed;
 
+
+	//Weapon
+	public GameObject weaponActive;
+
 	// 
 	public float Health{
 		get{return health;}
