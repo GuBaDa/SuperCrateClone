@@ -41,8 +41,6 @@ public class CharWheelSelect : MonoBehaviour {
 	private bool ready = false;
 	private bool allReady = false;
 
-	private float debounce;
-
 	private int selection = 1;  
 
 	// PlayerController variables
@@ -111,10 +109,9 @@ public class CharWheelSelect : MonoBehaviour {
 	void Update () {
 
 		getControls ();
-		Debounce ();
 		AvatarWheel ();
 		ColorChange ();
-		//join player
+		//join player and enable/disable renderers
 		if (fire1BtnDown && !join){
 			fire1BtnDown = false;
 			join = true;
@@ -128,11 +125,14 @@ public class CharWheelSelect : MonoBehaviour {
 			characterName.renderer.enabled = true;
 			stateText.renderer.enabled = true;
 		}
+		//if joined check for button presses, do debounce and actions needed.
 		if (join) {
+			//not selected, check for key presses and may later on mouse/joystick movement.
 			if (!selected) {
 				if (axisVerticalDown) { 
 				keySelection ();
 				}
+				//if firebutton1 pressed, check for existing character in array and select character if possible
 				if (fire1BtnDown) {
 					fire1BtnDown = false;
 					if (selection <= constructor.playersArray.Length){
@@ -140,18 +140,22 @@ public class CharWheelSelect : MonoBehaviour {
 						selected = true;
 					}
 				}
+				// unselect selection
 				if (fire2BtnDown || jumpBtnDown) {
 					fire2BtnDown = false;
 					jumpBtnDown = false;
 					selected  = false;
 				}
 			}
+			//if selection is made
 			if (selected) {
+				//if firebutton1 is pressed while selection, define and store right character in game constructor object
 				if (fire1BtnDown) {
 					fire1BtnDown = false;
 					constructor.PlayersSelected [playerNr - 1] = constructor.playersArray[selection - 1];
 					ready = true;
 				}
+				//unselect selection
 				if (fire2BtnDown || jumpBtnDown) {
 					fire2BtnDown = false;
 					jumpBtnDown = false;
@@ -159,20 +163,25 @@ public class CharWheelSelect : MonoBehaviour {
 					ready = false;
 					selected = false;
 				}
+				//check if all are selected
+				if (constructor.numberOfJoinedPlayers >1){
+					allReady = true;
+					for (int i = 0; i < constructor.numberOfJoinedPlayers; i++){
+						if (constructor.PlayersSelected[i] == null) {
+							allReady = false;
+						}
+					}
+				}
 			}
-		}
-		//check if all are selected
-
-		if (constructor.numberOfJoinedPlayers >1){
-			allReady = true;
-			for (int i = 0; i < constructor.numberOfJoinedPlayers; i++){
-				if (constructor.PlayersSelected[i] == null) {
-					allReady = false;
+			//if all joined players are ready with selection
+			if (allReady) {
+				//press L to load test level
+				if (Input.GetKeyDown( KeyCode.L)){
+					//load next level
+					Application.LoadLevel("1P_gameTestEnvironment");
 				}
 			}
 		}
-		//set right name
-
 
 		//debug
 		//Debug.Log ( constructor.PlayersSelected);
@@ -183,8 +192,11 @@ public class CharWheelSelect : MonoBehaviour {
 		float lerp = lerper.GetComponent<lerpTimer> ().Lerp ; //Mathf.PingPong (Time.time, durationSweep) / durationSweep;
 		float lerp2 = lerper.GetComponent<lerpTimer> ().Lerp2; //Mathf.PingPong (Time.time, 5 * durationSweep) / (5 * durationSweep);
 		//if not joined yet
-		if (!join){
+		if (!join && !allReady) {
 			startText.GetComponent<SpriteRenderer> ().material.color = Color.Lerp (colorSweep1, colorSweep2, lerp);
+		}
+		if (!join && allReady) {
+			startText.GetComponent<SpriteRenderer> ().material.color = textColorNormal;
 		}
 		//if joined, then check if selected or ready..
 		else {
@@ -192,10 +204,12 @@ public class CharWheelSelect : MonoBehaviour {
 				//waiting for selection
 
 				stateText.GetComponent<SpriteRenderer> ().sprite = textSelect;
-				GetComponent<SpriteRenderer> ().material.color = Color.Lerp (colorSweepSelecter1, colorSweepSelecter2, lerp);
 				selectionSprite.GetComponent<SpriteRenderer> ().material.color = Color.Lerp (colorSweep1, colorSweep2, lerp2);
 				stateText.GetComponent<SpriteRenderer> ().material.color = Color.Lerp (colorSweep1, colorSweep2, lerp2);
 				characterName.GetComponent<SpriteRenderer> ().material.color = textColorNormal;
+				if (playerNr <= constructor.numberOfJoinedPlayers) {
+					GetComponent<SpriteRenderer> ().material.color = Color.Lerp (colorSweepSelecter1, colorSweepSelecter2, lerp);
+				}
 			}
 			else {
 				//when selected
@@ -268,10 +282,6 @@ public class CharWheelSelect : MonoBehaviour {
 
 	}
 
-
-	void Debounce () {
-		debounce += Time.deltaTime;
-	}
 
 	void getControls(){
 		// Set control script to right player

@@ -14,7 +14,7 @@ public class GameConstructor : MonoBehaviour {
 
 	public GameObject[] playersArray;
 
-	private GameObject[] playersSelected;
+	public GameObject[] playersSelected;
 
 	private bool isPlayerSpawned;
 
