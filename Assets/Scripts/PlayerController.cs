@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
 	private bool fire1Btn;
 	private bool fire1BtnDown;
 	private bool fire2Btn;
+	private bool fire2BtnDown;
 	private bool fire3Btn;
 	private bool jumpBtnDown;
 
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour {
 				fire1Btn = Input.GetButton("Fire1");
 				fire1BtnDown = Input.GetButtonDown ("Fire1");
 				fire2Btn = Input.GetButton("Fire2");
+				fire2BtnDown = Input.GetButtonDown ("Fire2");
 				fire3Btn = Input.GetButton("Fire3");
 				jumpBtnDown = Input.GetButtonDown("Jump");
 				break;
@@ -47,6 +49,7 @@ public class PlayerController : MonoBehaviour {
 				fire1Btn = Input.GetButton("Fire1_2");
 				fire1BtnDown = Input.GetButtonDown ("Fire1_2");
 				fire2Btn = Input.GetButton("Fire2_2");
+				fire2BtnDown = Input.GetButtonDown ("Fire2_2");
 				fire3Btn = Input.GetButton("Fire3_2");
 				jumpBtnDown = Input.GetButtonDown("Jump_2");
 				break;
@@ -105,6 +108,13 @@ public class PlayerController : MonoBehaviour {
 			return fire2Btn;
 		}
 	}
+
+	public bool Fire2BtnDown{
+		get{
+			return fire2BtnDown;
+		}
+	}
+
 	public bool Fire3Btn{
 		get{
 			return fire3Btn;

@@ -10,6 +10,8 @@ public class GameConstructor : MonoBehaviour {
 
 	public int numberOfPlayers; 
 
+	public int numberOfJoinedPlayers;
+
 	public GameObject[] playersArray;
 
 	private GameObject[] playersSelected;
