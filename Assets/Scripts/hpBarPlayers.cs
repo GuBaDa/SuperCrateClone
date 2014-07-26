@@ -43,7 +43,6 @@ public class hpBarPlayers : MonoBehaviour {
 		}
 		if (GameObject.FindGameObjectsWithTag("Player").Length > 0 && player != null){
 			hp = player.GetComponentInChildren<PlayerScript>().Health / 100;
-			Debug.Log (hp);
 			float hpLength = (hp * 2.8f) + posStart.x;
 			Vector3 posEnd = new Vector3(hpLength,0,0.5f);
 			float R = colorLow.r * (1-hp) + colorFull.r * hp *2;

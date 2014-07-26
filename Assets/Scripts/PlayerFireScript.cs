@@ -29,12 +29,19 @@ public class PlayerFireScript : MonoBehaviour {
 		//pos.z = transform.position.z - Camera.main.transform.position.z;
 		//pos = Camera.main.ScreenToWorldPoint (pos);
 		// 
-
-		//Quaternion q = Quaternion.FromToRotation(Vector3.up, transform.position);
-		GameObject pPrefab = (GameObject) Instantiate (projectilePrefab, transform.position, Quaternion.identity);
-		if(transform.parent.transform.localScale.x == 1){
-			pPrefab.transform.Rotate(0,180,0);
+		Quaternion q;
+		//Quaternion q = Quaternion.Euler(0,180,0);
+		if(transform.parent.transform.localScale.x == 1)
+		{
+			q = Quaternion.Euler(0,180,0);
+		} 
+		else 
+		{
+			q = Quaternion.identity;
 		}
+
+		GameObject pPrefab = (GameObject) Instantiate (projectilePrefab, transform.position, q);
+
 		pPrefab.rigidbody2D.AddForce (new Vector2 ((projectileForce.x *(transform.parent.transform.localScale.x)),projectileForce.y));
 
 		coolDown = Time.time + attackSpeed;
