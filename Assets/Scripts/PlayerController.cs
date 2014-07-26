@@ -30,8 +30,8 @@ public class PlayerController : MonoBehaviour {
 				Debug.Log("no PlayerNr defined in PlayerController");
 				break;
 			case 1 :
-				axisHorizontal = Input.GetAxisRaw ("Horizontal");
-				axisVertical = Input.GetAxisRaw ("Vertical");
+				axisHorizontal = Input.GetAxis ("Horizontal");
+				axisVertical = Input.GetAxis ("Vertical");
 				axisHorizontalDown = Input.GetButtonDown ("Horizontal");
 				axisVerticalDown = Input.GetButtonDown ("Vertical");
 				fire1Btn = Input.GetButton("Fire1");
@@ -42,8 +42,8 @@ public class PlayerController : MonoBehaviour {
 				jumpBtnDown = Input.GetButtonDown("Jump");
 				break;
 			case 2 :
-				axisHorizontal = Input.GetAxisRaw ("Horizontal_2");
-				axisVertical = Input.GetAxisRaw ("Vertical_2");
+				axisHorizontal = Input.GetAxis ("Horizontal_2");
+				axisVertical = Input.GetAxis ("Vertical_2");
 				axisHorizontalDown = Input.GetButtonDown ("Horizontal_2");
 				axisVerticalDown = Input.GetButtonDown ("Vertical_2");
 				fire1Btn = Input.GetButton("Fire1_2");

@@ -8,10 +8,13 @@ public class PlayerFireScript : MonoBehaviour {
 	public float coolDown;
 	private AimScriptChild aimSight;
 
+	private bool fire1Btn;
+	private bool fire1BtnDown;
+
 	// Update is called once per frame
 	void Update () {
-
-		if (Input.GetButton("Fire1") && Time.time > coolDown) {
+		getControls ();
+		if (fire1BtnDown && Time.time > coolDown) {
 			Fire();
 		}
 	}
@@ -31,5 +34,16 @@ public class PlayerFireScript : MonoBehaviour {
 		pPrefab.rigidbody2D.AddForce (pPrefab.transform.up*1000);
 
 		coolDown = Time.time + attackSpeed;
+	}
+
+	void getControls(){
+		// Set control script to right player
+		GetComponentInParent<PlayerController>().PlayerControlNr = GetComponentInParent<PlayerScript> ().PlayerControlNr;
+
+		//get input
+		fire1Btn = GetComponentInParent<PlayerController>().Fire1Btn;
+		fire1BtnDown = GetComponentInParent<PlayerController>().Fire1BtnDown;
+
+		
 	}
 }
