@@ -23,25 +23,17 @@ public class PlayerFireScript : MonoBehaviour {
 
 	void Fire()
 	{
-		//Transform.position should be the position of the gun
+		//Instatiate the projectile at the position of the weapon.
+		GameObject pPrefab = (GameObject) Instantiate (projectilePrefab, transform.position, Quaternion.identity);
 
-		//Vector3 pos = Input.mousePosition;
-		//pos.z = transform.position.z - Camera.main.transform.position.z;
-		//pos = Camera.main.ScreenToWorldPoint (pos);
-		// 
-		Quaternion q;
-		//Quaternion q = Quaternion.Euler(0,180,0);
+		// Flip the projectile if looking the other way.
+		Vector3 tempScale = new Vector3 (-1,pPrefab.transform.localScale.y,pPrefab.transform.localScale.z);
 		if(transform.parent.transform.localScale.x == 1)
 		{
-			q = Quaternion.Euler(0,180,0);
+			pPrefab.transform.localScale = tempScale;
 		} 
-		else 
-		{
-			q = Quaternion.identity;
-		}
 
-		GameObject pPrefab = (GameObject) Instantiate (projectilePrefab, transform.position, q);
-
+		// Add a certain force to the projectile, the amount of force is given in the public var projectileForce
 		pPrefab.rigidbody2D.AddForce (new Vector2 ((projectileForce.x *(transform.parent.transform.localScale.x)),projectileForce.y));
 
 		coolDown = Time.time + attackSpeed;
