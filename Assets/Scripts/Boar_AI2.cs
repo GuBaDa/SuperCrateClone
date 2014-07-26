@@ -123,12 +123,10 @@ public class Boar_AI2 : MonoBehaviour {
 		RaycastHit2D leftRay = Physics2D.Raycast (new Vector2(transform.position.x, transform.position.y + 1), Vector2.right, -rayDistance); 
 		RaycastHit2D rightRay = Physics2D.Raycast (new Vector2(transform.position.x, transform.position.y + 1), Vector2.right, rayDistance); 
 		if (leftRay.collider != null && leftRay.rigidbody == null){
-			Debug.Log ("COLLISION!!!!");
 			direction = 1;
 			timerGlobal = Random.Range (1f, 3f);
 		}
 		if (rightRay.collider != null && leftRay.rigidbody == null){
-			Debug.Log ("COLLISION!!!!");
 			direction = -1;
 			timerGlobal = Random.Range (1f, 3f);
 		}

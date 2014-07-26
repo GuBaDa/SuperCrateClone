@@ -33,8 +33,10 @@ public class Crate : MonoBehaviour {
 		weaponNew = items[Random.Range (0, items.Length)];
 		Destroy(weaponOld);
 
+
 		GameObject _weaponNew = (GameObject) Instantiate (weaponNew, player.transform.position, Quaternion.identity);
 		_weaponNew.transform.parent = player.transform;
+		_weaponNew.transform.position += player.GetComponent<PlayerScript>().weaponPos*player.transform.localScale.x;
 
 		player.GetComponent<PlayerScript>().weaponActive = _weaponNew;
 

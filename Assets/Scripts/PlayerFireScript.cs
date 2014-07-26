@@ -5,7 +5,8 @@ public class PlayerFireScript : MonoBehaviour {
 
 	public GameObject projectilePrefab;
 	public float attackSpeed;
-	public float coolDown;
+	public Vector2 projectileForce;
+	private float coolDown;
 	private AimScriptChild aimSight;
 
 	private bool fire1Btn;
@@ -24,14 +25,17 @@ public class PlayerFireScript : MonoBehaviour {
 	{
 		//Transform.position should be the position of the gun
 
-		Vector3 pos = Input.mousePosition;
-		pos.z = transform.position.z - Camera.main.transform.position.z;
-		pos = Camera.main.ScreenToWorldPoint (pos);
+		//Vector3 pos = Input.mousePosition;
+		//pos.z = transform.position.z - Camera.main.transform.position.z;
+		//pos = Camera.main.ScreenToWorldPoint (pos);
+		// 
 
-		Quaternion q = Quaternion.FromToRotation(Vector3.up, pos-transform.position);
-		GameObject pPrefab = (GameObject) Instantiate (projectilePrefab, transform.position, q);
-
-		pPrefab.rigidbody2D.AddForce (pPrefab.transform.up*1000);
+		//Quaternion q = Quaternion.FromToRotation(Vector3.up, transform.position);
+		GameObject pPrefab = (GameObject) Instantiate (projectilePrefab, transform.position, Quaternion.identity);
+		if(transform.parent.transform.localScale.x == 1){
+			pPrefab.transform.Rotate(0,180,0);
+		}
+		pPrefab.rigidbody2D.AddForce (new Vector2 ((projectileForce.x *(transform.parent.transform.localScale.x)),projectileForce.y));
 
 		coolDown = Time.time + attackSpeed;
 	}

@@ -10,8 +10,9 @@ public class PlayerScript : MonoBehaviour {
 	private bool wallLeft, wallRight;
 	private Transform activePlatform;
 	private Vector3 tempScale;
-	public float jumpHeight;
 	private float doubleJumpHeight;
+	public Vector3 weaponPos;
+	public float jumpHeight;
 	public bool doubleJumpOn;
 
 	// Property variables
@@ -91,14 +92,14 @@ public class PlayerScript : MonoBehaviour {
 
 
 		// Flip sprite if mouse player is not facing the mouse
-		Vector3 worldMousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-
-		if( transform.localScale.x < 0 && ( worldMousePos.x > transform.position.x) ||
-			   	transform.localScale.x > 0 && ( worldMousePos.x  < transform.position.x)) 
-		{	
-			tempScale.x *= -1;
-			transform.localScale = tempScale;
-		}
+//		Vector3 worldMousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+//
+//		if( transform.localScale.x < 0 && ( worldMousePos.x > transform.position.x) ||
+//			   	transform.localScale.x > 0 && ( worldMousePos.x  < transform.position.x)) 
+//		{	
+//			tempScale.x *= -1;
+//			transform.localScale = tempScale;
+//		}
 
 		OnDeath ();
 		doDoubleJump ();
@@ -154,6 +155,14 @@ public class PlayerScript : MonoBehaviour {
 			Vector2 tempSpeed =  new Vector2 (axisHorizontal * maxSpeed, rigidbody2D.velocity.y);
 
 			// Move player horizontally only if it is not blocked by a wall 
+
+
+			if( transform.localScale.x < 0 && ( axisHorizontal > 0) || transform.localScale.x > 0 && ( axisHorizontal  < 0)) 
+	   		{	
+	   			tempScale.x *= -1;
+	   			transform.localScale = tempScale;
+	   		}
+
 			if(tempSpeed.x < 0 && !wallLeft){
 				rigidbody2D.velocity = tempSpeed;
 			}
