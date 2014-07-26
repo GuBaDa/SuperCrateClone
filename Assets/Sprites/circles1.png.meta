@@ -1,6 +1,28 @@
 fileFormatVersion: 2
 guid: 5f5e5cac7a8a72d4fa6f39015b5af9d1
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: circles5x5
+    21300002: circles6x6
+    21300004: circles7x7
+    21300006: circles8x8
+    21300008: circles9x9
+    21300010: circles0x10
+    21300012: circles11x11
+    21300014: circles12x12
+    21300016: circles13x13
+    21300018: circles14x14
+    21300020: circles15x15
+    21300022: circles16x16
+    21300024: circles17x17
+    21300026: circles18x18
+    21300028: circles19x19
+    21300030: circles20x20
+    21300032: circle21x21
+    21300034: circles22x22
+    21300036: circles23x23
+    21300038: circles24x24
+    21300040: circles25x25
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -35,6 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 10
   alphaIsTransparency: 1
   textureType: 8
@@ -54,6 +77,7 @@ TextureImporter:
         height: 5
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: circles6x6
       rect:
         serializedVersion: 2
@@ -63,6 +87,7 @@ TextureImporter:
         height: 6
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: circles7x7
       rect:
         serializedVersion: 2
@@ -72,6 +97,7 @@ TextureImporter:
         height: 7
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: circles8x8
       rect:
         serializedVersion: 2
@@ -81,6 +107,7 @@ TextureImporter:
         height: 8
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: circles9x9
       rect:
         serializedVersion: 2
@@ -90,6 +117,7 @@ TextureImporter:
         height: 9
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: circles0x10
       rect:
         serializedVersion: 2
@@ -99,6 +127,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: circles11x11
       rect:
         serializedVersion: 2
@@ -108,6 +137,7 @@ TextureImporter:
         height: 11
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: circles12x12
       rect:
         serializedVersion: 2
@@ -117,6 +147,7 @@ TextureImporter:
         height: 12
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: circles13x13
       rect:
         serializedVersion: 2
@@ -126,6 +157,7 @@ TextureImporter:
         height: 13
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: circles14x14
       rect:
         serializedVersion: 2
@@ -135,6 +167,7 @@ TextureImporter:
         height: 14
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: circles15x15
       rect:
         serializedVersion: 2
@@ -144,6 +177,7 @@ TextureImporter:
         height: 15
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: circles16x16
       rect:
         serializedVersion: 2
@@ -153,6 +187,7 @@ TextureImporter:
         height: 16
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: circles17x17
       rect:
         serializedVersion: 2
@@ -162,6 +197,7 @@ TextureImporter:
         height: 17
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: circles18x18
       rect:
         serializedVersion: 2
@@ -171,6 +207,7 @@ TextureImporter:
         height: 18
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: circles19x19
       rect:
         serializedVersion: 2
@@ -180,6 +217,7 @@ TextureImporter:
         height: 19
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: circles20x20
       rect:
         serializedVersion: 2
@@ -189,6 +227,7 @@ TextureImporter:
         height: 20
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: circle21x21
       rect:
         serializedVersion: 2
@@ -198,6 +237,7 @@ TextureImporter:
         height: 21
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: circles22x22
       rect:
         serializedVersion: 2
@@ -207,6 +247,7 @@ TextureImporter:
         height: 22
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: circles23x23
       rect:
         serializedVersion: 2
@@ -216,6 +257,7 @@ TextureImporter:
         height: 23
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: circles24x24
       rect:
         serializedVersion: 2
@@ -225,6 +267,7 @@ TextureImporter:
         height: 24
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: circles25x25
       rect:
         serializedVersion: 2
@@ -234,5 +277,6 @@ TextureImporter:
         height: 25
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

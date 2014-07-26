@@ -1,6 +1,11 @@
 fileFormatVersion: 2
 guid: f1ba4ae61cf3f8b41b838e18286bce5b
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: ghostinthebottle_0
+    21300002: ghostinthebottle_1
+    21300004: ghostinthebottle_2
+    21300006: ghostinthebottle_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -35,6 +40,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 10
   alphaIsTransparency: 1
   textureType: 8
@@ -54,6 +60,7 @@ TextureImporter:
         height: 30
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: ghostinthebottle_1
       rect:
         serializedVersion: 2
@@ -63,6 +70,7 @@ TextureImporter:
         height: 30
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: ghostinthebottle_2
       rect:
         serializedVersion: 2
@@ -72,6 +80,7 @@ TextureImporter:
         height: 30
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: ghostinthebottle_3
       rect:
         serializedVersion: 2
@@ -81,5 +90,6 @@ TextureImporter:
         height: 30
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

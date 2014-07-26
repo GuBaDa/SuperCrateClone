@@ -1,6 +1,15 @@
 fileFormatVersion: 2
 guid: dd2b2d5e755c0414abb3fb85401cf468
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: charWheelNames_0
+    21300002: charWheelNames_1
+    21300004: charWheelNames_2
+    21300006: charWheelNames_3
+    21300008: charWheelNames_4
+    21300010: charWheelNames_5
+    21300012: charWheelNames_6
+    21300014: charWheelNames_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -35,6 +44,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 10
   alphaIsTransparency: 1
   textureType: 8
@@ -54,6 +64,7 @@ TextureImporter:
         height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: charWheelNames_1
       rect:
         serializedVersion: 2
@@ -63,6 +74,7 @@ TextureImporter:
         height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: charWheelNames_2
       rect:
         serializedVersion: 2
@@ -72,6 +84,7 @@ TextureImporter:
         height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: charWheelNames_3
       rect:
         serializedVersion: 2
@@ -81,6 +94,7 @@ TextureImporter:
         height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: charWheelNames_4
       rect:
         serializedVersion: 2
@@ -90,6 +104,7 @@ TextureImporter:
         height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: charWheelNames_5
       rect:
         serializedVersion: 2
@@ -99,6 +114,7 @@ TextureImporter:
         height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: charWheelNames_6
       rect:
         serializedVersion: 2
@@ -108,6 +124,7 @@ TextureImporter:
         height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: charWheelNames_7
       rect:
         serializedVersion: 2
@@ -117,5 +134,6 @@ TextureImporter:
         height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

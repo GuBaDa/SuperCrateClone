@@ -1,6 +1,13 @@
 fileFormatVersion: 2
 guid: 87740b39ab353824090a3b01e4a4fb91
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: boar_0
+    21300002: boar_1
+    21300004: boar_2
+    21300006: boar_3
+    21300008: boar_4
+    21300010: boar_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -35,6 +42,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 10
   alphaIsTransparency: 1
   textureType: 8
@@ -54,6 +62,7 @@ TextureImporter:
         height: 19
       alignment: 7
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: boar_1
       rect:
         serializedVersion: 2
@@ -63,6 +72,7 @@ TextureImporter:
         height: 19
       alignment: 7
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: boar_2
       rect:
         serializedVersion: 2
@@ -72,6 +82,7 @@ TextureImporter:
         height: 19
       alignment: 7
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: boar_3
       rect:
         serializedVersion: 2
@@ -81,6 +92,7 @@ TextureImporter:
         height: 20
       alignment: 7
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: boar_4
       rect:
         serializedVersion: 2
@@ -90,6 +102,7 @@ TextureImporter:
         height: 19
       alignment: 7
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: boar_5
       rect:
         serializedVersion: 2
@@ -99,5 +112,6 @@ TextureImporter:
         height: 21
       alignment: 7
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

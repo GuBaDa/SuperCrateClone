@@ -1,6 +1,69 @@
 fileFormatVersion: 2
 guid: 1c37401743036c34da15f58adbfd500b
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: TileSet3_0
+    21300002: TileSet3_1
+    21300004: TileSet3_2
+    21300006: TileSet3_3
+    21300008: TileSet3_4
+    21300010: TileSet3_5
+    21300012: TileSet3_6
+    21300014: TileSet3_7
+    21300016: TileSet3_8
+    21300018: TileSet3_9
+    21300020: TileSet3_10
+    21300022: TileSet3_11
+    21300024: TileSet3_12
+    21300026: TileSet3_13
+    21300028: TileSet3_14
+    21300030: TileSet3_15
+    21300032: TileSet3_16
+    21300034: TileSet3_17
+    21300036: TileSet3_18
+    21300038: TileSet3_19
+    21300040: TileSet3_20
+    21300042: TileSet3_21
+    21300044: TileSet3_22
+    21300046: TileSet3_23
+    21300048: TileSet3_24
+    21300050: TileSet3_25
+    21300052: TileSet3_26
+    21300054: TileSet3_27
+    21300056: TileSet3_28
+    21300058: TileSet3_29
+    21300060: TileSet3_30
+    21300062: TileSet3_31
+    21300064: TileSet3_32
+    21300066: TileSet3_33
+    21300068: TileSet3_34
+    21300070: TileSet3_35
+    21300072: TileSet3_36
+    21300074: TileSet3_37
+    21300076: TileSet3_38
+    21300078: TileSet3_39
+    21300080: TileSet3_40
+    21300082: TileSet3_41
+    21300084: TileSet3_42
+    21300086: TileSet3_43
+    21300088: TileSet3_44
+    21300090: TileSet3_45
+    21300092: TileSet3_46
+    21300094: TileSet3_47
+    21300096: TileSet3_48
+    21300098: TileSet3_49
+    21300100: TileSet3_50
+    21300102: TileSet3_51
+    21300104: TileSet3_52
+    21300106: TileSet3_53
+    21300108: TileSet3_54
+    21300110: TileSet3_55
+    21300112: TileSet3_56
+    21300114: TileSet3_57
+    21300116: TileSet3_58
+    21300118: TileSet3_59
+    21300120: TileSet3_60
+    21300122: TileSet3_61
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -35,6 +98,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 10
   alphaIsTransparency: 1
   textureType: 5
@@ -54,6 +118,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_1
       rect:
         serializedVersion: 2
@@ -63,6 +128,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_2
       rect:
         serializedVersion: 2
@@ -72,6 +138,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_3
       rect:
         serializedVersion: 2
@@ -81,6 +148,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_4
       rect:
         serializedVersion: 2
@@ -90,6 +158,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_5
       rect:
         serializedVersion: 2
@@ -99,6 +168,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_6
       rect:
         serializedVersion: 2
@@ -108,6 +178,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_7
       rect:
         serializedVersion: 2
@@ -117,6 +188,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_8
       rect:
         serializedVersion: 2
@@ -126,6 +198,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_9
       rect:
         serializedVersion: 2
@@ -135,6 +208,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_10
       rect:
         serializedVersion: 2
@@ -144,6 +218,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_11
       rect:
         serializedVersion: 2
@@ -153,6 +228,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_12
       rect:
         serializedVersion: 2
@@ -162,6 +238,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_13
       rect:
         serializedVersion: 2
@@ -171,6 +248,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_14
       rect:
         serializedVersion: 2
@@ -180,6 +258,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_15
       rect:
         serializedVersion: 2
@@ -189,6 +268,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_16
       rect:
         serializedVersion: 2
@@ -198,6 +278,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_17
       rect:
         serializedVersion: 2
@@ -207,6 +288,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_18
       rect:
         serializedVersion: 2
@@ -216,6 +298,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_19
       rect:
         serializedVersion: 2
@@ -225,6 +308,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_20
       rect:
         serializedVersion: 2
@@ -234,6 +318,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_21
       rect:
         serializedVersion: 2
@@ -243,6 +328,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_22
       rect:
         serializedVersion: 2
@@ -252,6 +338,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_23
       rect:
         serializedVersion: 2
@@ -261,6 +348,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_24
       rect:
         serializedVersion: 2
@@ -270,6 +358,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_25
       rect:
         serializedVersion: 2
@@ -279,6 +368,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_26
       rect:
         serializedVersion: 2
@@ -288,6 +378,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_27
       rect:
         serializedVersion: 2
@@ -297,6 +388,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_28
       rect:
         serializedVersion: 2
@@ -306,6 +398,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_29
       rect:
         serializedVersion: 2
@@ -315,6 +408,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_30
       rect:
         serializedVersion: 2
@@ -324,6 +418,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_31
       rect:
         serializedVersion: 2
@@ -333,6 +428,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_32
       rect:
         serializedVersion: 2
@@ -342,6 +438,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_33
       rect:
         serializedVersion: 2
@@ -351,6 +448,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_34
       rect:
         serializedVersion: 2
@@ -360,6 +458,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_35
       rect:
         serializedVersion: 2
@@ -369,6 +468,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_36
       rect:
         serializedVersion: 2
@@ -378,6 +478,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_37
       rect:
         serializedVersion: 2
@@ -387,6 +488,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_38
       rect:
         serializedVersion: 2
@@ -396,6 +498,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_39
       rect:
         serializedVersion: 2
@@ -405,6 +508,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_40
       rect:
         serializedVersion: 2
@@ -414,6 +518,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_41
       rect:
         serializedVersion: 2
@@ -423,6 +528,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_42
       rect:
         serializedVersion: 2
@@ -432,6 +538,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_43
       rect:
         serializedVersion: 2
@@ -441,6 +548,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_44
       rect:
         serializedVersion: 2
@@ -450,6 +558,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_45
       rect:
         serializedVersion: 2
@@ -459,6 +568,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_46
       rect:
         serializedVersion: 2
@@ -468,6 +578,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_47
       rect:
         serializedVersion: 2
@@ -477,6 +588,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_48
       rect:
         serializedVersion: 2
@@ -486,6 +598,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_49
       rect:
         serializedVersion: 2
@@ -495,6 +608,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_50
       rect:
         serializedVersion: 2
@@ -504,6 +618,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_51
       rect:
         serializedVersion: 2
@@ -513,6 +628,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_52
       rect:
         serializedVersion: 2
@@ -522,6 +638,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_53
       rect:
         serializedVersion: 2
@@ -531,6 +648,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_54
       rect:
         serializedVersion: 2
@@ -540,6 +658,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_55
       rect:
         serializedVersion: 2
@@ -549,6 +668,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_56
       rect:
         serializedVersion: 2
@@ -558,6 +678,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_57
       rect:
         serializedVersion: 2
@@ -567,6 +688,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_58
       rect:
         serializedVersion: 2
@@ -576,6 +698,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_59
       rect:
         serializedVersion: 2
@@ -585,6 +708,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_60
       rect:
         serializedVersion: 2
@@ -594,6 +718,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: TileSet3_61
       rect:
         serializedVersion: 2
@@ -603,5 +728,6 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

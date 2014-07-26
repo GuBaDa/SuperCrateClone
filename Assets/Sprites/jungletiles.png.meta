@@ -1,6 +1,50 @@
 fileFormatVersion: 2
 guid: d91eb4745a2a34f35a60a54136c2c66d
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: jungletiles_0
+    21300002: jungletiles_1
+    21300004: jungletiles_2
+    21300006: jungletiles_3
+    21300008: jungletiles_4
+    21300010: jungletiles_5
+    21300012: jungletiles_6
+    21300014: jungletiles_7
+    21300016: jungletiles_8
+    21300018: jungletiles_9
+    21300020: jungletiles_10
+    21300022: jungletiles_11
+    21300024: jungletiles_12
+    21300026: jungletiles_13
+    21300028: jungletiles_14
+    21300030: jungletiles_15
+    21300032: jungletiles_16
+    21300034: jungletiles_17
+    21300036: jungletiles_18
+    21300038: jungletiles_19
+    21300040: jungletiles_20
+    21300042: jungletiles_21
+    21300044: jungletiles_22
+    21300046: jungletiles_23
+    21300048: jungletiles_24
+    21300050: jungletiles_25
+    21300052: jungletiles_26
+    21300054: jungletiles_27
+    21300056: jungletiles_28
+    21300058: jungletiles_29
+    21300060: jungletiles_30
+    21300062: jungletiles_31
+    21300064: jungletiles_32
+    21300066: jungletiles_33
+    21300068: jungletiles_34
+    21300070: jungletiles_35
+    21300072: jungletiles_36
+    21300074: jungletiles_37
+    21300076: jungletiles_38
+    21300078: jungletiles_39
+    21300080: jungletiles_40
+    21300082: jungletiles_41
+    21300084: jungletiles_42
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -35,6 +79,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 10
   alphaIsTransparency: 1
   textureType: 5
@@ -54,6 +99,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_1
       rect:
         serializedVersion: 2
@@ -63,6 +109,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_2
       rect:
         serializedVersion: 2
@@ -72,6 +119,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_3
       rect:
         serializedVersion: 2
@@ -81,6 +129,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_4
       rect:
         serializedVersion: 2
@@ -90,6 +139,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_5
       rect:
         serializedVersion: 2
@@ -99,6 +149,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_6
       rect:
         serializedVersion: 2
@@ -108,6 +159,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_7
       rect:
         serializedVersion: 2
@@ -117,6 +169,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_8
       rect:
         serializedVersion: 2
@@ -126,6 +179,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_9
       rect:
         serializedVersion: 2
@@ -135,6 +189,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_10
       rect:
         serializedVersion: 2
@@ -144,6 +199,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_11
       rect:
         serializedVersion: 2
@@ -153,6 +209,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_12
       rect:
         serializedVersion: 2
@@ -162,6 +219,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_13
       rect:
         serializedVersion: 2
@@ -171,6 +229,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_14
       rect:
         serializedVersion: 2
@@ -180,6 +239,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_15
       rect:
         serializedVersion: 2
@@ -189,6 +249,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_16
       rect:
         serializedVersion: 2
@@ -198,6 +259,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_17
       rect:
         serializedVersion: 2
@@ -207,6 +269,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_18
       rect:
         serializedVersion: 2
@@ -216,6 +279,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_19
       rect:
         serializedVersion: 2
@@ -225,6 +289,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_20
       rect:
         serializedVersion: 2
@@ -234,6 +299,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_21
       rect:
         serializedVersion: 2
@@ -243,6 +309,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_22
       rect:
         serializedVersion: 2
@@ -252,6 +319,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_23
       rect:
         serializedVersion: 2
@@ -261,6 +329,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_24
       rect:
         serializedVersion: 2
@@ -270,6 +339,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_25
       rect:
         serializedVersion: 2
@@ -279,6 +349,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_26
       rect:
         serializedVersion: 2
@@ -288,6 +359,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_27
       rect:
         serializedVersion: 2
@@ -297,6 +369,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_28
       rect:
         serializedVersion: 2
@@ -306,6 +379,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_29
       rect:
         serializedVersion: 2
@@ -315,6 +389,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_30
       rect:
         serializedVersion: 2
@@ -324,6 +399,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_31
       rect:
         serializedVersion: 2
@@ -333,6 +409,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_32
       rect:
         serializedVersion: 2
@@ -342,6 +419,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_33
       rect:
         serializedVersion: 2
@@ -351,6 +429,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_34
       rect:
         serializedVersion: 2
@@ -360,6 +439,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_35
       rect:
         serializedVersion: 2
@@ -369,6 +449,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_36
       rect:
         serializedVersion: 2
@@ -378,6 +459,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_37
       rect:
         serializedVersion: 2
@@ -387,6 +469,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_38
       rect:
         serializedVersion: 2
@@ -396,6 +479,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_39
       rect:
         serializedVersion: 2
@@ -405,6 +489,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_40
       rect:
         serializedVersion: 2
@@ -414,6 +499,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_41
       rect:
         serializedVersion: 2
@@ -423,6 +509,7 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: jungletiles_42
       rect:
         serializedVersion: 2
@@ -432,5 +519,6 @@ TextureImporter:
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
