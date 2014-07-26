@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameConstructor : MonoBehaviour {
 
+	private List<GameObject> spList = new List<GameObject>();
 
 	private int charSelected;
 
@@ -27,6 +29,7 @@ public class GameConstructor : MonoBehaviour {
 		}
 		if (singleScene) {
 			playerSpawnPoints = GameObject.FindGameObjectsWithTag ("SpawnPointPlayer");
+			Debug.Log ("number of playerSpawnPoints = " + playerSpawnPoints.Length);
 			if (playersSelected.Length == numberOfPlayers){
 				Debug.Log ("CharSelected is present");
 				if (playerSpawnPoints.Length != 0){
@@ -50,10 +53,11 @@ public class GameConstructor : MonoBehaviour {
 
 	void OnLevelWasLoaded(int level){
 		//find Player Spawnpoints
-		playerSpawnPoints = GameObject.FindGameObjectsWithTag ("SpawnPointPlayer");
-		Debug.Log ("number of playerSpawnPoints = " + playerSpawnPoints.Length);
+
 
 		if (level > 0){
+			playerSpawnPoints = GameObject.FindGameObjectsWithTag ("SpawnPointPlayer");
+			Debug.Log ("number of playerSpawnPoints = " + playerSpawnPoints.Length);
 			Debug.Log ("level is playable");
 			if (playersSelected.Length == numberOfPlayers){
 				Debug.Log ("CharSelected is present");
@@ -72,15 +76,24 @@ public class GameConstructor : MonoBehaviour {
 
 	void PlayersSpawn (GameObject[] pls){
 		if (pls != null && pls.Length <= playerSpawnPoints.Length){
-			Debug.Log ("PlayerSpawn initiated");
+			//Debug.Log ("PlayerSpawn initiated | spawnpoint : " + pls.Length + " | " + playerSpawnPoints.Length);
 			int _playerControlNr = 0;
-			foreach (GameObject pl in pls){
-				GameObject spawnPoint = playerSpawnPoints[Random.Range(0, playerSpawnPoints.Length)];
+			//make list
+			foreach (GameObject sp in playerSpawnPoints) {
+				spList.Add (sp);
+			}
+			foreach (GameObject pl in pls) {
+				int spawnPointNr = Random.Range(0, spList.Count);
+				GameObject spawnPoint = spList[spawnPointNr];
+				Debug.Log ("spawnpoint nr :" + spawnPointNr);
 				GameObject pPlayer = (GameObject) Instantiate (pl, spawnPoint.transform.position, Quaternion.identity);
 				_playerControlNr ++;
 				pPlayer.GetComponent<PlayerScript>().PlayerControlNr = _playerControlNr;
 
-				//remove old spawnpoint fro array;
+				//remove old spawnpoint from array;
+				spList.RemoveAt(spawnPointNr);
+				Debug.Log (spList.Count);
+				/*
 				GameObject[] _playerSpawnPoints = new GameObject[playerSpawnPoints.Length -1];
 				for (int i=0; i < _playerSpawnPoints.Length; i++){
 					if (playerSpawnPoints[i] != spawnPoint){
@@ -88,12 +101,14 @@ public class GameConstructor : MonoBehaviour {
 					}
 				}
 				playerSpawnPoints = _playerSpawnPoints;
+				*/
 			}
 			// hide SpawnPoints
 			foreach (GameObject i in GameObject.FindGameObjectsWithTag ("SpawnPointPlayer")){
 				i.renderer.enabled = false;
 			}
 		} 
+		
 		else {
 			Debug.Log ("No Player available to be spawned or too few spawnpoints");
 		}
