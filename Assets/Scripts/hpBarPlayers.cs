@@ -20,16 +20,12 @@ public class hpBarPlayers : MonoBehaviour {
 	void Awake () {
 		//temporary setup for single player testing
 		//needs better way to figure out wich player to connect in future
-		players = GameObject.FindGameObjectsWithTag("Player");
-		if (GameObject.Find("Player" + healtForPlayerNr.ToString() + "Controller") != null){
-			player = GameObject.Find("Player" + healtForPlayerNr.ToString() + "Controller");
-
-
-		}
-		else{
+		int numberOfPlayers =  GameObject.FindGameObjectWithTag("GameConstructor").GetComponent<GameConstructor>().NumberOfPlayers;
+		if (healtForPlayerNr > numberOfPlayers){
 			Debug.Log("NO Player available");
 			Destroy (gameObject);
 		}
+
 		lineRenderer = GetComponent<LineRenderer>();
 
 		lineRenderer.material = new Material (Shader.Find ("Sprites/Default"));
@@ -37,7 +33,15 @@ public class hpBarPlayers : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (GameObject.FindGameObjectsWithTag("Player").Length > 0){
+		if (player == null){
+			GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+			foreach (GameObject pl in players){
+				if (pl.GetComponent<PlayerController>().PlayerControlNr == healtForPlayerNr){
+					player = pl;
+				}
+			}
+		}
+		if (GameObject.FindGameObjectsWithTag("Player").Length > 0 && player != null){
 			hp = player.GetComponentInChildren<PlayerScript>().Health / 100;
 			Debug.Log (hp);
 			float hpLength = (hp * 2.8f) + posStart.x;
