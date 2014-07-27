@@ -7,15 +7,17 @@ public class WeaponShoot : MonoBehaviour {
 	public float attackSpeed;
 	public Vector2 projectileForce;
 	public Vector2 projectileFirePos;
+	public bool automatic;
 	private float coolDown;
 
-	private bool fire1Btn;
-	private bool fire1BtnDown;
+	private bool fireBtn;
+	private float axisVertical;
+
 
 	// Update is called once per frame
 	void Update () {
 		getControls ();
-		if (fire1BtnDown && Time.time > coolDown) {
+		if (fireBtn && Time.time > coolDown) {
 			Fire();
 		}
 	}
@@ -40,7 +42,7 @@ public class WeaponShoot : MonoBehaviour {
 		} 
 
 		// Add a certain force to the projectile, the amount of force is given in the public var projectileForce and determined 
-		pPrefab.rigidbody2D.AddForce (new Vector2 ((projectileForce.x *(transform.parent.transform.localScale.x)),projectileForce.y));
+		pPrefab.rigidbody2D.AddForce (new Vector2 ((projectileForce.x *(transform.parent.transform.localScale.x)),projectileForce.y*axisVertical));
 
 		coolDown = Time.time + attackSpeed;
 	}
@@ -50,8 +52,12 @@ public class WeaponShoot : MonoBehaviour {
 		GetComponentInParent<PlayerController>().PlayerControlNr = GetComponentInParent<PlayerScript> ().PlayerControlNr;
 
 		//get input
-		fire1Btn = GetComponentInParent<PlayerController>().Fire1Btn;
-		fire1BtnDown = GetComponentInParent<PlayerController>().Fire1BtnDown;
+		if(automatic){
+			fireBtn = GetComponentInParent<PlayerController>().Fire1Btn;
+		} else {
+			fireBtn = GetComponentInParent<PlayerController>().Fire1BtnDown;
+		}
+		axisVertical = GetComponentInParent<PlayerController>().AxisVertical;
 
 		
 	}
