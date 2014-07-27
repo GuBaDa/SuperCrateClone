@@ -32,23 +32,31 @@ public class WeaponMelee : MonoBehaviour {
 			anim.SetBool("animSwing", true);
 			anim.SetBool("animIdle", false);
 		}
+		/*
 		//flip if needed
-		transform.localScale = new Vector2 (player.transform.localScale.x, 1);
-
-
+		if (player.transform.localScale.x < 0) {
+			transform.localRotation.Set (0f, 180f, 0f, 0f);
+		}
+		else {
+			transform.localRotation.Set (0f, 0f, 0f, 0f);
+			}
+*/
 	}
 
 	public void SetAttackOn (){
 		attack = true;
+
 	}
 	public void SetAttackOff (){
 		attack = false;
 		anim.SetBool("animSwing", false);
 		anim.SetBool("animIdle", true);
+
 	}
 
-	void OnCollisionEnter2D(Collision2D coll){
+	void OnTriggerEnter2D(Collider2D coll){
 		// For players
+		Debug.Log ("trigger!!");
 		if (attack){
 			GameObject enemy = coll.gameObject;
 			if (enemy.tag == "Player" && enemy != player) {
