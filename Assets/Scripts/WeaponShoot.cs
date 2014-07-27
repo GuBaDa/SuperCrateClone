@@ -36,7 +36,7 @@ public class WeaponShoot : MonoBehaviour {
 
 		// Flip the projectile if looking the other way.
 		Vector3 tempScale = new Vector3 (-1,pPrefab.transform.localScale.y,pPrefab.transform.localScale.z);
-		if(transform.parent.transform.localScale.x == 1)
+		if(transform.parent.transform.localScale.x == -1)
 		{
 			pPrefab.transform.localScale = tempScale;
 		} 
