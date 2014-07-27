@@ -26,6 +26,9 @@ public class ProjectileGranate : MonoBehaviour {
 		if (detonateTime < 0 && !loop){
 			particles.Play();
 			renderer.enabled = false;
+			gameObject.GetComponent<CircleCollider2D>().enabled = false;
+			gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+			Destroy(rigidbody2D);
 			StartCoroutine (BlastSpawner(0.01f));
 		}
 	}

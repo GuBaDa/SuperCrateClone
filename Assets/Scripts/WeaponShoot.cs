@@ -6,6 +6,7 @@ public class WeaponShoot : MonoBehaviour {
 	public GameObject projectilePrefab;
 	public float attackSpeed;
 	public Vector2 projectileForce;
+	public Vector2 projectileFirePos;
 	private float coolDown;
 
 	private bool fire1Btn;
@@ -22,8 +23,14 @@ public class WeaponShoot : MonoBehaviour {
 
 	void Fire()
 	{
-		//Instatiate the projectile at the position of the weapon.
-		GameObject pPrefab = (GameObject) Instantiate (projectilePrefab, transform.position, Quaternion.identity);
+		//Calculate the relative FirePos of the projectile, which is different for every "Shoot" type weapon.
+		Vector3 projectileInitPos = new Vector3 (projectileFirePos.x*transform.parent.transform.localScale.x,projectileFirePos.y,0); 
+
+		//Calculate the direction, namely the direction indicated by the arrow keys/analog stick.
+		// Something something Quaternion
+
+		// Instantiate the projectile.
+		GameObject pPrefab = (GameObject) Instantiate (projectilePrefab, (transform.position+projectileInitPos), Quaternion.identity);
 
 		// Flip the projectile if looking the other way.
 		Vector3 tempScale = new Vector3 (-1,pPrefab.transform.localScale.y,pPrefab.transform.localScale.z);
@@ -32,7 +39,7 @@ public class WeaponShoot : MonoBehaviour {
 			pPrefab.transform.localScale = tempScale;
 		} 
 
-		// Add a certain force to the projectile, the amount of force is given in the public var projectileForce
+		// Add a certain force to the projectile, the amount of force is given in the public var projectileForce and determined 
 		pPrefab.rigidbody2D.AddForce (new Vector2 ((projectileForce.x *(transform.parent.transform.localScale.x)),projectileForce.y));
 
 		coolDown = Time.time + attackSpeed;

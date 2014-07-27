@@ -10,7 +10,7 @@ public class WeaponMelee : MonoBehaviour {
 	private bool fire1Btn;
 	private bool fire1BtnDown;
 
-	private bool attack;
+	private bool attack = false;
 	private GameObject player;
 
 	// Use this for initialization
@@ -27,7 +27,7 @@ public class WeaponMelee : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		getControls();
-		if (player != null){
+		if (player == null){
 			player = transform.parent.gameObject;
 		}
 		if (fire1BtnDown) {
