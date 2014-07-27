@@ -27,7 +27,7 @@ public class PlayerScript : MonoBehaviour {
 	// 
 	public float Health{
 		get{return health;}
-		set{health = value;}
+		set{health = Mathf.Clamp (value, 0f, 100f);}
 	}
 
 	public int Experience{
