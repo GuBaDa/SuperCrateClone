@@ -27,7 +27,9 @@ public class WeaponMelee : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		getControls();
-		player = transform.parent.gameObject;
+		if (player != null){
+			player = transform.parent.gameObject;
+		}
 		if (fire1BtnDown) {
 			anim.SetBool("animSwing", true);
 			anim.SetBool("animIdle", false);
