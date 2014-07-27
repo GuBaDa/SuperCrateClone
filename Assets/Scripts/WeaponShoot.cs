@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerFireScript : MonoBehaviour {
+public class WeaponShoot : MonoBehaviour {
 
 	public GameObject projectilePrefab;
 	public float attackSpeed;
 	public Vector2 projectileForce;
 	private float coolDown;
-	private AimScriptChild aimSight;
 
 	private bool fire1Btn;
 	private bool fire1BtnDown;

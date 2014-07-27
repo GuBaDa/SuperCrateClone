@@ -32,7 +32,6 @@ public class ProjectileGranate : MonoBehaviour {
 
 	IEnumerator BlastSpawner(float time) { 
 		loop = true;
-		Debug.Log ("IENUMERATOR");
 
 
 		for(int i=0; i<numberOfBlasts; i++) {

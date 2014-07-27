@@ -64,7 +64,7 @@ public class AvatarSelector : MonoBehaviour {
 
 		//check if all are selected
 		bool allSelected = true;
-		GameObject[] selecters = GameObject.FindGameObjectsWithTag("Player");
+		//GameObject[] selecters = GameObject.FindGameObjectsWithTag("Player");
 		foreach (GameObject selection in constructor.PlayersSelected){
 			if (selection == null){
 				allSelected = false;
