@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ProjectileFireball : MonoBehaviour {
+public class ProjectileBullet : MonoBehaviour {
 
 	public ParticleSystem psPlayerHit;
 	public float damageOutput;

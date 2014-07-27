@@ -6,6 +6,7 @@ public class WeaponMelee : MonoBehaviour {
 	Animator anim;
 
 	public float damage; 
+	public ParticleSystem psPlayerHit;
 
 	private bool fire1Btn;
 	private bool fire1BtnDown;
@@ -17,7 +18,7 @@ public class WeaponMelee : MonoBehaviour {
 	void Awake () {
 		// Set control script to right player
 
-		//defince animator
+		//define animator
 		anim = GetComponent<Animator> ();
 		//define parent plaer
 
@@ -63,6 +64,8 @@ public class WeaponMelee : MonoBehaviour {
 			if (enemy.tag == "Player" && enemy != player) {
 				PlayerScript playerScript = enemy.GetComponent<PlayerScript>();
 				playerScript.Health -= damage;
+				psPlayerHit.maxParticles = (int) damage;
+				Instantiate(psPlayerHit, transform.position, Quaternion.identity);
 			} else if (enemy.tag == "Mob") {
 				MobScript mobScript = enemy.GetComponent<MobScript>();
 				mobScript.Health -= damage;

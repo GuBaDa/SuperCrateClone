@@ -24,21 +24,7 @@ public class PlayerScript : MonoBehaviour {
 	//Weapon
 	public GameObject weaponActive;
 
-	// 
-	public float Health{
-		get{return health;}
-		set{health = Mathf.Clamp (value, 0f, 100f);}
-	}
 
-	public int Experience{
-		get{return experience;}
-		set{experience = value;}
-	}
-
-	public float MaxSpeed{
-		get{return maxSpeed;}
-		set	{maxSpeed = value;}
-	}
 	
 	public GameObject dust;
 
@@ -75,9 +61,15 @@ public class PlayerScript : MonoBehaviour {
 		// If the player hits the ground, make sure he can move normally again.
 		RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector3.down, 1f);
 		if (hit.collider != null) {
+			//Debug.DrawLine(hit.point, transform.position, Color.blue, 1, false);
 
-			wallLeft = false;
-			wallRight = false;
+			RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector3.left,1f);
+
+			if(hitLeft.collider != null){
+				//Debug.DrawLine(hitLeft.point, transform.position, Color.white, 2, false);
+				wallLeft = false;
+			} 
+			//wallRight = false;
 			grounded = true;
 		}
 		
@@ -102,18 +94,21 @@ public class PlayerScript : MonoBehaviour {
 //		}
 
 		OnDeath ();
-		doDoubleJump ();
-		doJump ();
+		doDoubleJump();
+		if(grounded)doJump ();
 	}
 
 	void OnCollisionEnter2D(Collision2D collision2D){	
+
 		foreach (ContactPoint2D contact in collision2D.contacts) {
+			//Debug.DrawLine(contact.point, contact.point + contact.normal, Color.red, 2, false);
+
 			// If the player hits something below him, he is grounded and interacts with this object.
 			if (contact.normal == Vector2.up) {
 				if (contact.collider.rigidbody2D != null) {
 					activePlatform = contact.collider.transform;
 					//Debug.Log("New Collision: I just hit the ground below me!");
-					grounded = true;
+					//grounded = true;
 				} else {
 					activePlatform = null;
 				}
@@ -123,6 +118,7 @@ public class PlayerScript : MonoBehaviour {
 
 	void OnCollisionStay2D(Collision2D collision) {
 		foreach (ContactPoint2D contact in collision.contacts) {
+
 			if( (contact.normal == Vector2.right) ){
 				Vector2 playerSpeed = rigidbody2D.velocity;
 				playerSpeed.x = 0;
@@ -193,7 +189,7 @@ public class PlayerScript : MonoBehaviour {
 		}
 	}
 	
-	/// Misc functions, OnDeath, LoseHP(int), etc.. 
+	/// Misc functions, OnDeath, etc.. 
 	/// 
 	/// 
 	void OnDeath(){
@@ -223,8 +219,26 @@ public class PlayerScript : MonoBehaviour {
 		jumpBtnDown = GetComponent<PlayerController>().JumpBtnDown;
 
 	}
-}
 
+
+	//  Properties /// 
+	public float Health{
+		get{return health;}
+		set{health = Mathf.Clamp (value, 0f, 100f);}
+	}
+	
+	public int Experience{
+		get{return experience;}
+		set{experience = value;}
+	}
+	
+	public float MaxSpeed{
+		get{return maxSpeed;}
+		set	{maxSpeed = value;}
+	}
+	
+
+}
 
 
 
