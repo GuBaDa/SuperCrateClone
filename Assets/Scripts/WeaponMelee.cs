@@ -16,18 +16,18 @@ public class WeaponMelee : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		// Set control script to right player
-		GetComponentInParent<PlayerController>().PlayerControlNr = GetComponentInParent<PlayerScript> ().PlayerControlNr;
+
 		//defince animator
 		anim = GetComponent<Animator> ();
 		//define parent plaer
-		player = transform.parent.gameObject;
+
 	}
 
 
 	// Update is called once per frame
 	void Update () {
 		getControls();
-
+		player = transform.parent.gameObject;
 		if (fire1BtnDown) {
 			anim.SetBool("animSwing", true);
 			anim.SetBool("animIdle", false);
@@ -56,7 +56,6 @@ public class WeaponMelee : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D coll){
 		// For players
-		Debug.Log ("trigger!!");
 		if (attack){
 			GameObject enemy = coll.gameObject;
 			if (enemy.tag == "Player" && enemy != player) {
@@ -70,7 +69,7 @@ public class WeaponMelee : MonoBehaviour {
 	}
 
 	void getControls() {
-
+		GetComponentInParent<PlayerController>().PlayerControlNr = GetComponentInParent<PlayerScript> ().PlayerControlNr;
 		//get input
 		fire1Btn = GetComponentInParent<PlayerController>().Fire1Btn;
 		fire1BtnDown = GetComponentInParent<PlayerController>().Fire1BtnDown;
