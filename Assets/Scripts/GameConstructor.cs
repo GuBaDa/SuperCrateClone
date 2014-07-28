@@ -20,13 +20,11 @@ public class GameConstructor : MonoBehaviour {
 
 	public GameObject[] playersSelected;
 
-	private bool isPlayerSpawned;
+	private bool isPlayerSpawned = false;
 
 	void Awake(){
 		//check if gameconstructor allready exists from previous scene
-		if (singleScene && GameObject.FindGameObjectsWithTag("GameConstructor").Length > 1) {
-			Destroy (gameObject);
-		}
+
 		if (singleScene) {
 			playerSpawnPoints = GameObject.FindGameObjectsWithTag ("SpawnPointPlayer");
 			Debug.Log ("number of playerSpawnPoints = " + playerSpawnPoints.Length);
@@ -49,6 +47,12 @@ public class GameConstructor : MonoBehaviour {
 
 
 
+	}
+
+	void Update () {
+		if (singleScene && GameObject.FindGameObjectsWithTag("GameConstructor").Length > 1) {
+			Destroy (gameObject);
+		}
 	}
 
 	void OnLevelWasLoaded(int level){
@@ -112,6 +116,7 @@ public class GameConstructor : MonoBehaviour {
 		else {
 			Debug.Log ("No Player available to be spawned or too few spawnpoints");
 		}
+			isPlayerSpawned = true;
 	}
 
 
