@@ -9,7 +9,7 @@ public class BackgroundParallax : MonoBehaviour {
 	void Start () {
 
 		//Set material to wrap texture UVs around
-		renderer.material.mainTexture.wrapMode = TextureWrapMode.Repeat;
+		//renderer.material.mainTexture.wrapMode = TextureWrapMode.Repeat;
 	}
 	
 	// Update is called once per frame
