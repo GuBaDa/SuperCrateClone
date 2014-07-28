@@ -74,7 +74,7 @@ public class PlayerScript : MonoBehaviour {
 		getControls();
 	
 
-		Debug.Log("In playerscript grounded is: " + grounded);
+		//`Debug.Log("In playerscript grounded is: " + grounded);
 		OnDeath ();
 		doDoubleJump();
 		if(grounded)doJump ();
