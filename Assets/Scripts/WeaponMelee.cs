@@ -10,6 +10,7 @@ public class WeaponMelee : MonoBehaviour {
 
 	private bool fire1Btn;
 	private bool fire1BtnDown;
+	private Quaternion q;
 
 	private bool attack = false;
 	private GameObject player;
@@ -65,7 +66,13 @@ public class WeaponMelee : MonoBehaviour {
 				PlayerScript playerScript = enemy.GetComponent<PlayerScript>();
 				playerScript.Health -= damage;
 				psPlayerHit.maxParticles = (int) damage;
-				Instantiate(psPlayerHit, transform.position, Quaternion.identity);
+				if(transform.parent.transform.localScale.x == 1)
+				{
+					q = psPlayerHit.transform.rotation;
+				} else {
+					q = psPlayerHit.transform.rotation * Quaternion.Euler(0,90,0);
+				}
+				Instantiate(psPlayerHit, coll.transform.position , q);
 			} else if (enemy.tag == "Mob") {
 				MobScript mobScript = enemy.GetComponent<MobScript>();
 				mobScript.Health -= damage;
