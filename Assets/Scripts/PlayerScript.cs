@@ -72,9 +72,11 @@ public class PlayerScript : MonoBehaviour {
 	// Update is called on each frame, this way the character immediately reacts to jumps.
 	void Update(){
 		getControls();
-	
 
-		//`Debug.Log("In playerscript grounded is: " + grounded);
+		if(rigidbody2D.velocity.y < 0){
+			Physics2D.IgnoreLayerCollision(2,11,false);
+		}
+
 		OnDeath ();
 		doDoubleJump();
 		if(grounded)doJump ();
@@ -114,6 +116,7 @@ public class PlayerScript : MonoBehaviour {
 	void doJump(){
 		if (jumpBtnDown && grounded) {
 			rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, jumpHeight);
+			Physics2D.IgnoreLayerCollision(2,11,true);
 			grounded = false;
 			dustCast ();
 		}
@@ -124,6 +127,7 @@ public class PlayerScript : MonoBehaviour {
 		if (doubleJumpOn) {
 			if(jumpBtnDown && !grounded && doubleJump ){
 				rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, doubleJumpHeight);
+				Physics2D.IgnoreLayerCollision(2,11,true);
 				doubleJump = false;
 			}
 		}
