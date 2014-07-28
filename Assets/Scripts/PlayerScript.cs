@@ -6,11 +6,13 @@ public class PlayerScript : MonoBehaviour {
 	[HideInInspector] // Hides var below from inspector
 	public bool grounded;
 
-	private bool jumped;
+	private bool doubleJump;
 	private bool wallLeft, wallRight;
 	private Transform activePlatform;
 	private Vector3 tempScale;
 	private float doubleJumpHeight;
+	public bool goLeft;
+	public bool goRight;
 	public Vector3 weaponPos;
 	public float jumpHeight;
 	public bool doubleJumpOn;
@@ -42,9 +44,10 @@ public class PlayerScript : MonoBehaviour {
 	void Awake () {
 		health = 100f;
 		grounded = false;
-		jumped = false;
+		doubleJump = true;
 		wallLeft = false;
 		wallRight = false;
+		goRight = true;
 		doubleJumpHeight = jumpHeight * .75f;
 		tempScale = transform.localScale;
 	}
@@ -55,91 +58,29 @@ public class PlayerScript : MonoBehaviour {
 		doMove ();
 	}
 
+	void OnTriggerStay2D(Collider2D coll){
+		if(!(coll.transform.IsChildOf(transform))){
+			grounded = true;
+			doubleJump = true;
+		}
+	}
+
+	void OnTriggerExit2D(){
+		grounded = false;
+	}
+
 	// Update is called on each frame, this way the character immediately reacts to jumps.
 	void Update(){
 		getControls();
-		// If the player hits the ground, make sure he can move normally again.
-		RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector3.down, 1f);
-		if (hit.collider != null) {
-			//Debug.DrawLine(hit.point, transform.position, Color.blue, 1, false);
+	
 
-			RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector3.left,1f);
-
-			if(hitLeft.collider != null){
-				//Debug.DrawLine(hitLeft.point, transform.position, Color.white, 2, false);
-				wallLeft = false;
-			} 
-			//wallRight = false;
-			grounded = true;
-		}
-		
-		// Get all horizontal velocity properties from the object you're touching.
-		if (activePlatform != null) {
-			Vector2 tempVelocity;
-			tempVelocity.x = activePlatform.rigidbody2D.velocity.x;
-			tempVelocity.y = transform.rigidbody2D.velocity.y;
-			transform.rigidbody2D.velocity = tempVelocity;
-		}
-
-
-
-		// Flip sprite if mouse player is not facing the mouse
-//		Vector3 worldMousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-//
-//		if( transform.localScale.x < 0 && ( worldMousePos.x > transform.position.x) ||
-//			   	transform.localScale.x > 0 && ( worldMousePos.x  < transform.position.x)) 
-//		{	
-//			tempScale.x *= -1;
-//			transform.localScale = tempScale;
-//		}
-
+		Debug.Log("In playerscript grounded is: " + grounded);
 		OnDeath ();
 		doDoubleJump();
 		if(grounded)doJump ();
 	}
 
-	void OnCollisionEnter2D(Collision2D collision2D){	
 
-		foreach (ContactPoint2D contact in collision2D.contacts) {
-			//Debug.DrawLine(contact.point, contact.point + contact.normal, Color.red, 2, false);
-
-			// If the player hits something below him, he is grounded and interacts with this object.
-			if (contact.normal == Vector2.up) {
-				if (contact.collider.rigidbody2D != null) {
-					activePlatform = contact.collider.transform;
-					//Debug.Log("New Collision: I just hit the ground below me!");
-					//grounded = true;
-				} else {
-					activePlatform = null;
-				}
-			}
-		}
-	}
-
-	void OnCollisionStay2D(Collision2D collision) {
-		foreach (ContactPoint2D contact in collision.contacts) {
-
-			if( (contact.normal == Vector2.right) ){
-				Vector2 playerSpeed = rigidbody2D.velocity;
-				playerSpeed.x = 0;
-				wallLeft = true;
-				rigidbody2D.velocity = playerSpeed;
-			} else if (contact.normal == (Vector2.right*-1)){
-				Vector2 playerSpeed = rigidbody2D.velocity;
-				playerSpeed.x = 0;
-				wallRight = true;
-				rigidbody2D.velocity = playerSpeed;
-			}
-		}
-	}
-
-	// There is no active platform on collision exit
-	void OnCollisionExit2D(Collision2D collision2D){
-		wallLeft = false;
-		wallRight = false;
-		grounded = false;
-		activePlatform = null;
-	}
 
 
 	/// Move, Jump and DoubleJump //////
@@ -159,10 +100,10 @@ public class PlayerScript : MonoBehaviour {
 	   			transform.localScale = tempScale;
 	   		}
 
-			if(tempSpeed.x < 0 && !wallLeft){
+			if(tempSpeed.x < 0 && goRight){
 				rigidbody2D.velocity = tempSpeed;
 			}
-			if(tempSpeed.x > 0 && !wallRight){
+			if(tempSpeed.x > 0 && goRight){
 				rigidbody2D.velocity = tempSpeed;
 			}
 
@@ -174,7 +115,6 @@ public class PlayerScript : MonoBehaviour {
 		if (jumpBtnDown && grounded) {
 			rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, jumpHeight);
 			grounded = false;
-			jumped = true;
 			dustCast ();
 		}
 	}
@@ -182,9 +122,9 @@ public class PlayerScript : MonoBehaviour {
 
 	void doDoubleJump(){
 		if (doubleJumpOn) {
-			if(jumpBtnDown && jumped ){
+			if(jumpBtnDown && !grounded && doubleJump ){
 				rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, doubleJumpHeight);
-				jumped = false;
+				doubleJump = false;
 			}
 		}
 	}
