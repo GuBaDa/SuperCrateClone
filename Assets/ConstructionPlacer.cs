@@ -64,16 +64,17 @@ public class ConstructionPlacer : MonoBehaviour {
 		float lerp = Mathf.PingPong (Time.time, lerpTime) / lerpTime;
 		Color newColor = Color.Lerp (possible1, possible2, lerp);
 		if (istrigger){
-			renderer.material.SetColor("_TintColor",Color.Lerp(possible1,possible2, lerp)); 
-		}
-		else {
 			renderer.material.SetColor("_TintColor",Color.Lerp(impossible1,impossible2, lerp)); 
 		}
+		else {
+			renderer.material.SetColor("_TintColor",Color.Lerp(possible1,possible2, lerp)); 
+		}
+
+		//
 	}
 
-	void OnTriggerEnter2D (Collider2D coll) {
+	void OnTriggerStay2D (Collider2D coll) {
 		Debug.Log ("box has collision");
-
 		istrigger = true;
 	}
 
