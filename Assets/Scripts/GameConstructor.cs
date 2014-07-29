@@ -20,6 +20,8 @@ public class GameConstructor : MonoBehaviour {
 
 	public GameObject[] playersSelected;
 
+	private GameObject[] _playersSelected;
+
 	private bool isPlayerSpawned = false;
 
 	void Awake(){
@@ -90,10 +92,11 @@ public class GameConstructor : MonoBehaviour {
 				int spawnPointNr = Random.Range(0, spList.Count);
 				GameObject spawnPoint = spList[spawnPointNr];
 				Debug.Log ("spawnpoint nr :" + spawnPointNr);
-				GameObject pPlayer = (GameObject) Instantiate (pl, spawnPoint.transform.position, Quaternion.identity);
 				_playerControlNr ++;
-				pPlayer.GetComponent<PlayerScript>().PlayerControlNr = _playerControlNr;
-
+				if (pl != null) {
+					GameObject pPlayer = (GameObject) Instantiate (pl, spawnPoint.transform.position, Quaternion.identity);
+					pPlayer.GetComponent<PlayerScript>().PlayerControlNr = _playerControlNr;
+				}
 				//remove old spawnpoint from array;
 				spList.RemoveAt(spawnPointNr);
 				Debug.Log (spList.Count);
@@ -105,13 +108,15 @@ public class GameConstructor : MonoBehaviour {
 					}
 				}
 				playerSpawnPoints = _playerSpawnPoints;
+
 				*/
-			}
+			
+				}
 			// hide SpawnPoints
 			foreach (GameObject i in GameObject.FindGameObjectsWithTag ("SpawnPointPlayer")){
 				i.renderer.enabled = false;
-			}
-		} 
+			} 
+		}
 		
 		else {
 			Debug.Log ("No Player available to be spawned or too few spawnpoints");
