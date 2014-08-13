@@ -36,17 +36,7 @@ public class AnimationScript : MonoBehaviour {
 			//check direction
 				Vector3 worldMousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 				float direction = (worldMousePos.x - transform.position.x) * rigidbody2D.velocity.x;
-
-				if (direction > 0){
-					//walk forward
-					anim.SetBool("animWalk", true);
-					anim.SetBool("animWalkBackwards", false);
-				}
-				else {
-					//walk backwards
-					anim.SetBool("animWalkBackwards", true);
-					anim.SetBool("animWalk", false);
-				}
+				anim.SetBool("animWalk", true);
 				anim.SetBool("animIdle", false);
 				anim.SetBool("animJump", false);
 			}
