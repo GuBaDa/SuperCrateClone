@@ -5,8 +5,10 @@ public class WeaponMelee : MonoBehaviour {
 
 	Animator anim;
 
+
 	public float damage; 
 	public ParticleSystem psPlayerHit;
+	public bool randomFlipY;
 
 	private bool fire1Btn;
 	private bool fire1BtnDown;
@@ -35,6 +37,9 @@ public class WeaponMelee : MonoBehaviour {
 		if (fire1BtnDown) {
 			anim.SetBool("animSwing", true);
 			anim.SetBool("animIdle", false);
+			if (randomFlipY){
+				transform.localScale = new Vector2 (1,Random.Range(0, 2) * 2 -1);
+			}
 		}
 		/*
 		//flip if needed

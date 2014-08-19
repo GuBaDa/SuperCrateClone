@@ -30,7 +30,7 @@ public class GameConstructor : MonoBehaviour {
 		if (singleScene) {
 			playerSpawnPoints = GameObject.FindGameObjectsWithTag ("SpawnPointPlayer");
 			Debug.Log ("number of playerSpawnPoints = " + playerSpawnPoints.Length);
-			if (playersSelected.Length == numberOfPlayers){
+			if (playersSelected.Length >= numberOfJoinedPlayers){
 				Debug.Log ("CharSelected is present");
 				if (playerSpawnPoints.Length != 0){
 					PlayersSpawn (playersSelected);
@@ -41,7 +41,7 @@ public class GameConstructor : MonoBehaviour {
 			}
 		}
 
-		playersSelected = new GameObject[numberOfPlayers];
+		playersSelected = new GameObject[numberOfJoinedPlayers];
 
 		Debug.Log ("GameConstructor Available");
 
@@ -61,11 +61,11 @@ public class GameConstructor : MonoBehaviour {
 		//find Player Spawnpoints
 
 
-		if (level > 0){
+		if (level > 0 && !singleScene){
 			playerSpawnPoints = GameObject.FindGameObjectsWithTag ("SpawnPointPlayer");
 			Debug.Log ("number of playerSpawnPoints = " + playerSpawnPoints.Length);
 			Debug.Log ("level is playable");
-			if (playersSelected.Length == numberOfPlayers){
+			if (playersSelected.Length >= numberOfJoinedPlayers){
 				Debug.Log ("CharSelected is present");
 				if (playerSpawnPoints.Length != 0){
 					PlayersSpawn (playersSelected);

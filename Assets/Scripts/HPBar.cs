@@ -9,7 +9,7 @@ public class HPBar : MonoBehaviour {
 	private Color c1;
 	private Color c2;
 	// Use this for initialization
-	void Awake () {
+	void Start () {
 
 		c1 = Color.red;
 		c2 = Color.green;

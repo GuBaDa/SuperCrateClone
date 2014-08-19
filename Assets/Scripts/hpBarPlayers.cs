@@ -17,7 +17,9 @@ public class hpBarPlayers : MonoBehaviour {
    	public Color colorFull;
 
 	// Use this for initialization
-	void Awake () {
+
+
+	void Start () {
 		//temporary setup for single player testing
 		//needs better way to figure out wich player to connect in future
 		int numberOfPlayers =  GameObject.FindGameObjectWithTag("GameConstructor").GetComponent<GameConstructor>().NumberOfPlayers;
