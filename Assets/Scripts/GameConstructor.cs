@@ -20,6 +20,8 @@ public class GameConstructor : MonoBehaviour {
 
 	public GameObject[] playersSelected;
 
+	public GameObject spawnCircle;
+
 	private GameObject[] _playersSelected;
 
 	private bool isPlayerSpawned = false;
@@ -94,8 +96,11 @@ public class GameConstructor : MonoBehaviour {
 				Debug.Log ("spawnpoint nr :" + spawnPointNr);
 				_playerControlNr ++;
 				if (pl != null) {
-					GameObject pPlayer = (GameObject) Instantiate (pl, spawnPoint.transform.position, Quaternion.identity);
-					pPlayer.GetComponent<PlayerScript>().PlayerControlNr = _playerControlNr;
+					GameObject _player = (GameObject) Instantiate (pl, spawnPoint.transform.position, Quaternion.identity);
+					_player.GetComponent<PlayerScript>().PlayerControlNr = _playerControlNr;
+					GameObject _spawnCircle = (GameObject) Instantiate (spawnCircle, _player.transform.position, Quaternion.identity);
+					_spawnCircle.GetComponent<RespawnCircle>().playerNr = _playerControlNr;
+					_spawnCircle.transform.parent = _player.transform;
 				}
 				//remove old spawnpoint from array;
 				spList.RemoveAt(spawnPointNr);

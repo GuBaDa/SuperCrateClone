@@ -60,6 +60,9 @@ public class WeaponMelee : MonoBehaviour {
 		attack = false;
 		anim.SetBool("animSwing", false);
 		anim.SetBool("animIdle", true);
+		if (randomFlipY){
+			transform.localScale = new Vector2 (1,1);
+		}
 
 	}
 
