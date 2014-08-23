@@ -14,14 +14,12 @@ public class WeaponShoot : MonoBehaviour {
 	private float axisVertical;
 
 
-	// Update is called once per frame
 	void Update () {
 		getControls ();
 		if (fireBtn && Time.time > coolDown) {
 			Fire();
 		}
 	}
-
 
 	void Fire()
 	{
@@ -32,6 +30,7 @@ public class WeaponShoot : MonoBehaviour {
 		// Something something Quaternion
 
 		// Instantiate the projectile.
+
 		GameObject pPrefab = (GameObject) Instantiate (projectilePrefab, (transform.position+projectileInitPos), Quaternion.identity);
 
 		// Flip the projectile if looking the other way.
@@ -43,6 +42,10 @@ public class WeaponShoot : MonoBehaviour {
 
 		// Add a certain force to the projectile, the amount of force is given in the public var projectileForce and determined 
 		pPrefab.rigidbody2D.AddForce (new Vector2 ((projectileForce.x *(transform.parent.transform.localScale.x)),projectileForce.y*axisVertical));
+		if (pPrefab.GetComponent<ProjectileBullet>() != null){
+			pPrefab.GetComponent<ProjectileBullet>().owner = transform.parent.gameObject;
+			Debug.Log (pPrefab.GetComponent<ProjectileBullet>().owner);
+		}
 
 		coolDown = Time.time + attackSpeed;
 	}

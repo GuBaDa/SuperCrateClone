@@ -6,20 +6,33 @@ public class ProjectileBullet : MonoBehaviour {
 	public ParticleSystem psPlayerHit;
 	public float damageOutput;
 
-	// Use this for initialization
-	void Start () {
-		
+	public GameObject owner;
+
+	private tk2dTileMap tilemap;
+	
+	// Update is called once per frame
+	
+	void Awake(){
+		tilemap = GameObject.Find("TileMap").GetComponent<tk2dTileMap>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+
+	void LateUpdate(){
+		float xPos = transform.position.x + 21.5f;
+		float yPos = transform.position.y + 12;
+		if (tilemap.GetTile ((int)xPos, (int)yPos, 3) != -1){
+			Destroy (gameObject);
+			Debug.Log ("Destroyed inside colliders");
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){
+		
+
 		Destroy (gameObject);
 		// For players
-		GameObject enemy = coll.gameObject;
+		    GameObject enemy = coll.gameObject;
 		if (enemy.tag == "Player") {
 			PlayerScript playerScript = enemy.GetComponent<PlayerScript>();
 			playerScript.Health -= damageOutput;
