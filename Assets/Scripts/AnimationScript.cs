@@ -44,7 +44,6 @@ public class AnimationScript : MonoBehaviour {
 				//Idle
 				anim.SetBool("animIdle", true);
 				anim.SetBool("animWalk", false);
-				anim.SetBool("animWalkBackwards", false);
 				anim.SetBool("animJump", false);
 			}
 		}
@@ -52,7 +51,6 @@ public class AnimationScript : MonoBehaviour {
 			//Jump
 			anim.SetBool("animJump", true);
 			anim.SetBool("animWalk", false);
-			anim.SetBool("animWalkBackwards", false);
 			anim.SetBool("animIdle", false);
 		}
 	}
