@@ -4,10 +4,13 @@ using System.Collections;
 public class ProjectileBullet : MonoBehaviour {
 
 	public ParticleSystem psPlayerHit;
+	public ParticleSystem psBulletSparks;
 	public float damageOutput;
+
 
 	public GameObject owner;
 
+	private Quaternion q;
 	private tk2dTileMap tilemap;
 	
 	// Update is called once per frame
@@ -27,8 +30,13 @@ public class ProjectileBullet : MonoBehaviour {
 //	}
 
 	void OnCollisionEnter2D(Collision2D coll){
-
-		Debug.DrawLine(coll.contacts[0].point, coll.contacts[1].point);
+		if(owner.transform.localScale.x == 1)
+		{
+			q = psBulletSparks.transform.rotation;
+		} else {
+			q = psBulletSparks.transform.rotation * Quaternion.Euler(0,180,0);
+		}
+		Instantiate(psBulletSparks, transform.position, q);
 		Destroy (gameObject);
 		// For players
 		    GameObject enemy = coll.gameObject;
