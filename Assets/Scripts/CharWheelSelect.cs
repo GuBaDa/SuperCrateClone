@@ -40,6 +40,7 @@ public class CharWheelSelect : MonoBehaviour {
 	private bool selected = false;
 	private bool ready = false;
 	private bool allReady = false;
+	private bool effect = false;
 
 	private int selection = 1;  
 
@@ -114,6 +115,7 @@ public class CharWheelSelect : MonoBehaviour {
 		//join player and enable/disable renderers
 		if (fire1BtnDown && !join){
 			fire1BtnDown = false;
+			if (!effect) StartCoroutine("Effects");
 			join = true;
 			constructor.numberOfJoinedPlayers ++;
 			playerText.GetComponent<SpriteRenderer> ().material.color = textColorHover;
@@ -134,7 +136,9 @@ public class CharWheelSelect : MonoBehaviour {
 				}
 				//if firebutton1 pressed, check for existing character in array and select character if possible
 				if (fire1BtnDown) {
+
 					fire1BtnDown = false;
+					if (!effect) StartCoroutine("Effects");
 					if (selection <= constructor.playersArray.Length){
 
 						selected = true;
@@ -149,14 +153,18 @@ public class CharWheelSelect : MonoBehaviour {
 			}
 			//if selection is made
 			if (selected) {
+
 				//if firebutton1 is pressed while selection, define and store right character in game constructor object
 				if (fire1BtnDown) {
+
 					fire1BtnDown = false;
+					if (!effect) StartCoroutine("Effects");
 					constructor.PlayersSelected [playerNr - 1] = constructor.playersArray[selection - 1];
 					ready = true;
 				}
 				//unselect selection
 				if (fire2BtnDown || jumpBtnDown) {
+
 					fire2BtnDown = false;
 					jumpBtnDown = false;
 					constructor.PlayersSelected [playerNr - 1] = null;
@@ -238,7 +246,8 @@ public class CharWheelSelect : MonoBehaviour {
 				//selection made: is ready?
 					stateText.GetComponent<SpriteRenderer> ().sprite = textReady;
 					GetComponent<SpriteRenderer> ().material.color = colorSweepSelecter2;
-					selectionSprite.GetComponent<SpriteRenderer> ().material.color = Color.Lerp (colorSweep1, colorSweep2, lerp2);
+					selectionSprite.GetComponent<SpriteRenderer> ().material.color = colorSweep2;
+					//selectionSprite.GetComponent<SpriteRenderer> ().material.color = Color.Lerp (colorSweep1, colorSweep2, lerp2);
 					stateText.GetComponent<SpriteRenderer> ().material.color = Color.Lerp (colorSweep1, colorSweep2, lerp2);
 					characterName.GetComponent<SpriteRenderer> ().material.color = Color.Lerp (colorSweep1, colorSweep2, lerp2);
 				}
@@ -282,6 +291,33 @@ public class CharWheelSelect : MonoBehaviour {
 
 	}
 
+	IEnumerator Effects(){
+		effect = true;
+		Vector3 normalScale = new Vector3 (1,1,1);
+		Vector3 target = new Vector3 (1.1f ,1.1f ,1);
+		float time = 0.1f;
+		float t = 0;
+		bool loop = false;
+		float lerp;
+
+		while (true) {
+
+			t += Time.deltaTime;
+			lerp = Mathf.PingPong(t, time) / time;
+			transform.localScale = Vector3.Lerp (normalScale, target, lerp);
+			Debug.Log (lerp);
+			if (lerp >= 0.2){
+				loop = true;
+			}
+			if (loop && lerp < 0.2f){
+				transform.localScale = normalScale;
+				effect = false;
+				break;
+			}
+			yield return null;
+		}
+
+	}
 
 	void getControls(){
 		// Set control script to right player

@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour {
 				jumpBtnDown = Input.GetButtonDown("Jump_2");
 				break;
 			default :
-				Debug.Log ("no PlayerNr defined in PlayerController");
+				Debug.Log ("no PlayerNr defined in PlayerController" + gameObject.name);
 				break;
 			}
 

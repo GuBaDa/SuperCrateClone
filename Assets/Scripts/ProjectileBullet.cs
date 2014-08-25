@@ -28,8 +28,8 @@ public class ProjectileBullet : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){
-		
 
+		Debug.DrawLine(coll.contacts[0].point, coll.contacts[1].point);
 		Destroy (gameObject);
 		// For players
 		    GameObject enemy = coll.gameObject;

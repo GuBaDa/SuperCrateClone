@@ -8,6 +8,9 @@ public class WeaponShoot : MonoBehaviour {
 	public Vector2 projectileForce;
 	public Vector2 projectileFirePos;
 	public bool automatic;
+
+	public bool randomizeHeight;
+	public int maxRandomHeight;
 	private float coolDown;
 
 	private bool fireBtn;
@@ -41,7 +44,11 @@ public class WeaponShoot : MonoBehaviour {
 		} 
 
 		// Add a certain force to the projectile, the amount of force is given in the public var projectileForce and determined 
-		pPrefab.rigidbody2D.AddForce (new Vector2 ((projectileForce.x *(transform.parent.transform.localScale.x)),projectileForce.y*axisVertical));
+		if (randomizeHeight) {
+			projectileForce = new Vector2 (projectileForce.x, (float) Random.Range (-maxRandomHeight, maxRandomHeight));
+		}
+
+		pPrefab.rigidbody2D.AddForce (new Vector2 ((projectileForce.x *(transform.parent.transform.localScale.x)),projectileForce.y));
 		if (pPrefab.GetComponent<ProjectileBullet>() != null){
 			pPrefab.GetComponent<ProjectileBullet>().owner = transform.parent.gameObject;
 			Debug.Log (pPrefab.GetComponent<ProjectileBullet>().owner);

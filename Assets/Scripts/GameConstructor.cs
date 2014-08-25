@@ -43,7 +43,7 @@ public class GameConstructor : MonoBehaviour {
 			}
 		}
 
-		playersSelected = new GameObject[numberOfJoinedPlayers];
+		//playersSelected = new GameObject[numberOfJoinedPlayers];
 
 		Debug.Log ("GameConstructor Available");
 
