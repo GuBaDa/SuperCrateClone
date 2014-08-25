@@ -32,7 +32,6 @@ public class Crate : MonoBehaviour {
 		if (collision.gameObject.tag == "Player"){
 			if (player == null){
 				player = collision.gameObject;
-				Debug.Log (player);
 
 				if (weaponsCrate){
 					//get old and new weapons, destroy old, initiate new weapon active and set as child to parent player

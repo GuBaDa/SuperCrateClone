@@ -18,14 +18,13 @@ public class ProjectileBullet : MonoBehaviour {
 	
 	// Update is called once per frame
 
-	void LateUpdate(){
-		float xPos = transform.position.x + 21.5f;
-		float yPos = transform.position.y + 12;
-		if (tilemap.GetTile ((int)xPos, (int)yPos, 3) != -1){
-			Destroy (gameObject);
-			Debug.Log ("Destroyed inside colliders");
-		}
-	}
+//	void LateUpdate(){
+//		float xPos = transform.position.x + 21.5f;
+//		float yPos = transform.position.y + 12;
+//		if (tilemap.GetTile ((int)xPos, (int)yPos, 3) != -1){
+//			Destroy (gameObject);
+//		}
+//	}
 
 	void OnCollisionEnter2D(Collision2D coll){
 

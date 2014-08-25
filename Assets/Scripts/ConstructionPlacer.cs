@@ -74,7 +74,6 @@ public class ConstructionPlacer : MonoBehaviour {
 	}
 
 	void OnTriggerStay2D (Collider2D coll) {
-		Debug.Log ("box has collision");
 		istrigger = true;
 	}
 

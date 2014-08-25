@@ -51,7 +51,6 @@ public class WeaponShoot : MonoBehaviour {
 		pPrefab.rigidbody2D.AddForce (new Vector2 ((projectileForce.x *(transform.parent.transform.localScale.x)),projectileForce.y));
 		if (pPrefab.GetComponent<ProjectileBullet>() != null){
 			pPrefab.GetComponent<ProjectileBullet>().owner = transform.parent.gameObject;
-			Debug.Log (pPrefab.GetComponent<ProjectileBullet>().owner);
 		}
 
 		coolDown = Time.time + attackSpeed;
