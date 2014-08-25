@@ -41,7 +41,8 @@ public class TileMapDestroyScript : MonoBehaviour {
 				Debug.Log(tileId);
 
 				tilemap.Layers[3].ClearTile(xPos,yPos);
-				StartCoroutine (setNWESTiles(xPos,yPos));
+				tilemap.Layers[6].ClearTile(xPos,yPos);
+				setNWESTiles(xPos,yPos);
 
 				tilemap.Build();
 
@@ -75,32 +76,35 @@ public class TileMapDestroyScript : MonoBehaviour {
 	/// <param name="str1">Str1.</param>
 	/// <param name="str2">Str2.</param>
 	/// 
-	IEnumerator setNWESTiles(int xPos, int yPos){
+	void setNWESTiles(int xPos, int yPos){
 		
 		// First remember the positions of the tiles N,W,E,S.
 
-		int north = tilemap.Layers[3].GetTile(xPos,yPos+1);
-		int west = tilemap.Layers[3].GetTile(xPos-1,yPos);
-		int east = tilemap.Layers[3].GetTile(xPos+1,yPos);
-		int south = tilemap.Layers[3].GetTile(xPos,yPos-1);
+		int north = tilemap.Layers[6].GetTile(xPos,yPos+1);
+		int east = tilemap.Layers[6].GetTile(xPos+1,yPos);
+		int west = tilemap.Layers[6].GetTile(xPos-1,yPos);
+		int south = tilemap.Layers[6].GetTile(xPos,yPos-1);
+
 
 
 		if(north >= 0 ){
-			tilemap.Layers[6].SetTile(xPos,yPos+1,convertAddBinary(north,1));
+
+			tilemap.Layers[6].SetTile(xPos,yPos+1,convertAddBinary(north,8));
 		}
 
-		if (west >= 0 ) {
+		if (east >= 0) {
+			tilemap.Layers[6].SetTile(xPos+1,yPos,convertAddBinary(east,4));
+		}
+
+		if(west >= 0 ){
 			tilemap.Layers[6].SetTile(xPos-1,yPos,convertAddBinary(west,2));
 		}
 
-		if (east >= 0 ) {
-			tilemap.Layers[6].SetTile(xPos+1,yPos,convertAddBinary(east,4));
-		}
-		if (south >= 0 ) {
-			tilemap.Layers[6].SetTile(xPos,yPos-1,convertAddBinary(south,8));
+		if(south >= 0 ) {
+			tilemap.Layers[6].SetTile(xPos,yPos-1,convertAddBinary(south,1));
 		}
 
-		yield return null;
+		//yield return null;
 
 	}
 
@@ -112,9 +116,18 @@ public class TileMapDestroyScript : MonoBehaviour {
 		string s2 = System.Convert.ToString(edgeDirection, 2); 
 		char[] charArray2 = s2.PadLeft(4, '0').ToCharArray();
 
+		s1 = new string(charArray1);
+		s2 = new string(charArray2);
+
+		Debug.Log("Tile ID: " + tileID);
+		Debug.Log("Tile ID binary string: " + s1);
+
+		Debug.Log("EdgeDirection ID: " + edgeDirection);
+		Debug.Log("EdgeDirection ID binary string: " + s2);
+
 		for(int i = 0; i < charArray1.Length; i++ ){
-			if (charArray2[i] == '1' ){
-				charArray1[i] = '1';
+			if (charArray1[i] == '1' ){
+				charArray2[i] = '1';
 			}
 		}
 		string s = new string(charArray2);

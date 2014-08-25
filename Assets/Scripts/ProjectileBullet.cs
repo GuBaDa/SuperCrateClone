@@ -15,10 +15,12 @@ public class ProjectileBullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	
-	void Awake(){
-		tilemap = GameObject.Find("TileMap").GetComponent<tk2dTileMap>();
+	void Start(){
+		//tilemap = GameObject.Find("TileMap").GetComponent<tk2dTileMap>();
 	}
-	
+
+
+
 	// Update is called once per frame
 
 //	void LateUpdate(){
