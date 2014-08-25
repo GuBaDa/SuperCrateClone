@@ -22,50 +22,32 @@ public class TileMapDestroyScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(projectileCollision != null){
-			foreach ( ContactPoint2D contactpoint in projectileCollision.contacts){
-				//Debug.Log(contactpoint.point);
-				//Debug.Log(contactpoint.collider.gameObject.name);
-				//tilemap.ClearTile((int)contactpoint.point.x+21.5,(int)contactpoint.point.y+ 11.5,3);
-				//Vector3 
-				Vector3 tempVec = new Vector3 (contactpoint.point.x+(.5f*contactpoint.normal.x),contactpoint.point.y,5);
-				Debug.Log (contactpoint.normal);
+			ContactPoint2D contactpoint = projectileCollision.contacts[0];
+			//Debug.Log(contactpoint.point);
+			//Debug.Log(contactpoint.collider.gameObject.name);
+			//tilemap.ClearTile((int)contactpoint.point.x+21.5,(int)contactpoint.point.y+ 11.5,3);
+			//Vector3 
+			Vector3 tempVec = new Vector3 (contactpoint.point.x+(.5f*contactpoint.normal.x),contactpoint.point.y,5);
 
-				//Debug.Log (tilemap.GetTilePosition(2,3));
-				//Debug.Log (tempVec);
-				//Debug.Log(tempVec);
-				//int tileId2 = tilemap.GetTileIdAtPosition(tilemap.GetTilePosition(2,3),4);
+			tilemap.GetTileAtPosition(tempVec,out xPos, out yPos);
 
 
-				tilemap.GetTileAtPosition(tempVec,out xPos, out yPos);
-				int tileId = tilemap.Layers[3].GetTile(xPos,yPos);
-				Debug.Log(tileId);
+			int tileId = tilemap.Layers[3].GetTile(xPos,yPos);
 
+			if (tileId >= 0) {
 				tilemap.Layers[3].ClearTile(xPos,yPos);
+				tilemap.Layers[4].ClearTile(xPos,yPos);
+				tilemap.Layers[5].ClearTile(xPos,yPos);
 				tilemap.Layers[6].ClearTile(xPos,yPos);
-				setNWESTiles(xPos,yPos);
+				StartCoroutine(setNWESTiles(xPos,yPos)); 
 
 				tilemap.Build();
-
-				//Debug.Log(tileId2);
-				//tilemap.Layers[3].ClearTile(1,1);
-
-
-//				Debug.Log (tilemap.GetTileIdAtPosition(tilemap.GetTilePosition(2,3),0));
-//				Debug.Log (tilemap.GetTileIdAtPosition(tilemap.GetTilePosition(2,3),1));
-//				Debug.Log (tilemap.GetTileIdAtPosition(tilemap.GetTilePosition(2,3),2));
-//				Debug.Log (tilemap.GetTileIdAtPosition(tilemap.GetTilePosition(2,3),3));
-//				Debug.Log (tilemap.GetTileIdAtPosition(tilemap.GetTilePosition(2,3),4));
-//				Debug.Log (tilemap.GetTileIdAtPosition(tilemap.GetTilePosition(2,3),5));
-
-
-
-
-
 			}
-			projectileCollision = null;
-			//tilemap.Build();
+
 		}
+		projectileCollision = null;
 	}
+
 
 	
 	/// <summary>
@@ -76,7 +58,7 @@ public class TileMapDestroyScript : MonoBehaviour {
 	/// <param name="str1">Str1.</param>
 	/// <param name="str2">Str2.</param>
 	/// 
-	void setNWESTiles(int xPos, int yPos){
+	IEnumerator setNWESTiles(int xPos, int yPos){
 		
 		// First remember the positions of the tiles N,W,E,S.
 
@@ -104,7 +86,7 @@ public class TileMapDestroyScript : MonoBehaviour {
 			tilemap.Layers[6].SetTile(xPos,yPos-1,convertAddBinary(south,1));
 		}
 
-		//yield return null;
+		yield return null;
 
 	}
 
@@ -115,15 +97,6 @@ public class TileMapDestroyScript : MonoBehaviour {
 
 		string s2 = System.Convert.ToString(edgeDirection, 2); 
 		char[] charArray2 = s2.PadLeft(4, '0').ToCharArray();
-
-		s1 = new string(charArray1);
-		s2 = new string(charArray2);
-
-		Debug.Log("Tile ID: " + tileID);
-		Debug.Log("Tile ID binary string: " + s1);
-
-		Debug.Log("EdgeDirection ID: " + edgeDirection);
-		Debug.Log("EdgeDirection ID binary string: " + s2);
 
 		for(int i = 0; i < charArray1.Length; i++ ){
 			if (charArray1[i] == '1' ){
