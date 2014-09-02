@@ -31,6 +31,8 @@ public class PlayerScript : MonoBehaviour {
 	public GameObject dust;
 
 	// PlayerController variables
+	private PlayerController plControllerScript; 
+
 	public int PlayerControlNr;
 	private float axisHorizontal;
 	private float axisVertical;
@@ -38,6 +40,7 @@ public class PlayerScript : MonoBehaviour {
 	private bool fire2Btn;
 	private bool fire3Btn;
 	private bool jumpBtnDown;
+
 
 	/// Start this instance.
 	/// 
@@ -50,6 +53,8 @@ public class PlayerScript : MonoBehaviour {
 		goRight = true;
 		doubleJumpHeight = jumpHeight * .75f;
 		tempScale = transform.localScale;
+
+		plControllerScript = GetComponent<PlayerController>(); 
 	}
 
 	
@@ -153,14 +158,14 @@ public class PlayerScript : MonoBehaviour {
 
 	void getControls(){
 		// Set control script to right player
-		GetComponent<PlayerController>().PlayerControlNr = PlayerControlNr;
+		plControllerScript.PlayerControlNr = PlayerControlNr;
 		// Get variables
-		axisHorizontal = GetComponent<PlayerController>().AxisHorizontal;
-		axisVertical = GetComponent<PlayerController>().AxisVertical;
-		fire1Btn = GetComponent<PlayerController>().Fire1Btn;
-		fire2Btn = GetComponent<PlayerController>().Fire2Btn;
-		fire3Btn = GetComponent<PlayerController>().Fire3Btn;
-		jumpBtnDown = GetComponent<PlayerController>().JumpBtnDown;
+		axisHorizontal = plControllerScript.AxisHorizontal;
+		axisVertical = plControllerScript.AxisVertical;
+		fire1Btn = plControllerScript.Fire1Btn;
+		fire2Btn = plControllerScript.Fire2Btn;
+		fire3Btn = plControllerScript.Fire3Btn;
+		jumpBtnDown = plControllerScript.JumpBtnDown;
 
 	}
 
