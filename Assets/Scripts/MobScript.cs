@@ -6,10 +6,12 @@ public class MobScript : MonoBehaviour {
 	// Public vars
 	public float maxHealth;
 	public ParticleSystem psOnDeath;
+	public float moveSpeed;
 
 	// Private vars
 	private float health;
 	private Vector3 tempScale;
+	private float startTime;
 	
 
 
@@ -18,6 +20,7 @@ public class MobScript : MonoBehaviour {
 	void Start () {
 		health = maxHealth;
 		tempScale = transform.localScale;
+		startTime = Time.time;
 	}
 	
 	// Update is called once per frame
@@ -29,6 +32,8 @@ public class MobScript : MonoBehaviour {
 			tempScale.x *= -1;
 			transform.localScale = tempScale;
 		}
+
+		StartCoroutine(moveTowardsClosestPlayer());
 
 	}
 
@@ -44,7 +49,7 @@ public class MobScript : MonoBehaviour {
 		set{health = Mathf.Clamp (value, 0f, maxHealth);}
 	}
 
-	GameObject findClosestTarget(){
+	GameObject findClosestPlayer(){
 		//Find and return closest Player
 		GameObject[] targets;
 		targets = GameObject.FindGameObjectsWithTag ("Player");
@@ -59,6 +64,15 @@ public class MobScript : MonoBehaviour {
 			}
 		}
 		return closestTarget;
+	}
+
+	IEnumerator moveTowardsClosestPlayer(){
+		GameObject target = findClosestPlayer ();
+
+		rigidbody2D.AddForce (target.transform.position-transform.position);
+		
+		yield return new WaitForSeconds (1f);
+
 	}
 
 }

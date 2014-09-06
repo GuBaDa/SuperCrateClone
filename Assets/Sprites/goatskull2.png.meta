@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: f77ec841482410f429067493e88ab3f2
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: goatskull2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
