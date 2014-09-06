@@ -26,15 +26,12 @@ public class MobScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		OnDeath ();
-		Debug.Log (transform.localScale.x);
 		if( transform.localScale.x < 0 && ( rigidbody2D.velocity.x > 0) || transform.localScale.x > 0 && ( rigidbody2D.velocity.x  < 0)) 
 		{	
 			tempScale.x *= -1;
 			transform.localScale = tempScale;
 		}
-
 		StartCoroutine(moveTowardsClosestPlayer());
-
 	}
 
 	void OnDeath(){
@@ -70,6 +67,7 @@ public class MobScript : MonoBehaviour {
 		GameObject target = findClosestPlayer ();
 
 		rigidbody2D.AddForce (target.transform.position-transform.position);
+		rigidbody2D.AddForce (new Vector2 (0f, 3f));
 		
 		yield return new WaitForSeconds (1f);
 
