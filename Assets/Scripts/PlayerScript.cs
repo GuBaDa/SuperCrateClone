@@ -5,6 +5,7 @@ public class PlayerScript : MonoBehaviour {
 
 	[HideInInspector] // Hides var below from inspector
 	public bool grounded;
+	public bool dead;
 
 	private bool doubleJump;
 	private bool wallLeft, wallRight;
@@ -21,6 +22,7 @@ public class PlayerScript : MonoBehaviour {
 	private float health;
 	private int experience;
 	public float maxSpeed;
+
 
 
 	//Weapon
@@ -143,7 +145,8 @@ public class PlayerScript : MonoBehaviour {
 	/// 
 	void OnDeath(){
 		if (Health == 0) {
-			Destroy(gameObject);
+			dead = true;
+			//Destroy(gameObject);
 		}
 		if (Input.GetKeyDown ("r")) {
 			Application.LoadLevel(Application.loadedLevel);

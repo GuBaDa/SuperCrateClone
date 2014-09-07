@@ -1,11 +1,6 @@
 fileFormatVersion: 2
 guid: 0337c8c914ce6414782c77e7e13922cc
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: char2_die_0
-    21300002: char2_die_1
-    21300004: char2_die_2
-    21300006: char2_die_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -52,30 +47,30 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 8
+        width: 13
         height: 11
-      alignment: 7
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: char2_die_1
       rect:
         serializedVersion: 2
         x: 13
         y: 0
-        width: 9
-        height: 10
-      alignment: 7
-      pivot: {x: 0, y: 0}
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: char2_die_2
       rect:
         serializedVersion: 2
         x: 27
         y: 0
-        width: 12
-        height: 8
-      alignment: 7
-      pivot: {x: 0, y: 0}
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: char2_die_3
       rect:
@@ -83,9 +78,9 @@ TextureImporter:
         x: 43
         y: 0
         width: 13
-        height: 4
-      alignment: 7
-      pivot: {x: 0, y: 0}
+        height: 11
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

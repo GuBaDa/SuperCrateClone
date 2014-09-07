@@ -1,8 +1,6 @@
 fileFormatVersion: 2
 guid: 30760d3f553b34045b08c8a3981142b7
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: char2_idle
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -43,6 +41,66 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: char2_idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: char2_idle_1
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 0
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: char2_idle_2
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 0
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: char2_idle_3
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: char2_idle_4
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 0
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: char2_idle_5
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 0
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

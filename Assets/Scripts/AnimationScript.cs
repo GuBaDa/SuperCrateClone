@@ -8,6 +8,7 @@ public class AnimationScript : MonoBehaviour {
 
 	private bool grounded;
 	private bool jumped;
+	private bool dead;
 
 	public float animSpeed;
 
@@ -20,17 +21,27 @@ public class AnimationScript : MonoBehaviour {
 	private bool fire3Btn;
 	private bool jumpBtnDown;
 
+
 	//private float jumpVector = 0.5f; //factor needed in relation to vertical moving platforms
 
 	void Awake (){
 		anim = GetComponent<Animator> ();
+
+	
 	}
 	// Update is called once per frame
 	void Update () {
 		getControls();
-		//get boolean grounded from PlayerScript to check if grounded
+		//get boolean grounded and dead from PlayerScript to check if grounded or dead
 		grounded = GetComponent<PlayerScript> ().grounded;
-
+		dead = GetComponent<PlayerScript> ().dead;
+		if (dead) {
+				//Idle
+			anim.SetBool ("animIdle", false);
+			anim.SetBool ("animWalk", false);
+			anim.SetBool ("animJump", false);
+			anim.SetBool ("animDeath", true);
+		}
 		if (grounded) {
 			if (axisHorizontal!= 0){
 			//check direction
@@ -39,12 +50,14 @@ public class AnimationScript : MonoBehaviour {
 				anim.SetBool("animWalk", true);
 				anim.SetBool("animIdle", false);
 				anim.SetBool("animJump", false);
+				anim.SetBool ("animDeath", false);
 			}
 			else {
 				//Idle
 				anim.SetBool("animIdle", true);
 				anim.SetBool("animWalk", false);
 				anim.SetBool("animJump", false);
+				anim.SetBool ("animDeath", false);
 			}
 		}
 		else {
@@ -52,6 +65,7 @@ public class AnimationScript : MonoBehaviour {
 			anim.SetBool("animJump", true);
 			anim.SetBool("animWalk", false);
 			anim.SetBool("animIdle", false);
+			anim.SetBool ("animDeath", false);
 		}
 	}
 
