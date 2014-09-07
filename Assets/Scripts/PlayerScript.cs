@@ -62,7 +62,9 @@ public class PlayerScript : MonoBehaviour {
 	
 	// FixedUpdate is called on fixed Times, use this for physics movements.
 	void FixedUpdate () {
-		doMove ();
+		if (!dead) {
+			doMove ();
+		}
 		resetGame ();
 	}
 
@@ -79,15 +81,16 @@ public class PlayerScript : MonoBehaviour {
 
 	// Update is called on each frame, this way the character immediately reacts to jumps.
 	void Update(){
-		getControls();
+		getControls ();
 
 		if(rigidbody2D.velocity.y < 0){
 			Physics2D.IgnoreLayerCollision(2,11,false);
 		}
-
-		OnDeath ();
-		doDoubleJump();
-		if(grounded)doJump ();
+		if (!dead) {
+			OnDeath ();
+			doDoubleJump();
+			if(grounded)doJump ();
+		}
 	}
 
 
