@@ -18,20 +18,19 @@ public class PortHoleVisual : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (transform.localScale.x <= 1) {
+		if (transform.localScale.x <= 1 && opened == false) {
 			StartCoroutine ("Open");
 		}
 
-		if (transform.localScale.x >= 1 && opened == false ) {
+
+
+		if (transform.localScale.x >= 1 || opened == true ) {
+			if(!opened){
+				Instantiate(psMob, transform.position, Quaternion.identity);
+			}
 			opened = true;
-			Instantiate(psMob, transform.position, Quaternion.identity);
+			StartCoroutine("Close");
 		}
-
-//		if (transform.localScale.x >= 1 || opened == true) {
-//			opened = true;
-//			StartCoroutine ("Close");
-//		}
-
 }
 
 	IEnumerator Fade() {
@@ -55,9 +54,16 @@ public class PortHoleVisual : MonoBehaviour {
 		float f = transform.localScale.x;
 		f = f - 0.01f;
 		transform.localScale = new Vector3(f,1,1);
+		if (transform.localScale.x <= 0) {
+			Destroy(gameObject);		
+		}
 		yield return new WaitForSeconds(0.1f);
 		
 	}
+
+
+
+
 
 
 }
