@@ -48,7 +48,7 @@ public class MobScript : MonoBehaviour {
 		}
 	}
 
-	public float Health{
+	public float Health{ 
 		get{return health;}
 		set{health = Mathf.Clamp (value, 0f, maxHealth);}
 	}
