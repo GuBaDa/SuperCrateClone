@@ -7,14 +7,14 @@ public class PortHoleVisual : MonoBehaviour {
 	private float rnd_y;
 
 	// Use this for initialization
-	void Start () {
-	
+	void Awake () {
+	transform.localScale = new Vector3 (0, 1, 1);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		StartCoroutine("ChangeScale");
-		StartCoroutine("Fade");
+		StartCoroutine("Open");
+		//StartCoroutine("Fade");
 }
 
 IEnumerator Fade() {
@@ -26,13 +26,13 @@ IEnumerator Fade() {
 		}
 	}
 
-IEnumerator ChangeScale() {
+IEnumerator Open () {
 	rnd_x = Random.Range(1f,3f)/10;
 	rnd_y = Random.Range(1f,3f)/10;
 	
-	for (float f = 1f; f >= 0; f -= 0.1f) {
-		transform.localScale = new Vector3(f+rnd_x,f+rnd_y,1);
-		yield return new WaitForSeconds(0.3f);
+	for (float f = 0f; f <= 1f; f += 0.1f) {
+		transform.localScale = new Vector3(f,1,1);
+		yield return new WaitForSeconds(0.1f);
 		}
 	}
 }
