@@ -146,13 +146,19 @@ public class PlayerScript : MonoBehaviour {
 	void OnDeath(){
 		if (Health == 0) {
 			dead = true;
-			//Destroy(gameObject);
 		}
+	}
+	void destroyPlayer(){
+		Destroy(gameObject);
+	}
+
+	void resetGame(){
 		if (Input.GetKeyDown ("r")) {
 			Application.LoadLevel(Application.loadedLevel);
 			grounded = false;
 		}
 	}
+
 
 	void dustCast(){
 		GameObject pDust = (GameObject) Instantiate (dust);
