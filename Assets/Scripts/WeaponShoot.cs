@@ -12,6 +12,8 @@ public class WeaponShoot : MonoBehaviour {
 	public bool randomizeHeight;
 	public int maxRandomHeight;
 	private float coolDown;
+	private bool playerDied;
+	private bool addedComponents = false;
 
 	private bool fireBtn;
 	private float axisVertical;
@@ -19,8 +21,20 @@ public class WeaponShoot : MonoBehaviour {
 
 	void Update () {
 		getControls ();
+		playerDied = GetComponentInParent<PlayerScript> ().dead;
 		if (fireBtn && Time.time > coolDown) {
 			Fire();
+		}
+		if (playerDied && !addedComponents ) {
+			//CircleCollider2D gameObjectsCircleCollider =  gameObject.AddComponent<CircleCollider2D>();
+			//gameObjectsCircleCollider.radius = .32f;
+			//gameObject.AddComponent<PolygonCollider2D>();
+			foreach(CircleCollider2D cc in GetComponentsInParent<CircleCollider2D>()) cc.enabled = true;			
+			Rigidbody2D gameObjectsRigidBody = gameObject.AddComponent<Rigidbody2D>(); // Add the rigidbody.
+			gameObjectsRigidBody.mass = 1; // Set the GO's mass to 5 via the Rigidbody.
+			rigidbody2D.AddForce(new Vector2(transform.parent.transform.localScale.x*-900,700f));
+			gameObject.transform.parent = null;
+			addedComponents = true;
 		}
 	}
 

@@ -63,6 +63,7 @@ public class PlayerScript : MonoBehaviour {
 	// FixedUpdate is called on fixed Times, use this for physics movements.
 	void FixedUpdate () {
 		doMove ();
+		resetGame ();
 	}
 
 	void OnTriggerStay2D(Collider2D coll){
@@ -146,6 +147,7 @@ public class PlayerScript : MonoBehaviour {
 	void OnDeath(){
 		if (Health == 0) {
 			dead = true;
+
 		}
 	}
 	void destroyPlayer(){
