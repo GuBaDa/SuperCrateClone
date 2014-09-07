@@ -6,7 +6,7 @@ public class MobScript : MonoBehaviour {
 	// Public vars
 	public float maxHealth;
 	public ParticleSystem psOnDeath;
-	public float moveSpeed;
+	//public float moveSpeed;
 
 	// Private vars
 	private float health;
@@ -34,10 +34,17 @@ public class MobScript : MonoBehaviour {
 		StartCoroutine(moveTowardsClosestPlayer());
 	}
 
+	void OnTriggerEnter2D(Collider2D coll){
+		if (coll.gameObject.tag == "Player") {
+			health = 0;		
+		}
+
+	}
+
 	void OnDeath(){
-		if (Health == 0) {
+		if (health == 0) {
 			Destroy(gameObject);
-			//Instantiate(psOnDeath,transform.position,Quaternion.identity);
+			Instantiate(psOnDeath,transform.position,Quaternion.identity);
 		}
 	}
 
@@ -67,7 +74,7 @@ public class MobScript : MonoBehaviour {
 		GameObject target = findClosestPlayer ();
 
 		rigidbody2D.AddForce (target.transform.position-transform.position);
-		rigidbody2D.AddForce (new Vector2 (0f, 3f));
+		rigidbody2D.AddForce (new Vector2 (0f, 2f));
 		
 		yield return new WaitForSeconds (1f);
 
