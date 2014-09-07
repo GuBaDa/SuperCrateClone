@@ -36,36 +36,34 @@ public class AnimationScript : MonoBehaviour {
 		grounded = GetComponent<PlayerScript> ().grounded;
 		dead = GetComponent<PlayerScript> ().dead;
 		if (dead) {
-				//Idle
+			anim.SetBool ("animDeath", true);
 			anim.SetBool ("animIdle", false);
 			anim.SetBool ("animWalk", false);
 			anim.SetBool ("animJump", false);
-			anim.SetBool ("animDeath", true);
-		}
-		if (grounded) {
-			if (axisHorizontal!= 0){
-			//check direction
-				Vector3 worldMousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-				float direction = (worldMousePos.x - transform.position.x) * rigidbody2D.velocity.x;
-				anim.SetBool("animWalk", true);
-				anim.SetBool("animIdle", false);
-				anim.SetBool("animJump", false);
+		} else {
+			if (grounded) {
+				if (axisHorizontal != 0) {
+					//check direction
+					Vector3 worldMousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+					float direction = (worldMousePos.x - transform.position.x) * rigidbody2D.velocity.x;
+					anim.SetBool ("animWalk", true);
+					anim.SetBool ("animIdle", false);
+					anim.SetBool ("animJump", false);
+					anim.SetBool ("animDeath", false);
+				} else {
+					//Idle
+					anim.SetBool ("animIdle", true);
+					anim.SetBool ("animWalk", false);
+					anim.SetBool ("animJump", false);
+					anim.SetBool ("animDeath", false);
+				}
+			} else {
+				//Jump
+				anim.SetBool ("animJump", true);
+				anim.SetBool ("animWalk", false);
+				anim.SetBool ("animIdle", false);
 				anim.SetBool ("animDeath", false);
 			}
-			else {
-				//Idle
-				anim.SetBool("animIdle", true);
-				anim.SetBool("animWalk", false);
-				anim.SetBool("animJump", false);
-				anim.SetBool ("animDeath", false);
-			}
-		}
-		else {
-			//Jump
-			anim.SetBool("animJump", true);
-			anim.SetBool("animWalk", false);
-			anim.SetBool("animIdle", false);
-			anim.SetBool ("animDeath", false);
 		}
 	}
 
