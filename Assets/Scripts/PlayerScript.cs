@@ -150,6 +150,11 @@ public class PlayerScript : MonoBehaviour {
 	void OnDeath(){
 		if (Health == 0) {
 			dead = true;
+			BoxCollider2D[] bc = GetComponents<BoxCollider2D>();
+
+			bc[0].size = new Vector2(bc[0].size.y,.3f);
+			bc[0].center = new Vector2(.02f,-.5f);
+
 
 		}
 	}

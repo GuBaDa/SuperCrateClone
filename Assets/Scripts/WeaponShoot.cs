@@ -31,8 +31,8 @@ public class WeaponShoot : MonoBehaviour {
 			//gameObject.AddComponent<PolygonCollider2D>();
 			foreach(CircleCollider2D cc in GetComponentsInParent<CircleCollider2D>()) cc.enabled = true;			
 			Rigidbody2D gameObjectsRigidBody = gameObject.AddComponent<Rigidbody2D>(); // Add the rigidbody.
-			gameObjectsRigidBody.mass = 1; // Set the GO's mass to 5 via the Rigidbody.
-			rigidbody2D.AddForce(new Vector2(transform.parent.transform.localScale.x*-900,700f));
+			gameObjectsRigidBody.mass = 2; // Set the GO's mass to .5 via the Rigidbody.
+			rigidbody2D.AddForce(new Vector2((float) Random.Range(-1000f,1000f),(float) Random.Range(-1000f,1000f)));
 			gameObject.transform.parent = null;
 			addedComponents = true;
 		}
