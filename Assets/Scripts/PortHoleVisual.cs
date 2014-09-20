@@ -23,24 +23,18 @@ public class PortHoleVisual : MonoBehaviour {
 		if (transform.localScale.x <= 1 && opened == false) {
 			StartCoroutine ("Open");
 		}
-
-
-
 		if (transform.localScale.x >= 1 || opened == true ) {
 			if(!opened){
-				Debug.Log("Random = " + rand);
 				if (rand > .5f) {
-					Debug.Log("Goat");
 					Instantiate(psMobArray[0], transform.position, Quaternion.identity);
 				} else {
-					Debug.Log("Skull");
 					Instantiate(psMobArray[1], transform.position, Quaternion.identity);
 				}
 			}
 			opened = true;
 			StartCoroutine("Close");
 		}
-}
+	}
 
 	IEnumerator Fade() {
 		for (float f = 1f; f >= 0f; f -= 0.1f) {
@@ -69,10 +63,4 @@ public class PortHoleVisual : MonoBehaviour {
 		yield return new WaitForSeconds(0.1f);
 		
 	}
-
-
-
-
-
-
 }
