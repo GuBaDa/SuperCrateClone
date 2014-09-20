@@ -5,6 +5,7 @@ public class MobScript : MonoBehaviour {
 
 	// Public vars
 	public float maxHealth;
+	public float damageOutput;
 	public ParticleSystem psOnDeath;
 	//public float moveSpeed;
 
@@ -36,9 +37,13 @@ public class MobScript : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D coll){
 		if (coll.gameObject.tag == "Player") {
+			PlayerScript playerScript = coll.gameObject.GetComponent<PlayerScript>();
+			playerScript.Health -= damageOutput;
 			health = 0;		
 		}
-
+		if (coll.gameObject.tag == "Projectile") {
+			health = 0;		
+		}
 	}
 
 	void OnDeath(){

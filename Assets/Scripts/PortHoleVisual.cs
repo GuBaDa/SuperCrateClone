@@ -5,15 +5,17 @@ public class PortHoleVisual : MonoBehaviour {
 
 	private float rnd_x;
 	private float rnd_y;
+	private float rand;
 
 	private bool opened;
 
-	public GameObject psMob;
+	public GameObject[] psMobArray;
 
 	// Use this for initialization
 	void Awake () {
 		transform.localScale = new Vector3 (0, 1, 1);
 		opened = false;
+		rand = Random.Range(0f,1f);
 	}
 	
 	// Update is called once per frame
@@ -26,7 +28,14 @@ public class PortHoleVisual : MonoBehaviour {
 
 		if (transform.localScale.x >= 1 || opened == true ) {
 			if(!opened){
-				Instantiate(psMob, transform.position, Quaternion.identity);
+				Debug.Log("Random = " + rand);
+				if (rand > .5f) {
+					Debug.Log("Goat");
+					Instantiate(psMobArray[0], transform.position, Quaternion.identity);
+				} else {
+					Debug.Log("Skull");
+					Instantiate(psMobArray[1], transform.position, Quaternion.identity);
+				}
 			}
 			opened = true;
 			StartCoroutine("Close");
