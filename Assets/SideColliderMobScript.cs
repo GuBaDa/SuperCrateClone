@@ -3,30 +3,17 @@ using System.Collections;
 
 public class SideColliderMobScript : MonoBehaviour {
 
-	
-	private bool goRight;
-	
-	
 	// Use this for initialization
 	void Awake () {
-		goRight = true;
 	}
-	
-	
-	void OnTriggerStay2D(Collider2D coll){
+
+	void OnTriggerEnter2D(Collider2D coll){
 		
 		if(coll.gameObject.tag == "TileMap" ){
-			goRight = false;
+			transform.parent.transform.localScale = new Vector2(transform.parent.transform.localScale.x*-1,transform.parent.transform.localScale.y);
 		}
 	}
 	
 	
-	void OnTriggerExit2D(Collider2D coll){
-		goRight = true;
-	}
-	
-	
-	void Update(){
-		GetComponentInParent<Mob_Skelly_Script>().goRight = goRight;
-	}
+
 }

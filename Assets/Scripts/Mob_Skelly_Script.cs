@@ -31,10 +31,6 @@ public class Mob_Skelly_Script : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (!goRight){
-			transform.localScale = new Vector2(transform.localScale.x*-1, transform.localScale.y);
-			goRight = true;
-		}
 
 		if(grounded && castCooldown < Time.time) {
 			doWalk();
