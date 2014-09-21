@@ -4,13 +4,11 @@ using System.Collections;
 public class DestructibleTimeMap : MonoBehaviour {
 	
 	private tk2dTileMap tilemap;
-	private PlayerScript playerScript;
 	//private GameObject player1;
 	
 	// Use this for initialization
 	void Start () {
 		tilemap = GetComponent<tk2dTileMap>();
-		playerScript = GetComponent<PlayerScript>();
 	}
 	
 	// Update is called once per frame
