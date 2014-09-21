@@ -1052,7 +1052,7 @@ MonoBehaviour:
   layerColliderDecals: 7
   layerColliderCorners: 8
   layerColliderEdges: 9
-  health: 100
+  health: 300
   damage: 0
 --- !u!1001 &584936887
 Prefab:
