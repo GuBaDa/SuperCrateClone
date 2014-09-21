@@ -3,11 +3,13 @@ using System.Collections;
 
 public class TileMapDestroyScript : MonoBehaviour {
 
+	public bool proceduralBuildOnStart;
 
 	public int layerCollider;
 	public int layerColliderDecals;
-	public int layerColliderEdges;
 	public int layerColliderCorners;
+	public int layerColliderEdges;
+
 
 	private tk2dTileMap tilemap;
 	private int xPos;
@@ -20,7 +22,11 @@ public class TileMapDestroyScript : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+
 		tilemap = GetComponent<tk2dTileMap>();
+		if (proceduralBuildOnStart){
+			ProceduralBuild();
+		}
 		//tileMapCollider = GetComponent<TileMapColliderScript>();
 		//tileMapCollider = TileMapColliderScript.FindObjectOfType<TileMapColliderScript>
 	}
@@ -45,13 +51,99 @@ public class TileMapDestroyScript : MonoBehaviour {
 				tilemap.Layers[layerColliderDecals].ClearTile(xPos,yPos);
 				tilemap.Layers[layerColliderCorners].ClearTile(xPos,yPos);
 				tilemap.Layers[layerColliderEdges].ClearTile(xPos,yPos);
-				StartCoroutine(setNWESTiles(xPos,yPos)); 
+				Debug.Log (xPos + " : " + yPos);
+				setNWESTiles(xPos,yPos); 
 
 				tilemap.Build();
 			}
 
 		}
 		projectileCollision = null;
+	}
+
+
+	void ProceduralBuild(){
+		int mapHeight = tilemap.height;
+		int mapWidth = tilemap.width;
+		for (int x = 1; x <= mapWidth; x++){
+			for (int y = 1; y<= mapHeight; y++){
+				//target tile
+				int XY = tilemap.Layers[layerCollider].GetTile(x,y);
+
+				//Get Tile ID's related to target tile
+				int _N = tilemap.Layers[layerCollider].GetTile(x,y+1);
+				int _E = tilemap.Layers[layerCollider].GetTile(x+1,y);
+				int _W = tilemap.Layers[layerCollider].GetTile(x-1,y);
+				int _S = tilemap.Layers[layerCollider].GetTile(x,y-1);
+
+				int _NW = tilemap.Layers[layerCollider].GetTile(x-1,y+1);
+				int _NE = tilemap.Layers[layerCollider].GetTile(x+1,y+1);
+				int _SE = tilemap.Layers[layerCollider].GetTile(x+1,y-1);
+				int _SW = tilemap.Layers[layerCollider].GetTile(x-1,y-1);
+
+				//get tileID edge layer
+				int _XY = tilemap.Layers[layerColliderEdges].GetTile(x,y);
+
+				int XY_Corners = tilemap.Layers[layerColliderCorners].GetTile(x,y)-16;
+				Debug.Log (XY_Corners);
+
+
+				if (XY > 0){
+
+					if (_XY < 0){
+						_XY = 0;
+					}
+					if (XY_Corners < 0){
+						XY_Corners = 0;
+					}
+
+					// EDGES
+					if(_N < 0 ){
+						tilemap.Layers[layerColliderEdges].SetTile(x,y,convertAddBinary(_XY,1));
+						_XY = tilemap.Layers[layerColliderEdges].GetTile(x,y);
+					}
+					
+					if (_E < 0) {
+						tilemap.Layers[layerColliderEdges].SetTile(x,y,convertAddBinary(_XY,2));
+						_XY = tilemap.Layers[layerColliderEdges].GetTile(x,y);
+					}
+					
+					if(_W < 0 ){
+						tilemap.Layers[layerColliderEdges].SetTile(x,y,convertAddBinary(_XY,4));
+						_XY = tilemap.Layers[layerColliderEdges].GetTile(x,y);
+					}
+					
+					if(_S < 0 ) {
+						tilemap.Layers[layerColliderEdges].SetTile(x,y,convertAddBinary(_XY,8));
+						_XY = tilemap.Layers[layerColliderEdges].GetTile(x,y);
+					}
+
+					// CORNERS
+					if (_NW < 0 ){
+						tilemap.Layers[layerColliderCorners].SetTile(x,y, (convertAddBinary (XY_Corners,1) + 16 ));
+						XY_Corners = tilemap.Layers[layerColliderCorners].GetTile(x,y)-16;;
+					}
+					if (_NE < 0 ){
+						tilemap.Layers[layerColliderCorners].SetTile(x,y, (convertAddBinary (XY_Corners,2) + 16 ));
+						XY_Corners = tilemap.Layers[layerColliderCorners].GetTile(x,y)-16;;
+					}
+					if (_SE < 0 ){
+						tilemap.Layers[layerColliderCorners].SetTile(x,y, (convertAddBinary (XY_Corners,8) + 16 ));
+						XY_Corners = tilemap.Layers[layerColliderCorners].GetTile(x,y)-16;;
+					}
+					if (_SW < 0 ){
+						tilemap.Layers[layerColliderCorners].SetTile(x,y, (convertAddBinary (XY_Corners,4) + 16 ));
+						XY_Corners = tilemap.Layers[layerColliderCorners].GetTile(x,y)-16;;
+					}
+
+				}
+				//Debug.Log (tilemap.Layers[layerColliderEdges].GetTile(x,y));
+
+			}
+		}
+		tilemap.Build ();
+		//Debug.Log(mapHeight + " : " + mapWidth);
+
 	}
 
 
@@ -64,7 +156,7 @@ public class TileMapDestroyScript : MonoBehaviour {
 	/// <param name="str1">Str1.</param>
 	/// <param name="str2">Str2.</param>
 	/// 
-	IEnumerator setNWESTiles(int xPos, int yPos){
+	void setNWESTiles(int xPos, int yPos){
 		
 		// First remember the positions of the tiles N,W,E,S.
 
@@ -149,7 +241,7 @@ public class TileMapDestroyScript : MonoBehaviour {
 		}
 
 
-		yield return null;
+		//yield return null;
 
 	}
 
