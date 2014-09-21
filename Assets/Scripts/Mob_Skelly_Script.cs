@@ -5,16 +5,19 @@ public class Mob_Skelly_Script : MonoBehaviour {
 
 	// Public vars
 	public float moveSpeed;
+	public GameObject psPoisonGlobe;
+
+	
 
 	//Private vars
 	private bool grounded;
-	private bool casting;
+	private float castCooldown;
 
 
 
 	// Use this for initialization
 	void Awake () {
-		casting = false;
+		castCooldown = 0;
 	}
 
 	void OnTriggerStay2D(){
@@ -27,19 +30,23 @@ public class Mob_Skelly_Script : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(grounded && !casting) {
+
+		if(grounded && castCooldown < Time.time) {
 			doWalk();
-		} else if (!casting) {
+		} else {
 			rigidbody2D.velocity = new Vector2(0,rigidbody2D.velocity.y);
 		}
 	}
 
 	void doWalk(){
-		casting = false;
-		rigidbody2D.velocity = new Vector2(moveSpeed,0);
+		rigidbody2D.velocity = new Vector2(moveSpeed*transform.localScale.x,0);
 	}
 
 	void castSpell(){
-		casting = true;
+		castCooldown = Time.time + 2;
+		if (transform.childCount == 1){
+			GameObject projectile = (GameObject) Instantiate(psPoisonGlobe,new Vector3(transform.position.x,transform.position.y+1,transform.position.z),Quaternion.identity);
+			projectile.transform.parent = transform;
+		}
 	}
 }

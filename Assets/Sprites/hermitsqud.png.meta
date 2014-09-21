@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b86d5dea8f22ee94587abe1b964c9014
+guid: cb9f782bb42878e46bade24dca3cf8f8
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -46,63 +46,43 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: skellyboss_0
+    - name: hermitsqud_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 10
-        height: 13
+        width: 23
+        height: 9
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: skellyboss_1
+    - name: hermitsqud_1
       rect:
         serializedVersion: 2
-        x: 12
+        x: 25
         y: 0
-        width: 10
-        height: 13
+        width: 23
+        height: 9
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: skellyboss_2
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 0
-        width: 10
-        height: 13
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: skellyboss_3
-      rect:
-        serializedVersion: 2
-        x: 37
-        y: 0
-        width: 10
-        height: 13
-      alignment: 9
-      pivot: {x: .400000006, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: skellyboss_4
+    - name: hermitsqud_2
       rect:
         serializedVersion: 2
         x: 48
         y: 0
-        width: 10
-        height: 13
+        width: 23
+        height: 9
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: skellyboss_5
+    - name: hermitsqud_3
       rect:
         serializedVersion: 2
-        x: 61
+        x: 71
         y: 0
-        width: 10
-        height: 13
+        width: 23
+        height: 9
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
