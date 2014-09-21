@@ -62,7 +62,6 @@ public class ConstructionPlacer : MonoBehaviour {
 
 		//set color
 		float lerp = Mathf.PingPong (Time.time, lerpTime) / lerpTime;
-		Color newColor = Color.Lerp (possible1, possible2, lerp);
 		if (istrigger){
 			renderer.material.SetColor("_TintColor",Color.Lerp(impossible1,impossible2, lerp)); 
 		}

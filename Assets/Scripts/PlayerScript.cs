@@ -8,7 +8,6 @@ public class PlayerScript : MonoBehaviour {
 	public bool dead;
 
 	private bool doubleJump;
-	private bool wallLeft, wallRight;
 	private Transform activePlatform;
 	private Vector3 tempScale;
 	private float doubleJumpHeight;
@@ -50,8 +49,6 @@ public class PlayerScript : MonoBehaviour {
 		health = 100f;
 		grounded = false;
 		doubleJump = true;
-		wallLeft = false;
-		wallRight = false;
 		goRight = true;
 		doubleJumpHeight = jumpHeight * .75f;
 		tempScale = transform.localScale;

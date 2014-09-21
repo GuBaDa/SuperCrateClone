@@ -56,8 +56,8 @@ public class GameConstructor : MonoBehaviour {
 	void Update () {
 
 		//binary test
-		byte[] array = new byte[4];
-		array = System.BitConverter.GetBytes(3);
+		//byte[] array = new byte[4];
+		//array = System.BitConverter.GetBytes(3);
 		if (singleScene && GameObject.FindGameObjectsWithTag("GameConstructor").Length > 1) {
 			Destroy (gameObject);
 		}

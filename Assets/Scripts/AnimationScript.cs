@@ -44,8 +44,8 @@ public class AnimationScript : MonoBehaviour {
 			if (grounded) {
 				if (axisHorizontal != 0) {
 					//check direction
-					Vector3 worldMousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-					float direction = (worldMousePos.x - transform.position.x) * rigidbody2D.velocity.x;
+					//Vector3 worldMousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+					//float direction = (worldMousePos.x - transform.position.x) * rigidbody2D.velocity.x;
 					anim.SetBool ("animWalk", true);
 					anim.SetBool ("animIdle", false);
 					anim.SetBool ("animJump", false);
