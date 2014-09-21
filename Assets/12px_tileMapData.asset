@@ -286,8 +286,8 @@ MonoBehaviour:
     skipMeshGeneration: 0
     physicMaterial: {fileID: 0}
     physicsMaterial2D: {fileID: 0}
-  - name: colliders edges
-    hash: 1563601120
+  - name: colliders corners
+    hash: 1623608844
     useColor: 1
     generateCollider: 0
     z: .100000001
@@ -297,11 +297,11 @@ MonoBehaviour:
     skipMeshGeneration: 0
     physicMaterial: {fileID: 0}
     physicsMaterial2D: {fileID: 0}
-  - name: colliders corners
-    hash: 96371997
+  - name: colliders edges
+    hash: 150368689
     useColor: 1
     generateCollider: 0
-    z: 0
+    z: .100000001
     unityLayer: 0
     sortingLayerName: 
     sortingOrder: 0
@@ -309,7 +309,7 @@ MonoBehaviour:
     physicMaterial: {fileID: 0}
     physicsMaterial2D: {fileID: 0}
   - name: foreground 1
-    hash: 1764471696
+    hash: 444636857
     useColor: 1
     generateCollider: 0
     z: .100000001
@@ -320,7 +320,7 @@ MonoBehaviour:
     physicMaterial: {fileID: 0}
     physicsMaterial2D: {fileID: 0}
   - name: foreground 2
-    hash: 325220196
+    hash: 671572207
     useColor: 1
     generateCollider: 0
     z: .100000001
