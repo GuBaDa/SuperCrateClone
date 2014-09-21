@@ -5,6 +5,9 @@ public class TileMapDestroyScript : MonoBehaviour {
 
 	public bool proceduralBuildOnStart;
 
+	public int layerBackground2;
+	public int layerBackground2Corners;
+	public int layerBackground2Edges;
 	public int layerCollider;
 	public int layerColliderDecals;
 	public int layerColliderCorners;
@@ -12,21 +15,29 @@ public class TileMapDestroyScript : MonoBehaviour {
 
 
 	private tk2dTileMap tilemap;
-	private int xPos;
-	private int yPos;
 
 	//private PlayerScript playerScript;
 	//private TileMapColliderScript tileMapCollider;
 
 	public Collision2D projectileCollision;
-	
+
+	public float[,] tileArray; 
+
+	public float health;
+	public float damage = 0;
 	// Use this for initialization
 	void Start () {
 
 		tilemap = GetComponent<tk2dTileMap>();
+
+		tileArray = new float[tilemap.width,tilemap.height];
+
+
+		
 		if (proceduralBuildOnStart){
 			ProceduralBuild();
 		}
+		Debug.Log (tileArray[10,1]);
 		//tileMapCollider = GetComponent<TileMapColliderScript>();
 		//tileMapCollider = TileMapColliderScript.FindObjectOfType<TileMapColliderScript>
 	}
@@ -34,31 +45,36 @@ public class TileMapDestroyScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(projectileCollision != null){
-			ContactPoint2D contactpoint = projectileCollision.contacts[0];
-			//Debug.Log(contactpoint.point);
-			//Debug.Log(contactpoint.collider.gameObject.name);
-			//tilemap.ClearTile((int)contactpoint.point.x+21.5,(int)contactpoint.point.y+ 11.5,3);
-			//Vector3 
+			int xPos;
+			int yPos;
+
+			ContactPoint2D contactpoint = projectileCollision.contacts[0]; 
 			Vector3 tempVec = new Vector3 (contactpoint.point.x+(.5f*contactpoint.normal.x),contactpoint.point.y,5);
 
 			tilemap.GetTileAtPosition(tempVec,out xPos, out yPos);
 
 
 			int tileId = tilemap.Layers[layerCollider].GetTile(xPos,yPos);
-
-			if (tileId >= 0) {
-				tilemap.Layers[layerCollider].ClearTile(xPos,yPos);
-				tilemap.Layers[layerColliderDecals].ClearTile(xPos,yPos);
-				tilemap.Layers[layerColliderCorners].ClearTile(xPos,yPos);
-				tilemap.Layers[layerColliderEdges].ClearTile(xPos,yPos);
-				Debug.Log (xPos + " : " + yPos);
-				setNWESTiles(xPos,yPos); 
-
+			if (tileId >= 0){
+				if (tileArray[xPos,yPos] >0){
+					tileArray[xPos,yPos] -= damage;
+					int damageTile = (int) (3*(tileArray[xPos,yPos])/health) + 64;
+					Debug.Log (damageTile);
+					tilemap.Layers[layerColliderDecals].SetTile (xPos,yPos, damageTile);
+				}
+			    else {
+					tilemap.Layers[layerCollider].ClearTile(xPos,yPos);
+					tilemap.Layers[layerColliderDecals].ClearTile(xPos,yPos);
+					tilemap.Layers[layerColliderCorners].ClearTile(xPos,yPos);
+					tilemap.Layers[layerColliderEdges].ClearTile(xPos,yPos);
+					setNWESTiles(xPos,yPos); 
+				}
 				tilemap.Build();
 			}
 
 		}
 		projectileCollision = null;
+		damage = 0;
 	}
 
 
@@ -66,7 +82,8 @@ public class TileMapDestroyScript : MonoBehaviour {
 		int mapHeight = tilemap.height;
 		int mapWidth = tilemap.width;
 		for (int x = 1; x <= mapWidth; x++){
-			for (int y = 1; y<= mapHeight; y++){
+			for (int y = 1; y <= mapHeight; y++){
+
 				//target tile
 				int XY = tilemap.Layers[layerCollider].GetTile(x,y);
 
@@ -83,12 +100,12 @@ public class TileMapDestroyScript : MonoBehaviour {
 
 				//get tileID edge layer
 				int _XY = tilemap.Layers[layerColliderEdges].GetTile(x,y);
-
+				int __XY = tilemap.Layers[layerBackground2Edges].GetTile(x,y)-32;
 				int XY_Corners = tilemap.Layers[layerColliderCorners].GetTile(x,y)-16;
-				Debug.Log (XY_Corners);
 
 
 				if (XY > 0){
+
 
 					if (_XY < 0){
 						_XY = 0;
@@ -96,6 +113,11 @@ public class TileMapDestroyScript : MonoBehaviour {
 					if (XY_Corners < 0){
 						XY_Corners = 0;
 					}
+
+
+					//ARRAY
+					tileArray[x,y] = health;
+
 
 					// EDGES
 					if(_N < 0 ){
@@ -118,6 +140,7 @@ public class TileMapDestroyScript : MonoBehaviour {
 						_XY = tilemap.Layers[layerColliderEdges].GetTile(x,y);
 					}
 
+
 					// CORNERS
 					if (_NW < 0 ){
 						tilemap.Layers[layerColliderCorners].SetTile(x,y, (convertAddBinary (XY_Corners,1) + 16 ));
@@ -136,13 +159,23 @@ public class TileMapDestroyScript : MonoBehaviour {
 						XY_Corners = tilemap.Layers[layerColliderCorners].GetTile(x,y)-16;;
 					}
 
-				}
-				//Debug.Log (tilemap.Layers[layerColliderEdges].GetTile(x,y));
 
+
+					// BACKGROUND
+
+					tilemap.Layers[layerBackground2].SetTile(x,y, 72);
+
+					int backgroundID = _XY + 32;
+					if (backgroundID < 32) backgroundID = 32;
+					tilemap.Layers[layerBackground2Edges].SetTile(x,y, backgroundID);
+				
+					int backgroundCornersID = XY_Corners +48;
+					if (backgroundCornersID < 48) backgroundCornersID = 48;
+					tilemap.Layers[layerBackground2Corners].SetTile(x,y, backgroundCornersID);
+				}
 			}
 		}
 		tilemap.Build ();
-		//Debug.Log(mapHeight + " : " + mapWidth);
 
 	}
 
@@ -196,14 +229,16 @@ public class TileMapDestroyScript : MonoBehaviour {
 			if (east <0){
 				east = 0;
 			}
-			tilemap.Layers[layerColliderEdges].SetTile(xPos+1,yPos,convertAddBinary(east,4));
+				tilemap.Layers[layerColliderEdges].SetTile(xPos+1,yPos,convertAddBinary(east,4));
 		}
 
 		if(_W >= 0 ){
 			if (west <0){
 				west = 0;
 			}
-			tilemap.Layers[layerColliderEdges].SetTile(xPos-1,yPos,convertAddBinary(west,2));
+			if (xPos >= 1){
+				tilemap.Layers[layerColliderEdges].SetTile(xPos-1,yPos,convertAddBinary(west,2));
+			}
 		}
 
 		if(_S >= 0 ) {
@@ -219,7 +254,9 @@ public class TileMapDestroyScript : MonoBehaviour {
 			if (NW <0){
 				NW = 0;
 			}
-			tilemap.Layers[layerColliderCorners].SetTile(xPos-1,yPos+1, (convertAddBinary (NW,8) + 16 ));
+			if (xPos >= 1){
+				tilemap.Layers[layerColliderCorners].SetTile(xPos-1,yPos+1, (convertAddBinary (NW,8) + 16 ));
+			}
 		}
 		if (_NE >= 0 ){
 			if (NE <0){
@@ -237,7 +274,9 @@ public class TileMapDestroyScript : MonoBehaviour {
 			if (SW <0){
 				SW = 0;
 			}
-			tilemap.Layers[layerColliderCorners].SetTile(xPos-1,yPos-1, (convertAddBinary (SW,2) + 16 ));
+			if (xPos >= 1){
+				tilemap.Layers[layerColliderCorners].SetTile(xPos-1,yPos-1, (convertAddBinary (SW,2) + 16 ));
+			}
 		}
 
 
@@ -262,5 +301,5 @@ public class TileMapDestroyScript : MonoBehaviour {
 		int tileIDNew = System.Convert.ToInt32(s, 2);
 		return tileIDNew;
 	}
-	
+
 }

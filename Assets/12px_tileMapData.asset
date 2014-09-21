@@ -58,7 +58,207 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   tileInfo:
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
+  - stringVal: 
+    intVal: 0
+    floatVal: 0
+    enablePrefabOffset: 0
   - stringVal: 
     intVal: 0
     floatVal: 0
@@ -226,13 +426,13 @@ MonoBehaviour:
     generateCollider: 0
     z: 0
     unityLayer: 0
-    sortingLayerName: 
+    sortingLayerName: Default
     sortingOrder: 0
     skipMeshGeneration: 0
     physicMaterial: {fileID: 0}
     physicsMaterial2D: {fileID: 0}
   - name: background 2
-    hash: 520485436
+    hash: 1801865526
     useColor: 1
     generateCollider: 0
     z: .100000001
@@ -248,7 +448,7 @@ MonoBehaviour:
     generateCollider: 0
     z: .100000001
     unityLayer: 0
-    sortingLayerName: 
+    sortingLayerName: Default
     sortingOrder: 0
     skipMeshGeneration: 0
     physicMaterial: {fileID: 0}
@@ -259,7 +459,29 @@ MonoBehaviour:
     generateCollider: 0
     z: .100000001
     unityLayer: 0
-    sortingLayerName: 
+    sortingLayerName: Default
+    sortingOrder: 0
+    skipMeshGeneration: 0
+    physicMaterial: {fileID: 0}
+    physicsMaterial2D: {fileID: 0}
+  - name: background 2 corners
+    hash: 104322853
+    useColor: 1
+    generateCollider: 0
+    z: .100000001
+    unityLayer: 0
+    sortingLayerName: Default
+    sortingOrder: 0
+    skipMeshGeneration: 0
+    physicMaterial: {fileID: 0}
+    physicsMaterial2D: {fileID: 0}
+  - name: background 2 edges
+    hash: 520485436
+    useColor: 1
+    generateCollider: 0
+    z: .100000001
+    unityLayer: 0
+    sortingLayerName: Default
     sortingOrder: 0
     skipMeshGeneration: 0
     physicMaterial: {fileID: 0}
@@ -270,7 +492,7 @@ MonoBehaviour:
     generateCollider: 1
     z: .100000001
     unityLayer: 0
-    sortingLayerName: 
+    sortingLayerName: Default
     sortingOrder: 0
     skipMeshGeneration: 0
     physicMaterial: {fileID: 0}
@@ -281,7 +503,7 @@ MonoBehaviour:
     generateCollider: 0
     z: .100000001
     unityLayer: 0
-    sortingLayerName: 
+    sortingLayerName: Default
     sortingOrder: 0
     skipMeshGeneration: 0
     physicMaterial: {fileID: 0}
@@ -292,7 +514,7 @@ MonoBehaviour:
     generateCollider: 0
     z: .100000001
     unityLayer: 0
-    sortingLayerName: 
+    sortingLayerName: Default
     sortingOrder: 0
     skipMeshGeneration: 0
     physicMaterial: {fileID: 0}
@@ -303,18 +525,7 @@ MonoBehaviour:
     generateCollider: 0
     z: .100000001
     unityLayer: 0
-    sortingLayerName: 
-    sortingOrder: 0
-    skipMeshGeneration: 0
-    physicMaterial: {fileID: 0}
-    physicsMaterial2D: {fileID: 0}
-  - name: foreground 1
-    hash: 444636857
-    useColor: 1
-    generateCollider: 0
-    z: .100000001
-    unityLayer: 0
-    sortingLayerName: 
+    sortingLayerName: Default
     sortingOrder: 0
     skipMeshGeneration: 0
     physicMaterial: {fileID: 0}
@@ -325,7 +536,18 @@ MonoBehaviour:
     generateCollider: 0
     z: .100000001
     unityLayer: 0
-    sortingLayerName: 
+    sortingLayerName: Default
+    sortingOrder: 0
+    skipMeshGeneration: 0
+    physicMaterial: {fileID: 0}
+    physicsMaterial2D: {fileID: 0}
+  - name: foreground 1
+    hash: 444636857
+    useColor: 1
+    generateCollider: 0
+    z: .100000001
+    unityLayer: 0
+    sortingLayerName: Default
     sortingOrder: 0
     skipMeshGeneration: 0
     physicMaterial: {fileID: 0}
