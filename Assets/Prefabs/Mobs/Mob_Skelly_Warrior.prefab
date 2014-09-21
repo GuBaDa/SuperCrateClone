@@ -16,7 +16,7 @@ GameObject:
   - 61: {fileID: 6100002}
   - 114: {fileID: 11400002}
   m_Layer: 0
-  m_Name: Mob_Skelly_Mage
+  m_Name: Mob_Skelly_Warrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

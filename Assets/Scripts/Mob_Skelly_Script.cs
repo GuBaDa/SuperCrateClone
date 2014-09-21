@@ -6,15 +6,19 @@ public class Mob_Skelly_Script : MonoBehaviour {
 	// Public vars
 	public float moveSpeed;
 
+	[HideInInspector]
+	public bool goRight;
+
 	//Private vars
 	private bool grounded;
-	private bool casting;
+	private float castCooldown;
 
 
 
 	// Use this for initialization
 	void Awake () {
-		casting = false;
+		castCooldown = 0;
+		goRight = true;
 	}
 
 	void OnTriggerStay2D(){
@@ -27,19 +31,23 @@ public class Mob_Skelly_Script : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(grounded && !casting) {
+		if (!goRight){
+			transform.localScale = new Vector2(transform.localScale.x*-1, transform.localScale.y);
+			goRight = true;
+		}
+
+		if(grounded && castCooldown < Time.time) {
 			doWalk();
-		} else if (!casting) {
+		} else {
 			rigidbody2D.velocity = new Vector2(0,rigidbody2D.velocity.y);
 		}
 	}
 
 	void doWalk(){
-		casting = false;
-		rigidbody2D.velocity = new Vector2(moveSpeed,0);
+		rigidbody2D.velocity = new Vector2(moveSpeed*transform.localScale.x,0);
 	}
 
 	void castSpell(){
-		casting = true;
+		castCooldown = Time.time + 2;
 	}
 }
