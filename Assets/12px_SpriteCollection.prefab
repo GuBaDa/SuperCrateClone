@@ -3365,7 +3365,7 @@ MonoBehaviour:
     colliderSmoothSphereCollisions: 0
     colliderColor: 0
     attachPoints: []
-  spriteCollection: {fileID: 11400000, guid: df8320664eff80a4bb61efa1896c167d, type: 2}
+  spriteCollection: {fileID: 11400000, guid: ed2bb860ccc37094699dade491050697, type: 2}
   premultipliedAlpha: 0
   altMaterials:
   - {fileID: 2100000, guid: 3a131a47f538e704ea4a20cba12d7230, type: 2}
