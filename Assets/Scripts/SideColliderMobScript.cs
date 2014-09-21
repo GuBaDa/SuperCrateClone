@@ -8,10 +8,10 @@ public class SideColliderMobScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D coll){
-		
-		if(coll.gameObject.tag == "TileMap" ){
+		Debug.Log(coll.gameObject.name);
+		//if(coll.gameObject.tag == "TileMap"){
 			transform.parent.transform.localScale = new Vector2(transform.parent.transform.localScale.x*-1,transform.parent.transform.localScale.y);
-		}
+		//}
 	}
 	
 	
