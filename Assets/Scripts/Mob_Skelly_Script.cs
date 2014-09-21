@@ -5,9 +5,9 @@ public class Mob_Skelly_Script : MonoBehaviour {
 
 	// Public vars
 	public float moveSpeed;
+	public GameObject psPoisonGlobe;
 
-	[HideInInspector]
-	public bool goRight;
+	
 
 	//Private vars
 	private bool grounded;
@@ -18,7 +18,6 @@ public class Mob_Skelly_Script : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		castCooldown = 0;
-		goRight = true;
 	}
 
 	void OnTriggerStay2D(){
@@ -45,5 +44,9 @@ public class Mob_Skelly_Script : MonoBehaviour {
 
 	void castSpell(){
 		castCooldown = Time.time + 2;
+		if (transform.childCount == 1){
+			GameObject projectile = (GameObject) Instantiate(psPoisonGlobe,new Vector3(transform.position.x,transform.position.y+1,transform.position.z),Quaternion.identity);
+			projectile.transform.parent = transform;
+		}
 	}
 }
