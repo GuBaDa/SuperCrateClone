@@ -18,7 +18,6 @@ public class DestructibleTimeMap : MonoBehaviour {
 			
 			tilemap.ClearTile(1,1,3);
 			tilemap.Build();
-			//tilemap.ClearTile(tilemap.GetTilePosition(playerScript.transform.position.x,playerScript.transform.position.y));
 
 	}
 }
