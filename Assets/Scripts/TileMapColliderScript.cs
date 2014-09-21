@@ -7,7 +7,6 @@ public class TileMapColliderScript : MonoBehaviour {
 
 	TileMapDestroyScript tileMap;
 
-
 	// Use this for initialization
 	void Start () {
 		tileMap = TileMapDestroyScript.FindObjectOfType<TileMapDestroyScript>();
@@ -21,7 +20,6 @@ public class TileMapColliderScript : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D coll) {
 		if(coll.collider.gameObject.tag == "Projectile"){
-			tileMap.damage = coll.collider.GetComponent<ProjectileBullet>().damageOutput;
 			tileMap.projectileCollision = coll;
 		}
 	}
