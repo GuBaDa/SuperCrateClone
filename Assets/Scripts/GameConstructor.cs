@@ -22,7 +22,11 @@ public class GameConstructor : MonoBehaviour {
 
 	public GameObject spawnCircle;
 
+	public GameObject playerLight;
+
 	private GameObject[] _playersSelected;
+
+
 
 	private bool isPlayerSpawned = false;
 
@@ -105,6 +109,9 @@ public class GameConstructor : MonoBehaviour {
 					GameObject _spawnCircle = (GameObject) Instantiate (spawnCircle, _player.transform.position, Quaternion.identity);
 					_spawnCircle.GetComponent<RespawnCircle>().playerNr = _playerControlNr;
 					_spawnCircle.transform.parent = _player.transform;
+					GameObject _lineOfSight = (GameObject) Instantiate (playerLight,_player.transform.position, Quaternion.identity);
+					_lineOfSight.GetComponent<PlayerLight>().player = _player;
+					                                                  
 				}
 				//remove old spawnpoint from array;
 				spList.RemoveAt(spawnPointNr);

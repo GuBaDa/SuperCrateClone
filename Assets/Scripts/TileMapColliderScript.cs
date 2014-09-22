@@ -11,6 +11,9 @@ public class TileMapColliderScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		tileMap = TileMapDestroyScript.FindObjectOfType<TileMapDestroyScript>();
+
+		//set manually to right layer, because unity changes this back to default when playing game
+		gameObject.layer = LayerMask.NameToLayer ("TileMapCollision");
 	}
 	
 	// Update is called once per frame
