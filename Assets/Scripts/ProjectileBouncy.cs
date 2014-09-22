@@ -28,8 +28,8 @@ public class ProjectileBouncy: MonoBehaviour {
 			playerScript.Health -= 10.0f;
 			Destroy (gameObject);
 		} else if (enemy.tag == "Mob") {
-			MobScript mobScript = enemy.GetComponent<MobScript>();
-			mobScript.Health -= 10.0f;
+			//MobScript mobScript = enemy.GetComponent<MobScript>();
+			//mobScript.Health -= 10.0f;
 		}
 	}
 }

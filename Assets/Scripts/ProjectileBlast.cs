@@ -19,8 +19,8 @@ public class ProjectileBlast : MonoBehaviour {
 			playerScript.Health -= 10.0f;
 			Destroy (gameObject);
 		} else if (hit.tag == "Mob") {
-			MobScript mobScript = hit.GetComponent<MobScript>();
-			mobScript.Health -= 10.0f;
+			//MobScript mobScript = hit.GetComponent<MobScript>();
+			//mobScript.Health -= 10.0f;
 		}
 	}
 

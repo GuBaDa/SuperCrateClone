@@ -3,13 +3,13 @@ using System.Collections;
 
 public class HPBarMob : MonoBehaviour {
 
-	private MobScript mob;
+	//private MobScript mob;
 	private LineRenderer lineRenderer;
 	private float maxHealth;
 	// Use this for initialization
 	void Start () {
-		mob = transform.parent.GetComponent<MobScript> ();
-		maxHealth = mob.Health;
+		//mob = transform.parent.GetComponent<MobScript> ();
+		//maxHealth = mob.Health;
 		
 	}
 	
@@ -17,7 +17,7 @@ public class HPBarMob : MonoBehaviour {
 	void Update () {
 		lineRenderer = GetComponent<LineRenderer>();
 		
-		Vector3 pos = new Vector3(mob.Health/maxHealth,0,0);
-		lineRenderer.SetPosition(0, pos);
+		//Vector3 pos = new Vector3(mob.Health/maxHealth,0,0);
+		//lineRenderer.SetPosition(0, pos);
 	}
 }

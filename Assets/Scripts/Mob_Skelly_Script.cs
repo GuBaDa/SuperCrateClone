@@ -7,7 +7,9 @@ public class Mob_Skelly_Script : MonoBehaviour {
 	public float moveSpeed;
 	public GameObject psPoisonGlobe;
 
-	
+
+	Animator anim;
+
 
 	//Private vars
 	private bool grounded;
@@ -18,6 +20,7 @@ public class Mob_Skelly_Script : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		castCooldown = 0;
+		anim = GetComponent<Animator> ();
 	}
 
 	void OnTriggerStay2D(){
@@ -30,11 +33,21 @@ public class Mob_Skelly_Script : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
-		if(grounded && castCooldown < Time.time) {
+		if(checkForAgro() && transform.childCount == 1){
+			castCooldown = Time.time + .8f;
+			anim.SetBool ("animWalk", false);
+			anim.SetBool ("animIdle", false);
+			anim.SetBool ("animCast", true);
+		} else if(grounded && castCooldown < Time.time){
 			doWalk();
+			anim.SetBool ("animWalk", true);
+			anim.SetBool ("animIdle", false);
+			anim.SetBool ("animCast", false);
 		} else {
 			rigidbody2D.velocity = new Vector2(0,rigidbody2D.velocity.y);
+			anim.SetBool ("animWalk", false);
+			anim.SetBool ("animIdle", true);
+			anim.SetBool ("animCast", false);
 		}
 	}
 
@@ -43,10 +56,49 @@ public class Mob_Skelly_Script : MonoBehaviour {
 	}
 
 	void castSpell(){
-		castCooldown = Time.time + 2;
 		if (transform.childCount == 1){
 			GameObject projectile = (GameObject) Instantiate(psPoisonGlobe,new Vector3(transform.position.x,transform.position.y+1,transform.position.z),Quaternion.identity);
 			projectile.transform.parent = transform;
 		}
 	}
+
+	private bool checkForAgro (){
+		//Debug.Log ("CHECK foragro");
+		GameObject[] playersAvailable = GameObject.FindGameObjectsWithTag ("Player");
+		if (playersAvailable.Length != 0){
+			GameObject target = findClosestTarget ();
+			if (Mathf.Abs(target.transform.position.x - transform.position.x) < 3 &&
+			    Mathf.Abs(target.transform.position.y - transform.position.y) < 3)
+			{
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		else {
+			return false;
+		}
+	}
+
+	GameObject findClosestTarget(){
+		//Find and return closest Player
+		
+		GameObject[] targets;
+		targets = GameObject.FindGameObjectsWithTag ("Player");
+		GameObject closestTarget = null;
+		float distance = Mathf.Infinity;
+		Vector3 position = transform.position;
+		foreach (GameObject tar in targets) {
+			Vector3 diff = tar.transform.position - position;
+			float curDistance = diff.sqrMagnitude;
+			if (curDistance < distance) {
+				closestTarget = tar;
+				distance = curDistance;
+			}
+		}
+		return closestTarget;
+	}
+
+
 }
