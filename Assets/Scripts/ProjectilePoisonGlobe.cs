@@ -5,20 +5,23 @@ public class ProjectilePoisonGlobe : MonoBehaviour {
 
 	private GameObject target;
 
+
 	// Use this for initialization
 	void Start () {
+	
+
 		target = findClosestPlayer ();
+		transform.parent = null;
 
-		//Dit zorgt ervoor dat de particle system niet meer zichtbaar is. Ik snap niet waarom.
-		//transform.parent = null;
 
-		
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		transform.localScale = new Vector3 (1,1,0);
 		rigidbody2D.AddForce (target.transform.position-transform.position);
 		rigidbody2D.AddForce (new Vector2 (0f, 2f));
+
 	}
 
 	void OnTriggerEnter2D(Collider2D coll){

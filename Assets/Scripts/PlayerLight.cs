@@ -9,6 +9,8 @@ public class PlayerLight : MonoBehaviour {
 	void Update () {
 		if (player != null){
 			transform.position = player.transform.position;
+		} else {
+			Destroy(gameObject);
 		}
 	}
 }
