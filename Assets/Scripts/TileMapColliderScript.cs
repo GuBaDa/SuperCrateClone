@@ -18,7 +18,9 @@ public class TileMapColliderScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		if (gameObject.layer != LayerMask.NameToLayer ("TileMapCollision")){
+			gameObject.layer = LayerMask.NameToLayer ("TileMapCollision"); 
+		}
 
 	}
 

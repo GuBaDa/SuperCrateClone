@@ -72,11 +72,11 @@ MonoBehaviour:
   EDITOR_SHOW_BOUNDS: 1
   EDITOR_SHOW_MESH: 0
   lightType: 0
-  lightRadius: 10
-  coneStart: 0
+  lightRadius: 14
+  coneStart: 40
   coneAngle: 360
   lightColor: {r: 1, g: 1, b: 1, a: 0}
-  lightDetail: 672
+  lightDetail: 480
   lightMaterial: {fileID: 2100000, guid: 15879a495079d5541a908ba5ed5546b7, type: 2}
   shadowLayer:
     serializedVersion: 2
