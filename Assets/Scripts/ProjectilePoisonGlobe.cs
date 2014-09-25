@@ -12,16 +12,15 @@ public class ProjectilePoisonGlobe : MonoBehaviour {
 
 		target = findClosestPlayer ();
 		transform.parent = null;
+		transform.localScale = new Vector3 (1,1,0);
 
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		transform.localScale = new Vector3 (1,1,0);
-		rigidbody2D.AddForce (target.transform.position-transform.position);
-		rigidbody2D.AddForce (new Vector2 (0f, 2f));
-
+		Vector2 direction = (target.transform.position-transform.position).normalized*5;
+		rigidbody2D.velocity = direction;
 	}
 
 	void OnTriggerEnter2D(Collider2D coll){
