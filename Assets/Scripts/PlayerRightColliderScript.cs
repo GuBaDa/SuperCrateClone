@@ -26,6 +26,6 @@ public class PlayerRightColliderScript : MonoBehaviour {
 	
 	
 	void Update(){
-		GetComponentInParent<PlayerScript>().goRight = goRight;
+		//GetComponentInParent<PlayerScript>().goRight = goRight;
 	}
 }
