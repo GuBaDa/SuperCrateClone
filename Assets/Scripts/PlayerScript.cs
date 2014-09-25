@@ -11,8 +11,6 @@ public class PlayerScript : MonoBehaviour {
 	private Transform activePlatform;
 	private Vector3 tempScale;
 	private float doubleJumpHeight;
-	public bool goLeft;
-	public bool goRight;
 	public Vector3 weaponPos;
 	public float jumpHeight;
 	public bool doubleJumpOn;
@@ -43,14 +41,23 @@ public class PlayerScript : MonoBehaviour {
 	private bool jumpBtnDown;
 
 
+	//TESTING
+	public Transform GroundCheck;
+	float groundCheckRadius = .45f;
+	public LayerMask collisionLayer;
+	public Transform SideCheck;
+	bool sideClear;
+
+
+
 	/// Start this instance.
 	/// 
 	void Awake () {
 		health = 100f;
 		grounded = false;
 		doubleJump = true;
-		goRight = true;
 		doubleJumpHeight = jumpHeight * .75f;
+		sideClear = true;
 		tempScale = transform.localScale;
 
 		plControllerScript = GetComponent<PlayerController>(); 
@@ -59,30 +66,27 @@ public class PlayerScript : MonoBehaviour {
 	
 	// FixedUpdate is called on fixed Times, use this for physics movements.
 	void FixedUpdate () {
+
+		grounded = Physics2D.OverlapCircle(GroundCheck.position, groundCheckRadius, collisionLayer);
+		sideClear = !Physics2D.OverlapArea(SideCheck.position,new Vector3(SideCheck.position.x+(.1f*transform.localScale.x),SideCheck.position.y-.88f,SideCheck.position.z),collisionLayer);
+		//Debug.DrawLine(SideCheck.position,new Vector3(SideCheck.position.x+(.1f*transform.localScale.x),SideCheck.position.y-.88f,SideCheck.position.z));
+
 		if (!dead) {
 			doMove ();
 		}
 		resetGame ();
 	}
 
-	void OnTriggerStay2D(Collider2D coll){
-		if(!(coll.transform.IsChildOf(transform))){
-			grounded = true;
-			doubleJump = true;
-		}
-	}
-
-	void OnTriggerExit2D(){
-		grounded = false;
-	}
 
 	// Update is called on each frame, this way the character immediately reacts to jumps.
 	void Update(){
 		getControls ();
 
+		// This code is necessary for one-way platforms
 		if(rigidbody2D.velocity.y < 0){
 			Physics2D.IgnoreLayerCollision(2,11,false);
 		}
+		
 		if (!dead) {
 			OnDeath ();
 			doDoubleJump();
@@ -104,16 +108,18 @@ public class PlayerScript : MonoBehaviour {
 			// Move player horizontally only if it is not blocked by a wall 
 
 
+			// Determines if the character has to flip to before moving.
 			if( transform.localScale.x < 0 && ( axisHorizontal > 0) || transform.localScale.x > 0 && ( axisHorizontal  < 0)) 
 	   		{	
 	   			tempScale.x *= -1;
 	   			transform.localScale = tempScale;
 	   		}
 
-			if(tempSpeed.x < 0 && goRight){
+			// The character can only move if there is not an obstacle in the way. (Prevents sticking on walls)
+			if(tempSpeed.x < 0 && sideClear){
 				rigidbody2D.velocity = tempSpeed;
 			}
-			if(tempSpeed.x > 0 && goRight){
+			if(tempSpeed.x > 0 && sideClear){
 				rigidbody2D.velocity = tempSpeed;
 			}
 
@@ -126,11 +132,12 @@ public class PlayerScript : MonoBehaviour {
 			rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, jumpHeight);
 			Physics2D.IgnoreLayerCollision(2,11,true);
 			grounded = false;
+			doubleJump = true;
 			dustCast ();
 		}
 	}
 
-
+	// Doublejump is possible once after jumping.
 	void doDoubleJump(){
 		if (doubleJumpOn) {
 			if(jumpBtnDown && !grounded && doubleJump ){
