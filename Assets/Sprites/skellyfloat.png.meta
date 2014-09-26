@@ -47,7 +47,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 11
+        width: 10
         height: 12
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -57,7 +57,7 @@ TextureImporter:
         serializedVersion: 2
         x: 12
         y: 0
-        width: 11
+        width: 10
         height: 12
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -67,7 +67,7 @@ TextureImporter:
         serializedVersion: 2
         x: 24
         y: 0
-        width: 11
+        width: 10
         height: 12
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -77,7 +77,37 @@ TextureImporter:
         serializedVersion: 2
         x: 36
         y: 0
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skellyfloat_4
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
         width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skellyfloat_5
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 0
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skellyfloat_6
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 0
+        width: 9
         height: 12
       alignment: 0
       pivot: {x: .5, y: .5}
