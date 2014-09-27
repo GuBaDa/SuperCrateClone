@@ -20,20 +20,19 @@ public class Mob_Skelly_Ghost_Script : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-				timeSinceFloat += Time.deltaTime;
+		timeSinceFloat += Time.deltaTime;
 		if (checkForAgro ()) {
 						anim.SetBool ("animWalk", false);
 						anim.SetBool ("animBack", false);
 						anim.SetBool ("animCast", true);
-				} else if (timeSinceFloat > floatCoolDown) {
+		} else if (timeSinceFloat > floatCoolDown) {
 						timeSinceFloat = 0;
 						doFloat ();
 						anim.SetBool ("animWalk", true);
 						anim.SetBool ("animBack", false);
 						anim.SetBool ("animCast", false);
-					
-						}
-				}
+		}
+	}
 		
 
 	void doFloat(){
