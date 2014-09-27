@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: LightPass
-  m_Shader: {fileID: 206, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: LightPlayersPass
+  m_Shader: {fileID: 4800000, guid: 2788c68aee2db794b8368d67b723873e, type: 3}
   m_ShaderKeywords:
   - PIXELSNAP_ON
   m_CustomRenderQueue: -1
@@ -18,7 +18,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 8400000, guid: 506dfe49e28bf2240a7754b95f103b20, type: 2}
+          m_Texture: {fileID: 8400000, guid: ce664637ab59fef47a3f3e0b3a897450, type: 2}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -60,7 +60,7 @@ Material:
         first:
           name: _GradientTex
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 8400000, guid: 506dfe49e28bf2240a7754b95f103b20, type: 2}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:

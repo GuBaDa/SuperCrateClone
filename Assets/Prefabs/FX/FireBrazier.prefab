@@ -163,7 +163,7 @@ MonoBehaviour:
   lightRadius: 10
   coneStart: 40
   coneAngle: 360
-  lightColor: {r: .725490212, g: .631864727, b: .537716269, a: 0}
+  lightColor: {r: .0784313753, g: .0548141412, b: .0310649741, a: 0}
   lightDetail: 480
   lightMaterial: {fileID: 2100000, guid: 15879a495079d5541a908ba5ed5546b7, type: 2}
   shadowLayer:
@@ -1404,7 +1404,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 407797247
+        rgba: 89884671
       minMaxState: 0
     startSize:
       scalar: 4.67999983
