@@ -43,7 +43,6 @@ public class PlayerScript : MonoBehaviour {
 
 	//TESTING
 	public Transform GroundCheck;
-	float groundCheckRadius = .45f;
 	public LayerMask collisionLayer;
 	public Transform SideCheck;
 	bool sideClear;
@@ -67,7 +66,7 @@ public class PlayerScript : MonoBehaviour {
 	// FixedUpdate is called on fixed Times, use this for physics movements.
 	void FixedUpdate () {
 
-		grounded = Physics2D.OverlapCircle(GroundCheck.position, groundCheckRadius, collisionLayer);
+		grounded = Physics2D.OverlapCircle(GroundCheck.position, .45f, collisionLayer);
 		sideClear = !Physics2D.OverlapArea(SideCheck.position,new Vector3(SideCheck.position.x+(.1f*transform.localScale.x),SideCheck.position.y-.88f,SideCheck.position.z),collisionLayer);
 		//Debug.DrawLine(SideCheck.position,new Vector3(SideCheck.position.x+(.1f*transform.localScale.x),SideCheck.position.y-.88f,SideCheck.position.z));
 

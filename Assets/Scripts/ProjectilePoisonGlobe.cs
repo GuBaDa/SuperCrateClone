@@ -4,28 +4,41 @@ using System.Collections;
 public class ProjectilePoisonGlobe : MonoBehaviour {
 
 	private GameObject target;
-
+	private bool targetFound;
 
 	// Use this for initialization
 	void Start () {
-	
-
-		target = findClosestPlayer ();
-		transform.parent = null;
-		transform.localScale = new Vector3 (1,1,0);
-
-
+		targetFound = false;
+		transform.localScale = new Vector3 (1,1,1);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		Vector2 direction = (target.transform.position-transform.position).normalized*5;
-		rigidbody2D.velocity = direction;
+		if(targetFound) {
+			Vector2 direction = (target.transform.position-transform.position).normalized*5;
+			rigidbody2D.velocity = direction;
+		} else {
+			checkForAgro();
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D coll){
 		if (coll.gameObject.tag == "Player") {
 			Destroy(gameObject);
+		}
+	}
+
+	void checkForAgro (){
+		GameObject[] playersAvailable = GameObject.FindGameObjectsWithTag ("Player");
+		if (playersAvailable.Length != 0){
+			target = findClosestPlayer();
+			if (Mathf.Abs(target.transform.position.x - transform.position.x) < 5 &&
+			    Mathf.Abs(target.transform.position.y - transform.position.y) < 5)
+			{
+				transform.parent = null;
+				targetFound = true;
+				rigidbody2D.isKinematic = false;
+			}
 		}
 	}
 

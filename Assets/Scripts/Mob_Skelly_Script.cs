@@ -6,6 +6,9 @@ public class Mob_Skelly_Script : MonoBehaviour {
 	// Public vars
 	public float moveSpeed;
 	public GameObject psPoisonGlobe;
+	public Transform GroundCheck;
+	public Transform SideCheck;
+	public LayerMask collisionLayer;
 
 
 	Animator anim;
@@ -13,27 +16,29 @@ public class Mob_Skelly_Script : MonoBehaviour {
 
 	//Private vars
 	private bool grounded;
+	private bool sideClear;
 	private float castCooldown;
+
 
 
 
 	// Use this for initialization
 	void Awake () {
 		castCooldown = 0;
-		anim = GetComponent<Animator> ();
-	}
-
-	void OnTriggerStay2D(){
-		grounded = true;
-	}
-
-	void OnTriggerExit2D(){
 		grounded = false;
+		sideClear = true;
+		anim = GetComponent<Animator> ();
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if(checkForAgro() && transform.childCount == 1){
+		grounded = Physics2D.OverlapArea(GroundCheck.position, new Vector3(GroundCheck.position.x+(.7f*transform.localScale.x),GroundCheck.position.y-.05f,GroundCheck.position.z), collisionLayer);
+		sideClear = !Physics2D.OverlapArea(SideCheck.position,new Vector3(SideCheck.position.x+(.1f*transform.localScale.x),SideCheck.position.y-.88f,SideCheck.position.z),collisionLayer);
+		if( !sideClear){
+			doFlip();
+		}
+		
+		if( grounded && transform.childCount == 2){
 			castCooldown = Time.time + .8f;
 			anim.SetBool ("animWalk", false);
 			anim.SetBool ("animIdle", false);
@@ -51,35 +56,23 @@ public class Mob_Skelly_Script : MonoBehaviour {
 		}
 	}
 
+	void doFlip(){
+		Vector3 tempScale = new Vector3(transform.localScale.x*-1,transform.localScale.y, transform.localScale.z);
+		transform.localScale = tempScale;
+
+	}
+
 	void doWalk(){
 		rigidbody2D.velocity = new Vector2(moveSpeed*transform.localScale.x,0);
 	}
 
 	void castSpell(){
-		if (transform.childCount == 1){
-			GameObject projectile = (GameObject) Instantiate(psPoisonGlobe,new Vector3(transform.position.x,transform.position.y+1,transform.position.z),Quaternion.identity);
-			projectile.transform.parent = transform;
-		}
+		GameObject projectile = (GameObject) Instantiate(psPoisonGlobe,new Vector3(transform.position.x,transform.position.y+1,transform.position.z),Quaternion.identity);
+		projectile.transform.parent = transform;
+		projectile.rigidbody2D.isKinematic = true;
+
 	}
 
-	private bool checkForAgro (){
-		//Debug.Log ("CHECK foragro");
-		GameObject[] playersAvailable = GameObject.FindGameObjectsWithTag ("Player");
-		if (playersAvailable.Length != 0){
-			GameObject target = findClosestTarget ();
-			if (Mathf.Abs(target.transform.position.x - transform.position.x) < 3 &&
-			    Mathf.Abs(target.transform.position.y - transform.position.y) < 3)
-			{
-				return true;
-			}
-			else {
-				return false;
-			}
-		}
-		else {
-			return false;
-		}
-	}
 
 	GameObject findClosestTarget(){
 		//Find and return closest Player

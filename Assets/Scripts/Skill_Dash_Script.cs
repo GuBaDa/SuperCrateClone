@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Skill_Dash_Script : MonoBehaviour {
 
-	private Vector2 boostSpeedRight = new Vector2(50,0);
-	private Vector2 boostSpeedLeft = new Vector2(-50,0);
+	private Vector2 boostSpeedRight = new Vector2(30,0);
+	private Vector2 boostSpeedLeft = new Vector2(-30,0);
 
 	private bool canBoost = true;
 	private float boostCooldown = 2f;
