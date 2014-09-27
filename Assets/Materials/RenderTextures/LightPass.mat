@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: LineOfSight
+  m_Name: LightPass
   m_Shader: {fileID: 205, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords:
   - PIXELSNAP_ON
@@ -44,6 +44,13 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _LightMap
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
           name: _Illum
         second:
           m_Texture: {fileID: 0}
@@ -52,13 +59,6 @@ Material:
       data:
         first:
           name: _GradientTex
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _LightMap
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -134,12 +134,12 @@ Material:
         second: .699999988
       data:
         first:
-          name: _EmissionLM
-        second: 0
-      data:
-        first:
           name: _InvFade
         second: 3
+      data:
+        first:
+          name: _EmissionLM
+        second: 0
       data:
         first:
           name: _Parallax
@@ -160,7 +160,7 @@ Material:
       data:
         first:
           name: _TintColor
-        second: {r: .5, g: .5, b: .5, a: .5}
+        second: {r: .435294122, g: .435294122, b: .435294122, a: 1}
       data:
         first:
           name: _EmisColor
