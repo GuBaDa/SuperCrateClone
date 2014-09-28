@@ -6,8 +6,8 @@ RenderTexture:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: LightRenderer
-  m_Width: 72
-  m_Height: 40
+  m_Width: 144
+  m_Height: 80
   m_AntiAliasing: 1
   m_DepthFormat: 0
   m_ColorFormat: 0

@@ -15,7 +15,6 @@ GameObject:
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400010}
-  - 114: {fileID: 11400004}
   m_Layer: 13
   m_Name: Player_Char1
   m_TagString: Player
@@ -156,9 +155,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grounded: 0
   dead: 0
+  canBoost: 1
   weaponPos: {x: 0, y: 0, z: 0}
   jumpHeight: 30
-  doubleJumpOn: 1
+  doubleJumpOn: 0
   maxSpeed: 7
   weaponActive: {fileID: 0}
   dust: {fileID: 100000, guid: 31b90155e67434b47827525ff0ce5cdb, type: 2}
@@ -168,17 +168,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294959103
   SideCheck: {fileID: 400002}
---- !u!114 &11400004
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eea2d679953e0804cb23106780acd340, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1

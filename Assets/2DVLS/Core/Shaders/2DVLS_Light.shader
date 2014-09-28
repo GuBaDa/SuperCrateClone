@@ -9,7 +9,7 @@ Shader "2DVLS/Light" {
        Lighting Off
        ZWrite Off
        Fog { Mode Off }
-       Blend One One
+       Blend OneMinusDstColor One
        
 	   BindChannels {
               Bind "Color", color

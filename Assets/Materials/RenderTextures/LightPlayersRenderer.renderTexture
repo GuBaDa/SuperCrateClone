@@ -6,8 +6,8 @@ RenderTexture:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: LightPlayersRenderer
-  m_Width: 72
-  m_Height: 40
+  m_Width: 342
+  m_Height: 240
   m_AntiAliasing: 1
   m_DepthFormat: 0
   m_ColorFormat: 0

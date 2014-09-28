@@ -11,6 +11,8 @@ public class PlayerScript : MonoBehaviour {
 	private Transform activePlatform;
 	private Vector3 tempScale;
 	private float doubleJumpHeight;
+	public bool canBoost;
+	private bool isBoosting = false;
 	public Vector3 weaponPos;
 	public float jumpHeight;
 	public bool doubleJumpOn;
@@ -68,9 +70,8 @@ public class PlayerScript : MonoBehaviour {
 
 		grounded = Physics2D.OverlapCircle(GroundCheck.position, .45f, collisionLayer);
 		sideClear = !Physics2D.OverlapArea(SideCheck.position,new Vector3(SideCheck.position.x+(.1f*transform.localScale.x),SideCheck.position.y-.88f,SideCheck.position.z),collisionLayer);
-		//Debug.DrawLine(SideCheck.position,new Vector3(SideCheck.position.x+(.1f*transform.localScale.x),SideCheck.position.y-.88f,SideCheck.position.z));
 
-		if (!dead) {
+		if (!dead && !isBoosting) {
 			doMove ();
 		}
 		resetGame ();
@@ -87,6 +88,9 @@ public class PlayerScript : MonoBehaviour {
 		}
 		
 		if (!dead) {
+			if ((canBoost) && Input.GetButtonDown ("Fire2")) {
+				StartCoroutine( Boost(.15f) ); //Start the Coroutine called "Boost", and feed it the time we want it to boost us
+			} 
 			OnDeath ();
 			doDoubleJump();
 			if(grounded)doJump ();
@@ -190,6 +194,33 @@ public class PlayerScript : MonoBehaviour {
 		jumpBtnDown = plControllerScript.JumpBtnDown;
 
 	}
+	// SKILS //
+
+	IEnumerator Boost(float boostDur) { //Coroutine with a single input of a float called boostDur, which we can feed a number when calling
+		Vector2 boostSpeedRight = new Vector2(30,0);
+		Vector2 boostSpeedLeft = new Vector2(-30,0);
+		float boostCooldown = 2f;
+		isBoosting = true;
+		Vector2 initialSpeed = rigidbody2D.velocity;
+		float time = 0; //create float to store the time this coroutine is operating
+		canBoost = false; //set canBoost to false so that we can't keep boosting while boosting
+		
+		while(boostDur > time) { //we call this loop every frame while our custom boostDuration is a higher value than the "time" variable in this coroutine
+			time += Time.deltaTime; //Increase our "time" variable by the amount of time that it has been since the last update
+			if(transform.localScale.x == 1){
+				rigidbody2D.velocity = boostSpeedRight; //set our rigidbody velocity to a custom velocity every frame, so that we get a steady boost direction like in Megaman
+			} else {
+				rigidbody2D.velocity = boostSpeedLeft;
+			}
+			yield return 0; //go to next frame
+		}
+		rigidbody2D.velocity = initialSpeed;
+		isBoosting = false;
+		yield return new WaitForSeconds(boostCooldown); //Cooldown time for being able to boost again, if you'd like.
+		canBoost = true; //set back to true so that we can boost again.
+		
+	}
+
 
 
 	//  Properties /// 

@@ -36,8 +36,8 @@ public class ProjectilePoisonGlobe : MonoBehaviour {
 			    Mathf.Abs(target.transform.position.y - transform.position.y) < 5)
 			{
 				transform.parent = null;
-				targetFound = true;
-				rigidbody2D.isKinematic = false;
+				//targetFound = true;
+				//rigidbody2D.isKinematic = false;
 			}
 		}
 	}

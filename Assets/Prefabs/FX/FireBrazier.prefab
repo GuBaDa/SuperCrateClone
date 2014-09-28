@@ -163,7 +163,7 @@ MonoBehaviour:
   lightRadius: 10
   coneStart: 40
   coneAngle: 360
-  lightColor: {r: .0784313753, g: .0548141412, b: .0310649741, a: 0}
+  lightColor: {r: .0784313753, g: .0578401685, b: .0409073457, a: 0}
   lightDetail: 480
   lightMaterial: {fileID: 2100000, guid: 15879a495079d5541a908ba5ed5546b7, type: 2}
   shadowLayer:
@@ -1247,7 +1247,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: .699999988
+      scalar: .810000002
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1404,10 +1404,10 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 89884671
+        rgba: 86418943
       minMaxState: 0
     startSize:
-      scalar: 4.67999983
+      scalar: 2.36999989
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1473,14 +1473,14 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     gravityModifier: 0
-    inheritVelocity: .100000001
+    inheritVelocity: 1
     maxNumParticles: 100
   ShapeModule:
     serializedVersion: 2
     enabled: 1
     type: 4
     radius: .75
-    angle: 18.25
+    angle: 20.1200008
     length: 5
     boxX: 1
     boxY: 1

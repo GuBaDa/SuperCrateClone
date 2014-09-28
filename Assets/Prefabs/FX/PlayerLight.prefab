@@ -71,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48.1319046, y: 6.24108696, z: -20}
+  m_LocalPosition: {x: 9.42212868, y: 15.2895002, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400004}
@@ -116,7 +116,7 @@ Renderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 520af6099132fd945acb69052dbbcc6c, type: 3}
   m_Name: 
@@ -193,14 +193,14 @@ MonoBehaviour:
   lightRadius: 14
   coneStart: 40
   coneAngle: 360
-  lightColor: {r: .137254909, g: .137254909, b: .137254909, a: 0}
+  lightColor: {r: .0235294122, g: .0235294122, b: .0235294122, a: 0}
   lightDetail: 480
   lightMaterial: {fileID: 2100000, guid: 15879a495079d5541a908ba5ed5546b7, type: 2}
   shadowLayer:
     serializedVersion: 2
     m_Bits: 1024
   useEvents: 0
-  lightEnabled: 1
+  lightEnabled: 0
   beamSize: 25
   beamRange: 10
   uvTiling: {x: 1, y: 1}
