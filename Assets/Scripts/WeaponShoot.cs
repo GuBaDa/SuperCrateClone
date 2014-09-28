@@ -8,24 +8,26 @@ public class WeaponShoot : MonoBehaviour {
 	public Vector2 projectileForce;
 	public Vector2 projectileFirePos;
 	public bool automatic;
-
+	public bool arcWeapon;
 	public bool randomizeHeight;
 	public int maxRandomHeight;
+
 	private float coolDown;
 	private bool playerDied;
 	private bool addedComponents = false;
-
 	private bool fireBtn;
 	private float axisVertical;
 
 
 	void Update () {
-		getControls ();
 		playerDied = GetComponentInParent<PlayerScript> ().dead;
-		if (fireBtn && Time.time > coolDown) {
-			Fire();
-		}
-		if (playerDied && !addedComponents ) {
+
+		if (!playerDied){
+			getControls ();
+			if (fireBtn && Time.time > coolDown) {
+				Fire();
+			}
+		} else if (!addedComponents ) {
 			//CircleCollider2D gameObjectsCircleCollider =  gameObject.AddComponent<CircleCollider2D>();
 			//gameObjectsCircleCollider.radius = .32f;
 			//gameObject.AddComponent<PolygonCollider2D>();
@@ -40,6 +42,11 @@ public class WeaponShoot : MonoBehaviour {
 
 	void Fire()
 	{
+
+		// Add a certain force to the projectile, the amount of force is given in the public var projectileForce and determined 
+
+		coolDown = Time.time + attackSpeed;
+
 		//Calculate the relative FirePos of the projectile, which is different for every "Shoot" type weapon.
 		Vector3 projectileInitPos = new Vector3 (projectileFirePos.x*transform.parent.transform.localScale.x,projectileFirePos.y,0); 
 
@@ -60,9 +67,14 @@ public class WeaponShoot : MonoBehaviour {
 		// Add a certain force to the projectile, the amount of force is given in the public var projectileForce and determined 
 		if (randomizeHeight) {
 			projectileForce = new Vector2 (projectileForce.x, (float) Random.Range (-maxRandomHeight, maxRandomHeight));
+			pPrefab.rigidbody2D.AddForce (new Vector2 ((projectileForce.x *(transform.parent.transform.localScale.x)),projectileForce.y));
+		} else if (arcWeapon) {
+			pPrefab.rigidbody2D.AddForce (new Vector2 ((projectileForce.x *(transform.parent.transform.localScale.x)),(projectileForce.y*axisVertical)+400));
+
+		} else {
+			pPrefab.rigidbody2D.AddForce (new Vector2 ((projectileForce.x *(transform.parent.transform.localScale.x)),projectileForce.y*axisVertical));
 		}
 
-		pPrefab.rigidbody2D.AddForce (new Vector2 ((projectileForce.x *(transform.parent.transform.localScale.x)),projectileForce.y));
 		if (pPrefab.GetComponent<ProjectileBullet>() != null){
 			pPrefab.GetComponent<ProjectileBullet>().owner = transform.parent.gameObject;
 		}

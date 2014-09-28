@@ -95,6 +95,7 @@ MonoBehaviour:
   automatic: 0
   randomizeHeight: 0
   maxRandomHeight: 0
+  arcWeapon: 1
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

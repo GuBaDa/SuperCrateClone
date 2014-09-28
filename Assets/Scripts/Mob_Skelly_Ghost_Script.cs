@@ -15,7 +15,6 @@ public class Mob_Skelly_Ghost_Script : MonoBehaviour {
 		castCooldown = 0;
 		floatCoolDown = .2f;
 		timeSinceFloat =0;
-
 	}
 	
 	// Update is called once per frame
@@ -36,8 +35,7 @@ public class Mob_Skelly_Ghost_Script : MonoBehaviour {
 		
 
 	void doFloat(){
-	rigidbody2D.AddForce(new Vector2(moveSpeed*transform.localScale.x,1f),ForceMode2D.Impulse);
-
+		rigidbody2D.AddForce(new Vector2(moveSpeed*transform.localScale.x,1f),ForceMode2D.Impulse);
 	}
 
 	private bool checkForAgro (){

@@ -3,19 +3,21 @@ using System.Collections;
 
 public class Skill_Dash_Script : MonoBehaviour {
 
-	private Vector2 boostSpeedRight = new Vector2(30,0);
-	private Vector2 boostSpeedLeft = new Vector2(-30,0);
+	private Vector2 boostSpeedRight = new Vector2(22,0);
+	private Vector2 boostSpeedLeft = new Vector2(-22,0);
 
 	private bool canBoost = true;
+	private bool isBoosting = false;
 	private float boostCooldown = 2f;
 	
 	void Update(){
-		if ((canBoost) && Input.GetButtonDown ("Fire1")) {
-			StartCoroutine( Boost(.1f) ); //Start the Coroutine called "Boost", and feed it the time we want it to boost us
+		if ((canBoost) && Input.GetButtonDown ("Fire2")) {
+			StartCoroutine( Boost(.2f) ); //Start the Coroutine called "Boost", and feed it the time we want it to boost us
 		}
 	}
 	
 	IEnumerator Boost(float boostDur) { //Coroutine with a single input of a float called boostDur, which we can feed a number when calling
+		isBoosting = true;
 		Vector2 initialSpeed = rigidbody2D.velocity;
 		float time = 0; //create float to store the time this coroutine is operating
 		canBoost = false; //set canBoost to false so that we can't keep boosting while boosting
@@ -30,6 +32,7 @@ public class Skill_Dash_Script : MonoBehaviour {
 			yield return 0; //go to next frame
 		}
 		rigidbody2D.velocity = initialSpeed;
+		isBoosting = false;
 		yield return new WaitForSeconds(boostCooldown); //Cooldown time for being able to boost again, if you'd like.
 		canBoost = true; //set back to true so that we can boost again.
 
