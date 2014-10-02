@@ -84,6 +84,11 @@ public class TileMapDestroyScript : MonoBehaviour {
 		for (int x = 1; x <= mapWidth; x++){
 			for (int y = 1; y <= mapHeight; y++){
 
+				bool edgeN = false;
+				bool edgeE = false;
+				bool edgeW = false;
+				bool edgeS = false;
+
 				//target tile
 				int XY = tilemap.Layers[layerCollider].GetTile(x,y);
 
@@ -92,6 +97,24 @@ public class TileMapDestroyScript : MonoBehaviour {
 				int _E = tilemap.Layers[layerCollider].GetTile(x+1,y);
 				int _W = tilemap.Layers[layerCollider].GetTile(x-1,y);
 				int _S = tilemap.Layers[layerCollider].GetTile(x,y-1);
+
+				int _edgeN = tilemap.Layers[layerColliderEdges].GetTile(x,y+1);
+				if (_edgeN >0){
+					edgeN = getBinary(_edgeN, 1);
+				}
+				int _edgeE = tilemap.Layers[layerColliderEdges].GetTile(x+1,y);
+				if (_edgeE >0){
+					edgeE = getBinary(_edgeE, 2);
+				}
+				int _edgeW = tilemap.Layers[layerColliderEdges].GetTile(x-1,y);
+				if (_edgeW >0){
+					edgeW = getBinary(_edgeW, 3);
+				}
+				int _edgeS = tilemap.Layers[layerColliderEdges].GetTile(x,y-1);
+				if (_edgeS >0){
+					 edgeS = getBinary(_edgeS, 4);
+				}
+
 
 				int _NW = tilemap.Layers[layerCollider].GetTile(x-1,y+1);
 				int _NE = tilemap.Layers[layerCollider].GetTile(x+1,y+1);
@@ -120,22 +143,22 @@ public class TileMapDestroyScript : MonoBehaviour {
 
 
 					// EDGES
-					if(_N < 0 ){
+					if(_N < 0 || edgeN){
 						tilemap.Layers[layerColliderEdges].SetTile(x,y,convertAddBinary(_XY,1));
 						_XY = tilemap.Layers[layerColliderEdges].GetTile(x,y);
 					}
 					
-					if (_E < 0) {
+					if (_E < 0 || edgeE) {
 						tilemap.Layers[layerColliderEdges].SetTile(x,y,convertAddBinary(_XY,2));
 						_XY = tilemap.Layers[layerColliderEdges].GetTile(x,y);
 					}
 					
-					if(_W < 0 ){
+					if(_W < 0 || edgeW){
 						tilemap.Layers[layerColliderEdges].SetTile(x,y,convertAddBinary(_XY,4));
 						_XY = tilemap.Layers[layerColliderEdges].GetTile(x,y);
 					}
 					
-					if(_S < 0 ) {
+					if(_S < 0 || edgeS) {
 						tilemap.Layers[layerColliderEdges].SetTile(x,y,convertAddBinary(_XY,8));
 						_XY = tilemap.Layers[layerColliderEdges].GetTile(x,y);
 					}
@@ -301,5 +324,19 @@ public class TileMapDestroyScript : MonoBehaviour {
 		int tileIDNew = System.Convert.ToInt32(s, 2);
 		return tileIDNew;
 	}
+
+	bool getBinary(int tileID, int edgeDirection){
+
+		string s1 = System.Convert.ToString(tileID, 2);
+		char[] charArray1 = s1.PadLeft(4, '0').ToCharArray();
+
+		if ( charArray1[edgeDirection-1] == '1'){
+			return true;}
+		else {
+			return false;}
+		//Debug.Log (tileID + " : " + edgeDirection + " : " + charArray1 [edgeDirection - 1]);
+	}
+
+
 
 }
