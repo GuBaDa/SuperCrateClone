@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Mob_Skelly_Script : MonoBehaviour {
@@ -18,12 +18,15 @@ public class Mob_Skelly_Script : MonoBehaviour {
 	private bool grounded;
 	private bool sideClear;
 	private float castCooldown;
+	private GameObject projectile;
+	private GameObject target;
 
 
 
 
 	// Use this for initialization
 	void Awake () {
+		target = null;
 		castCooldown = 0;
 		grounded = false;
 		sideClear = true;
@@ -34,22 +37,32 @@ public class Mob_Skelly_Script : MonoBehaviour {
 	void Update () {
 		grounded = Physics2D.OverlapArea(GroundCheck.position, new Vector3(GroundCheck.position.x+(.7f*transform.localScale.x),GroundCheck.position.y-.05f,GroundCheck.position.z), collisionLayer);
 		sideClear = !Physics2D.OverlapArea(SideCheck.position,new Vector3(SideCheck.position.x+(.1f*transform.localScale.x),SideCheck.position.y-.88f,SideCheck.position.z),collisionLayer);
+
 		if( !sideClear){
 			doFlip();
 		}
-		
-		if( grounded && transform.childCount == 2){
+
+		target = checkForAgro();
+		if( grounded && transform.childCount > 2 && target != null ){
+			anim.SetBool ("animAttack", true);
+			anim.SetBool ("animWalk", false);
+			anim.SetBool ("animIdle", false);
+			anim.SetBool ("animCast", true);
+		}else if( grounded && transform.childCount == 2){
 			castCooldown = Time.time + .8f;
+			anim.SetBool ("animAttack", false);
 			anim.SetBool ("animWalk", false);
 			anim.SetBool ("animIdle", false);
 			anim.SetBool ("animCast", true);
 		} else if(grounded && castCooldown < Time.time){
 			doWalk();
+			anim.SetBool ("animAttack", false);
 			anim.SetBool ("animWalk", true);
 			anim.SetBool ("animIdle", false);
 			anim.SetBool ("animCast", false);
 		} else {
 			rigidbody2D.velocity = new Vector2(0,rigidbody2D.velocity.y);
+			anim.SetBool ("animAttack", false);
 			anim.SetBool ("animWalk", false);
 			anim.SetBool ("animIdle", true);
 			anim.SetBool ("animCast", false);
@@ -66,13 +79,45 @@ public class Mob_Skelly_Script : MonoBehaviour {
 		rigidbody2D.velocity = new Vector2(moveSpeed*transform.localScale.x,0);
 	}
 
+	void facePlayer(){
+		if(target == null){
+			Debug.Log("This should not happen! Checkit faget");
+		} else if(target.transform.position.x > transform.position.x && transform.localScale.x == -1){
+			doFlip();
+		} else if (target.transform.position.x < transform.position.x && transform.localScale.x == 1){
+			doFlip();
+		}
+	}
+
 	void castSpell(){
-		GameObject projectile = (GameObject) Instantiate(psPoisonGlobe,new Vector3(transform.position.x,transform.position.y+1,transform.position.z),Quaternion.identity);
+		projectile = (GameObject) Instantiate(psPoisonGlobe,new Vector3(transform.position.x,transform.position.y+1,transform.position.z),Quaternion.identity);
 		projectile.transform.parent = transform;
 		projectile.rigidbody2D.isKinematic = true;
 
 	}
 
+	void doThrowProjectile(){
+		projectile.rigidbody2D.isKinematic = false;
+		projectile.transform.parent = null;
+		target = null;
+
+	}
+
+	GameObject checkForAgro (){
+		GameObject[] playersAvailable = GameObject.FindGameObjectsWithTag ("Player");
+		if (playersAvailable.Length != 0){
+			GameObject target = findClosestTarget();
+			if (Mathf.Abs(target.transform.position.x - transform.position.x) < 3 &&
+			    Mathf.Abs(target.transform.position.y - transform.position.y) < 3)
+			{
+				return target;
+			} else {
+				return null;
+			}
+		} else {
+			return null;
+		}
+	}
 
 	GameObject findClosestTarget(){
 		//Find and return closest Player

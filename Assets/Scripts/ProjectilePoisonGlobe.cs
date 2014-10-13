@@ -14,11 +14,12 @@ public class ProjectilePoisonGlobe : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(targetFound) {
+		if( targetFound) {
 			Vector2 direction = (target.transform.position-transform.position).normalized*5;
 			rigidbody2D.velocity = direction;
-		} else {
-			checkForAgro();
+		} else if (transform.parent == null){
+			target = findClosestPlayer();
+			targetFound = true;
 		}
 	}
 
@@ -28,19 +29,18 @@ public class ProjectilePoisonGlobe : MonoBehaviour {
 		}
 	}
 
-	void checkForAgro (){
-		GameObject[] playersAvailable = GameObject.FindGameObjectsWithTag ("Player");
-		if (playersAvailable.Length != 0){
-			target = findClosestPlayer();
-			if (Mathf.Abs(target.transform.position.x - transform.position.x) < 5 &&
-			    Mathf.Abs(target.transform.position.y - transform.position.y) < 5)
-			{
-				transform.parent = null;
-				//targetFound = true;
-				//rigidbody2D.isKinematic = false;
-			}
-		}
-	}
+//	void checkForAgro (){
+//		GameObject[] playersAvailable = GameObject.FindGameObjectsWithTag ("Player");
+//		if (playersAvailable.Length != 0){
+//			target = findClosestPlayer();
+//			if (Mathf.Abs(target.transform.position.x - transform.position.x) < 5 &&
+//			    Mathf.Abs(target.transform.position.y - transform.position.y) < 5)
+//			{
+//				//transform.parent = null;
+//				//targetFound = true;
+//			}
+//		}
+//	}
 
 
 	GameObject findClosestPlayer(){

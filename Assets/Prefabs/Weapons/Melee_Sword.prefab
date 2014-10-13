@@ -14,7 +14,7 @@ GameObject:
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
-  m_Layer: 2
+  m_Layer: 13
   m_Name: Melee_Sword
   m_TagString: Weapon
   m_Icon: {fileID: 0}

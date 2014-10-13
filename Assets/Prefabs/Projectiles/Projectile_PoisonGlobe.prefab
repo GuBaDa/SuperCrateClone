@@ -229,7 +229,7 @@ MonoBehaviour:
   EDITOR_SHOW_BOUNDS: 1
   EDITOR_SHOW_MESH: 0
   lightType: 0
-  lightRadius: 2
+  lightRadius: 1
   coneStart: 20
   coneAngle: 360
   lightColor: {r: .128651127, g: .316176474, b: 0, a: 0}
